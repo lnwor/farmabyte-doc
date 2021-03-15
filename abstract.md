@@ -1,7 +1,8 @@
-FarmaByte 
+# FarmaByte 
 
-Il progetto riguarda la creazione di un applicativo software per la gestione interna dell’inventario delle farmacie e per mettere in contatto le farmacie con i loro clienti. 
+##### Abstract
 
-La gestione dell’inventario del negozio permette alle farmacie di controllare l’elenco dei farmaci, facilitando la gestione degli ordini e delle rimanenze.  
-
-Il cliente ha la possibilità di controllare la farmacia più vicino a lui che possiede il farmaco da lui inserito e, previa autenticazione, di inviare una prenotazione dei farmaci.  
+Il progetto riguarda la creazione di un applicativo software per la gestione interna dell’inventario delle farmacie e per l'interfacciamento con i clienti. 
+La gestione dell’inventario del negozio permette alle farmacie di controllare l’elenco dei farmaci, facilitando la gestione degli ordini e delle rimanenze, segnalando le medicine in scadenza e in esaurimento all'operatore.
+Il cliente ha la possibilità di controllare la farmacia più vicina a lui che possiede il farmaco da lui inserito e, dopo essersi autenticato, di inviare una prenotazione dei farmaci. 
+La farmacia quindi può ricevere la prenotazione, eventualmente completa di ricetta, che verrà finalizzata in acquisto. 
