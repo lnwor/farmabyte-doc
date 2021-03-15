@@ -1,6 +1,6 @@
 # FarmaByte 
 
-##### Abstract
+### Abstract
 
 Il progetto riguarda la creazione di un applicativo software per la gestione interna dell’inventario delle farmacie e per l'interfacciamento con i clienti. 
 Il cliente ha la possibilità di cercare quale sia la farmacia più vicina ad avere un certo medicinale e, dopo essersi autenticato, può inviare una prenotazione del farmaco.
