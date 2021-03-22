@@ -14,9 +14,8 @@
 - Per l'autenticazione è necessario mostrare un documento per l'identificazione in farmacia, predentemente inserito durante la fase di registrazione
 
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento
-- Alla fine della giornata, nel caso in cui il cliente non si presenti viene registrata la mancanza ai fini di avvisare il farmacista e eventualmente bloccare l'utente per 2 mesi.
+- Alla fine della giornata, nel caso in cui il cliente non si presenti viene registrata la mancanza ai fini di avvisare il farmacista e eventualmente bloccare l'utente per 1 mese.
 
-- Nel caso in cui il cliente non si presenti per ritirare la prenotazione, alla fine della giornata si registra il fatto.
 - Il programma prevede la possibilità di segnalare gli utenti che non si sono presentati per la prenotazione
 
 
