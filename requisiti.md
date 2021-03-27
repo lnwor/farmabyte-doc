@@ -6,7 +6,7 @@
 - Il cliente fornisce la sua posizione che l'applicativo userà per indicargli le farmacie più vicine. Contemporaneamente specificherà il farmaco da cercare e l'applicativo fornirà le 10 farmacie più vicine ad averlo in magazzino indicandone se è disponibile o sta per terminare.
 - Per la prenotazione è necessario possedere un account
 - La prenotazione sarà composta da uno o più farmaci, dalla farmacia, e dal giorno. 
-- Se il farmaco necessita di ricetta, verrà richiesto il codice della suddetta.
+- Se il farmaco necessita di ricetta, il cliente può decidere se inserirla in fase di prenotazione (sotto forma di foto o codice univoco) oppure presentarla fisicamente.
 - L'account viene creato in due fasi:
     1. Registrazione con username e password
     2. Autenticazione di persona in farmacia
@@ -29,15 +29,14 @@ R4F | Registrazione di un account tramite l'interfaccia web | Funzionale
 R5F | Attivazione dell'account con identificazione fisica dell'utente con documento | Funzionale
 R6F | Per prenotare l'utente deve essere registrato | Funzionale
 R7F | La prenotazione sarà composta da uno o più farmaci, dalla farmacia e dal giorno | Funzionale
-R8F | Le prenotazini farmaci con ricetta devono chiedere il codice| Funzionale
+R8F | Le prenotazioni farmaci con ricetta prevedono il caricamento opzionale della foto o del codice | Funzionale
 R9F | Identificazione attraverso username univoco e password di almeno 8 caratteri | Funzionale
 R10F | Visualizzazione delle prenotazioni | Funzionale
 R11F | Visualizzazione del numero dei farmaci disponibili | Funzionale
 R12F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
----|---|---
-R11F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
-R12F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
-R13F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
+R13F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
+R14F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
+R15F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
 R1NF | Velocità di memorizzazione dei dati | Non Funzionale
 R2NF | Velocità della ricerca dei dati | Non Funzionale
 R3NF | Semplicità dell'interfaccia | Non Funzionale
