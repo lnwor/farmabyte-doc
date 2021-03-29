@@ -45,7 +45,6 @@ R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non 
 
 ## Vocabolario
 
-*da fare dopo aver fatto gli schemi*
 Voce | Definizione | Sinonimi
 --- | --- | ---
 Cliente | Persona che usufruisce del servizio lato cliente | Utente
