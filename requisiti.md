@@ -8,11 +8,10 @@
 - La prenotazione sarà composta da uno o più farmaci, dalla farmacia, e dal giorno. 
 - Se il farmaco necessita di ricetta, il cliente può decidere se inserirla in fase di prenotazione (sotto forma di foto o codice univoco) oppure presentarla fisicamente.
 - L'account viene creato in due fasi:
-    1. Registrazione con username e password
+    1. Registrazione con username, password e codice fiscale
     2. Autenticazione di persona in farmacia
----
 - L'username deve essere univoco, la password di almeno 8 caratteri.
-- Per l'autenticazione è necessario mostrare un documento per l'identificazione in farmacia, predentemente inserito durante la fase di registrazione
+- Per l'autenticazione è necessario mostrare il tesserino sanitario per l'identificazione in farmacia.
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento
 - Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista e eventualmente bloccare l'utente per 1 mese.
 - Il sistema sarà ovviamente distribuito e di natura client-server con la presenza di un database centrale dove memorizzare i dati
@@ -63,4 +62,19 @@ Username | È una parola formata dalla concatenazione di nome e cognome dell’U
 Password | Codice alfanumerico di almeno 8 caratteri | 
 Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita | Deposito
 
+---
 
+## Scenari
+
+| | |
+| :------------- | :----------: 
+| **Titolo** | GestioneCliente  |
+| **Descrizione** | Gestione dell'utenza di un cliente registrato | 
+| **Attori** | Farmacista | 
+| **Relazioni** | Login, SospensioneUtenza, VerificaIdentità | 
+| **Precondizioni** |  | 
+| **Postcondizioni** |  | 
+| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, la sospensione di un'account oppure controllare il resoconto giornaliero | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** |  | 
+| **Punti aperti** |  | 
