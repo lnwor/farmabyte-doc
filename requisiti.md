@@ -45,6 +45,7 @@ R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non 
 
 ## Vocabolario
 
+*da fare dopo aver fatto gli schemi*
 Voce | Definizione | Sinonimi
 --- | --- | ---
 Cliente | Persona che usufruisce del servizio lato cliente | Utente
@@ -67,13 +68,13 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 
 | | |
 | :------------- | :----------: 
-| **Titolo** | GestioneCliente  |
+| **Titolo** | GestioneFarmacia  |
 | **Descrizione** | Gestione dell'utenza di un cliente registrato | 
 | **Attori** | Farmacista | 
-| **Relazioni** | Login, SospensioneUtenza, VerificaIdentità | 
+| **Relazioni** | Login, SospensioneUtenza, VerificaIdentità, ResocontoFarmaci, ResocontoPrenotazioni | 
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
-| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, la sospensione di un'account oppure controllare il resoconto giornaliero | 
+| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni giornaliere o controllare i farmaci | 
 | **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
