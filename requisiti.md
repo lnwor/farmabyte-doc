@@ -78,3 +78,27 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
+
+---
+
+## Analisi del Rischio
+
+### Tabella Valutazione dei Beni
+
+Bene | Valore | Esposizione
+--- | --- | ---
+Sistema Informativo | Alto. Fondamentale per il funzionamento del servizio | Alta. Perdita finanziaria e di immagine
+Informazioni dei clienti | Medio. Dati generali dei clienti della farmacia, comprese le credenziali | Alta. Perdita di immagine dovuta alla divulgazione di dati sensibili
+Informazioni relative al personale | Alto. Dati relativi ai farmacisti, incluse le credenziali di accesso all'area riservata | Molto Alta. Perdita finanziaria dovuta a usi impropri delle credenziali con privilegi elevati. Perdita di immagine possibile con la divulgazione dei dati relativi ai clienti
+Dati delle prenotazioni | Alto. Necessario per tenere traccia delle prenotazioni | Molto Alta. Perdita finanziaria dovuta allo smarrimento di prenotazioni. Perdita di immagine con la divulgazione dei farmaci prenotati dai clienti
+
+
+### Tabella Minacce/Controlli
+
+Minaccia | Probabilità | Controllo | Fattibilità
+--- | --- | --- | ---
+Furto credenziali Farmacista | Alta | Controllo sulla sicurezza della password - Log delle operazioni | Costo implementativo molto basso
+Furto credenziali Cliente | Alta | Controllo sulla sicurezza della password - Log delle operazioni | Costo implementativo molto basso
+Alterazione o intercettazione delle comunicazioni | Alta | Utilizzo di un canale sicuro <!-- (TLS) --> - Log delle operazioni | Basso costo di realizzazione con determinati protocolli
+Accesso non autorizzato al database | Bassa | Accesso da macchine sicure - Log di tutte le operazioni | Basso costo di realizzazione, il server deve essere ben custodito
+DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di implementazione
