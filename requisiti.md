@@ -111,7 +111,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Descrizione** | Se un utente non ha concluso troppe prenotazioni allora viene proposta la sospensione dell'utente al farmacista |
 | **Attori** | Farmacista | 
 | **Relazioni** | ResocontoPrenotazioni, GestioneFarmacia |
-| **Precondizioni** | Il cliente non ha concluso troppe prenotazioni | 
+| **Precondizioni** | Il cliente è diffidato dal sistema (Ha molte prenotazioni non concluse) | 
 | **Postcondizioni** | Il cliente non può più effettuare prenotazioni per 30 giorni |
 | **Scenario principale** | 1. Si veritifa l'evento FineGiornata <br/> 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza <br/> 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala alla farmacista <br/> 4. La farmacista, se ritiene necessario, può confermare la sospensione dell'utente
 | **Scenari alternativi** |  | 
@@ -151,13 +151,58 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | :------------- | :----------: 
 | **Titolo** | ResocontoFarmaci  |
 | **Descrizione** | Si visualizzano i farmaci in esaurimento | 
-| **Attori** | Farmacista,FineGiornata | 
+| **Attori** | Farmacista, FineGiornata | 
 | **Relazioni** | Resoconto, GestioneFarmacia | 
 | **Precondizioni** |  | 
-| **Postcondizioni** | Si visualizzano l'elenco dei farmaci | 
+| **Postcondizioni** | Si visualizza l'elenco dei farmaci | 
 | **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. il sistema recupera l'elenco dei farmaci in scadenza <br> 3. Il sistema mostra a video l'elenco dei farmaci | 
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- 
+| **Titolo** | RicercaFarmaci  |
+| **Descrizione** | L'utente verifica la disponibilità di un particolare farmaco nelle farmacie più vicine a lui | 
+| **Attori** | Cliente | 
+| **Relazioni** |  | 
+| **Precondizioni** |  | 
+| **Postcondizioni** | Si visualizza la lista delle farmacie con disponibilità | 
+| **Scenario principale** | 1. Il cliente si reca nella pagina di ricerca <br> 2. Il cliente inserisce il nome del farmaco e la località geografica in cui eseguire la ricerca <br> 3. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. <br> 4. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente <br> 5. La lista viene mostrata all'utente | 
+| **Scenari Alternativi** | Il sistema non riconosce i dati inseriti dall'utente (Nome del farmaco o località) e procede mostrando un messaggio d'errore | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- 
+| **Titolo** | NuovaPrenotazione |
+| **Descrizione** | L'utente prenota a suo nome una lista di farmaci | 
+| **Attori** | ClienteRegistrato | 
+| **Relazioni** | Login | 
+| **Precondizioni** | L'utente è già registrato (e quindi verificato) nel sistema | 
+| **Postcondizioni** | Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia | 
+| **Scenario principale** | 1. Il cliente esegue il **Login** <br> 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata <br> 3. Il cliente invia la richiesta di prenotazione <br> 4. Il sistema pone la richiesta in attesa di conferma | 
+| **Scenari Alternativi** | Scenario a: La farmacia non dispone dei farmaci richiesti. <br> 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati <br> 5. Viene inviato al cliente un messaggio di errore| 
+| **Requisiti non funzionali** | Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- 
+| **Titolo** | Login |
+| **Descrizione** | Permette di accedere al sistema | 
+| **Attori** | ClienteRegistrato, Farmacista | 
+| **Relazioni** | NuovaPrenotazione, GestioneFarmacia | 
+| **Precondizioni** | L'utente è registrato nel sistema | 
+| **Postcondizioni** | L'utente ha accesso al sistema, limitato in base ai suoi privilegi | 
+| **Scenario principale** | 1. L'utente inserisce le credenziali di accesso <br> 2. Il sistema verifica le credenziali <br> 3. Se le credenziali sono corrette, viene presentata la schermata iniziale | 
+| **Scenari Alternativi** | Scenario a: Credenziali non riconosciute. <br> 3. Il sistema non riconosce le credenziali e rispedisce l'utente alla schermata di login con un messaggio di errore| 
+| **Requisiti non funzionali** | Velocità di verifica delle credenziali |
 | **Punti aperti** |  | 
 
 ---
@@ -190,5 +235,5 @@ DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di im
 | --- | --- 
 | **Tecnologia** | **Vulnerabilità**  |
 | Autenticazione username/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
- | Cifratura comunicazioni | •In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>•La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
+ | Cifratura comunicazioni | • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>• La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
  Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffing delle comunicazioni| 
