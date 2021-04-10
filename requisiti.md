@@ -68,15 +68,41 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 
 | | |
 | :------------- | :----------: 
-| **Titolo** | GestioneFarmacia  |
-| **Descrizione** | Gestione dell'utenza di un cliente registrato | 
+| **Titolo** | Registrazione  |
+| **Descrizione** | Registrazione dell'utenza di un cliente | 
+| **Attori** | Cliente | 
+| **Relazioni** | VerificaIdentità, RicercaFarmaci |
+| **Precondizioni** | Il cliente non è già registrato | 
+| **Postcondizioni** | La registrazione è avvenuta con successo, ora è necessario verificare la propria identità in farmacia per attivare l'account | 
+| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br/> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e gli estremi del documento di identificazione utilizzato <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale |
+| **Scenari alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere. Inoltre un utente non può avere più di un account verificato |
+| **Punti aperti** |  | 
+
+| | |
+| :------------- | :----------: 
+| **Titolo** | VerificaIdentità |
+| **Descrizione** | Verifica dell'identità dell'utente registrato | 
+| **Attori** | Cliente, Farmacista | 
+| **Relazioni** | Registrazione, GestioneFarmacia |
+| **Precondizioni** | Il cliente è registrato | 
+| **Postcondizioni** | L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni |
+| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br/> 2. Il cliente viene identificato dal farmacista <br/> 3. Il farmacista attiva l'account dell'utente dopo aver verificato il documento |
+| **Scenari alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+| | |
+| :------------- | :----------: 
+| **Titolo** | SospensioneUtenza |
+| **Descrizione** | Se un utente non ha concluso troppe prenotazioni allora viene proposta la sospensione dell'utente al farmacista |
 | **Attori** | Farmacista | 
-| **Relazioni** | Login, SospensioneUtenza, VerificaIdentità, ResocontoFarmaci, ResocontoPrenotazioni | 
-| **Precondizioni** |  | 
-| **Postcondizioni** |  | 
-| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni giornaliere o controllare i farmaci | 
-| **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Relazioni** | ResocontoPrenotazioni, GestioneFarmacia |
+| **Precondizioni** | Il cliente non ha concluso troppe prenotazioni | 
+| **Postcondizioni** | Il cliente non può più effettuare prenotazioni per 30 giorni |
+| **Scenario principale** | 1. Si veritifa l'evento FineGiornata <br/> 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza <br/> 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala alla farmacista <br/> 4. La farmacista, se ritiene necessario, può confermare la sospensione dell'utente
+| **Scenari alternativi** |  | 
+| **Requisiti non funzionali** | Velocità nella ricerca dei dati e semplicità dell'interfaccia |
 | **Punti aperti** |  | 
 
 | | |
@@ -88,7 +114,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
 | **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci presenti e delle prenotazioni <br> 3. Per ogni Farmacia il Sistema calcola i farmaci in esaurimento e le eventuali prenotazioni non portate a termine <br> 4. Il Sistema genera un report da inviare a ciascuna Farmacia | 
-| **Scenari Alternativi** |  | 
+| **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Protezione dei dati, non deve succedere che siano inviati per errore resoconti di una Farmacia ad un'altra Farmacia |
 | **Punti aperti** |  | 
 
@@ -101,9 +127,9 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | Resoconto, SospensioneUtenza | 
 | **Precondizioni** |  | 
 | **Postcondizioni** | Viene mostrato l'elenco degli utenti con prenotazioni non terminate | 
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
-| **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco delle prenotazioni | 
+| **Scenari alternativi** |  | 
+| **Requisiti non funzionali** | L'utente non deve poter fare eccessive prenotazioni |
 | **Punti aperti** |  | 
 
 | | |
@@ -115,7 +141,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
 | **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
-| **Scenari Alternativi** |  | 
+| **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
