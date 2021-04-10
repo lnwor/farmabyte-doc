@@ -125,7 +125,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Titolo** | ResocontoPrenotazioni  |
 | **Descrizione** | Si controllano le prenotazioni non terminate per utente | 
 | **Attori** | Farmacista, FineGiornata | 
-| **Relazioni** | Resoconto, SospensioneUtenza | 
+| **Relazioni** | Resoconto, SospensioneUtenza, GestioneFarmacia | 
 | **Precondizioni** |  | 
 | **Postcondizioni** | Viene mostrato l'elenco delle prenotazioni | 
 | **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. Il sistema recupera l'elenco delle prenotazioni giornaliere <br> 3. Il sistema mostra a video l'elenco delle prenotazioni | 
