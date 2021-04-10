@@ -66,6 +66,8 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 
 ## Scenari
 
+| | |
+| :------------- | :----------:
 | **Titolo** | GestioneFarmacia  |
 | **Descrizione** | Gestione dell'utenza di un cliente registrato |
 | **Attori** | Farmacista | 
@@ -181,3 +183,12 @@ Furto credenziali Cliente | Alta | Controllo sulla sicurezza della password - Lo
 Alterazione o intercettazione delle comunicazioni | Alta | Utilizzo di un canale sicuro <!-- (TLS) --> - Log delle operazioni | Basso costo di realizzazione con determinati protocolli
 Accesso non autorizzato al database | Bassa | Accesso da macchine sicure - Log di tutte le operazioni | Basso costo di realizzazione, il server deve essere ben custodito
 DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di implementazione
+
+### Analisi Tecnologica della Sicurezza
+
+| | |
+| --- | --- 
+| **Tecnologia** | **Vulnerabilità**  |
+| Autenticazione username/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
+ | Cifratura comunicazioni | •In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>•La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
+ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffing delle comunicazioni| 
