@@ -79,7 +79,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
-
+| | |
 | :------------- | :----------: 
 | **Titolo** | Resoconto  |
 | **Descrizione** | Viene generato il resoconto delle operazioni svolte svolte in giornata | 
@@ -87,26 +87,26 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | ResocontoPrenotazioni, ResocontoFarmaci | 
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci presenti e delle prenotazioni <br> 3. Per ogni Farmacia il  | 
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci presenti e delle prenotazioni <br> 3. Per ogni Farmacia il Sistema calcola i farmaci in esaurimento e le eventuali prenotazioni non portate a termine <br> 4. Il Sistema genera un report da inviare a ciascuna Farmacia | 
 | **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Requisiti non funzionali** | Protezione dei dati, non deve succedere che siano inviati per errore resoconti di una Farmacia ad un'altra Farmacia |
 | **Punti aperti** |  | 
 
 
-
+| | |
 | :------------- | :----------: 
 | **Titolo** | ResocontoPrenotazioni  |
-| **Descrizione** |  | 
+| **Descrizione** | Si controllano le prenotazioni non terminate per utente | 
 | **Attori** | Farmacista, FineGiornata | 
 | **Relazioni** | Resoconto, SospensioneUtenza | 
 | **Precondizioni** |  | 
-| **Postcondizioni** |  | 
+| **Postcondizioni** | Viene mostrato l'elenco degli utenti con prenotazioni non terminate | 
 | **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
-
+| | |
 | :------------- | :----------: 
 | **Titolo** | ResocontoFarmaci  |
 | **Descrizione** |  | 
