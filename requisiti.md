@@ -79,6 +79,46 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
+
+| :------------- | :----------: 
+| **Titolo** | Resoconto  |
+| **Descrizione** | Viene generato il resoconto delle operazioni svolte svolte in giornata | 
+| **Attori** | FineGiornata | 
+| **Relazioni** | ResocontoPrenotazioni, ResocontoFarmaci | 
+| **Precondizioni** |  | 
+| **Postcondizioni** |  | 
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci presenti e delle prenotazioni <br> 3. Per ogni Farmacia il  | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+
+
+| :------------- | :----------: 
+| **Titolo** | ResocontoPrenotazioni  |
+| **Descrizione** |  | 
+| **Attori** | Farmacista, FineGiornata | 
+| **Relazioni** | Resoconto, SospensioneUtenza | 
+| **Precondizioni** |  | 
+| **Postcondizioni** |  | 
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+
+| :------------- | :----------: 
+| **Titolo** | ResocontoFarmaci  |
+| **Descrizione** |  | 
+| **Attori** | Farmacista,FineGiornata | 
+| **Relazioni** | Resoconto, GestioneFarmacia | 
+| **Precondizioni** |  | 
+| **Postcondizioni** |  | 
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
 ---
 
 ## Analisi del Rischio
