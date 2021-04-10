@@ -66,6 +66,17 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 
 ## Scenari
 
+| **Titolo** | GestioneFarmacia  |
+| **Descrizione** | Gestione dell'utenza di un cliente registrato |
+| **Attori** | Farmacista | 
+| **Relazioni** | Login, SospensioneUtenza, VerificaIdentità, ResocontoFarmaci, ResocontoPrenotazioni | 
+| **Precondizioni** |  | 
+| **Postcondizioni** |  | 
+| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni giornaliere o controllare i farmaci | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  |
+
 | | |
 | :------------- | :----------: 
 | **Titolo** | Registrazione  |
