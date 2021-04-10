@@ -104,6 +104,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Velocità nella ricerca dei dati e semplicità dell'interfaccia |
 | **Punti aperti** |  | 
+<br>
 
 | | |
 | :------------- | :----------: 
@@ -117,7 +118,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Protezione dei dati, non deve succedere che siano inviati per errore resoconti di una Farmacia ad un'altra Farmacia |
 | **Punti aperti** |  | 
-
+<br>
 
 | | |
 | :------------- | :----------: 
@@ -126,22 +127,23 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Attori** | Farmacista, FineGiornata | 
 | **Relazioni** | Resoconto, SospensioneUtenza | 
 | **Precondizioni** |  | 
-| **Postcondizioni** | Viene mostrato l'elenco degli utenti con prenotazioni non terminate | 
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco delle prenotazioni | 
-| **Scenari alternativi** |  | 
-| **Requisiti non funzionali** | L'utente non deve poter fare eccessive prenotazioni |
+| **Postcondizioni** | Viene mostrato l'elenco delle prenotazioni | 
+| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. Il sistema recupera l'elenco delle prenotazioni giornaliere <br> 3. Il sistema mostra a video l'elenco delle prenotazioni | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
+<br>
 
 | | |
 | :------------- | :----------: 
 | **Titolo** | ResocontoFarmaci  |
-| **Descrizione** |  | 
+| **Descrizione** | Si visualizzano i farmaci in esaurimento | 
 | **Attori** | Farmacista,FineGiornata | 
 | **Relazioni** | Resoconto, GestioneFarmacia | 
 | **Precondizioni** |  | 
-| **Postcondizioni** |  | 
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
-| **Scenari alternativi** |  | 
+| **Postcondizioni** | Si visualizzano l'elenco dei farmaci | 
+| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. il sistema recupera l'elenco dei farmaci in scadenza <br> 3. Il sistema mostra a video l'elenco dei farmaci | 
+| **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
