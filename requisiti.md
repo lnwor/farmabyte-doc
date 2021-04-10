@@ -114,9 +114,9 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | Resoconto, GestioneFarmacia | 
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci | 
+| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci| 
 | **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Requisiti non funzionali** |  |
 | **Punti aperti** |  | 
 
 ---
