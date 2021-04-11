@@ -67,7 +67,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 ## Scenari
 
 | | |
-| :------------- | :----------:
+| :------------- | :----------: |
 | **Titolo** | GestioneFarmacia  |
 | **Descrizione** | Gestione dell'utenza di un cliente registrato |
 | **Attori** | Farmacista | 
@@ -78,22 +78,66 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  |
+<br>
 
 | | |
-| :------------- | :----------: 
-| **Titolo** | Registrazione  |
-| **Descrizione** | Registrazione dell'utenza di un cliente | 
-| **Attori** | Cliente | 
-| **Relazioni** | VerificaIdentità, RicercaFarmaci |
-| **Precondizioni** | Il cliente non è già registrato | 
-| **Postcondizioni** | La registrazione è avvenuta con successo, ora è necessario verificare la propria identità in farmacia per attivare l'account | 
-| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br/> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e gli estremi del documento di identificazione utilizzato <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale |
-| **Scenari alternativi** |  | 
-| **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere. Inoltre un utente non può avere più di un account verificato |
+| :------------- | :----------:  |
+| **Titolo** | ResocontoUtenti  |
+| **Descrizione** | Si controllano gli utenti con potenzialmente sospendibili | 
+| **Attori** | Farmacista, FineGiornata | 
+| **Relazioni** | SospensioneUtenza, GestioneFarmacia | 
+| **Precondizioni** |  | 
+| **Postcondizioni** | Viene mostrato l'elenco degli Utenti a rischio sospensione | 
+| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione utenti <br> 2. Il sistema recupera l'elenco degli utenti a rischio <br> 3. Il sistema mostra a video l'elenco degli utenti | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
+<br>
 
 | | |
-| :------------- | :----------: 
+| :------------- | :----------: |
+| **Titolo** | SospensioneUtenza |
+| **Descrizione** | Viene sospeso un Utente | 
+| **Attori** | Farmacista | 
+| **Relazioni** | ResocontoUtenti | 
+| **Precondizioni** | L'Utente risulta idoneo per essere sospeso | 
+| **Postcondizioni** | L'Utente risulta sospeso | 
+| **Scenario principale** | 1. Resoconto Utenti <br> 2. Il Farmacista chiede al sistema di sospendere l'utente | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Semplicità dell'interfaccia |
+| **Punti aperti** |  | 
+<br>
+
+| | |
+| :------------- | :----------: |
+| **Titolo** | ControlloPrenotazioni  |
+| **Descrizione** | Si controllano le prenotazioni non terminate | 
+| **Attori** | Farmacista | 
+| **Relazioni** | ConfermaPrenotazione,GestioneFarmacia | 
+| **Precondizioni** | | 
+| **Postcondizioni** | Viene mostrato l'elenco delle prenotazioni | 
+| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione prenotazioni <br> 2. Il sistema recupera l'elenco delle prenotazioni giornaliere <br> 3. Il sistema mostra a video l'elenco delle prenotazioni | 
+| **Scenari Alternativi** | | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati |
+| **Punti aperti** | | 
+<br>
+
+| | |
+| :------------- | :----------: |
+| **Titolo** | ConfermaPrenotazione |
+| **Descrizione** | Il Farmacista conferma la prenotazione avvenuta | 
+| **Attori** | Farmacista | 
+| **Relazioni** | ControlloPrenotazioni | 
+| **Precondizioni** | | 
+| **Postcondizioni** | La prenotazione viene confermata | 
+| **Scenario principale** | 1. ControlloPrenotazioni <br> 2. Il Farmacista conferma l'avvenuta prenotazione | 
+| **Scenari Alternativi** | | 
+| **Requisiti non funzionali** | Semplicità dell'interfaccia |
+| **Punti aperti** | | 
+<br>
+
+| | |
+| :------------- | :----------: |
 | **Titolo** | VerificaIdentità |
 | **Descrizione** | Verifica dell'identità dell'utente registrato | 
 | **Attori** | Cliente, Farmacista | 
@@ -121,20 +165,6 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 
 | | |
 | :------------- | :----------: 
-| **Titolo** | Resoconto  |
-| **Descrizione** | Viene generato il resoconto delle operazioni svolte svolte in giornata | 
-| **Attori** | FineGiornata | 
-| **Relazioni** | ResocontoPrenotazioni, ResocontoFarmaci | 
-| **Precondizioni** |  | 
-| **Postcondizioni** |  | 
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema, per ogni Farmacia, recupera l'elenco dei farmaci presenti e delle prenotazioni <br> 3. Per ogni Farmacia il Sistema calcola i farmaci in esaurimento e le eventuali prenotazioni non portate a termine <br> 4. Il Sistema genera un report da inviare a ciascuna Farmacia | 
-| **Scenari alternativi** |  | 
-| **Requisiti non funzionali** | Protezione dei dati, non deve succedere che siano inviati per errore resoconti di una Farmacia ad un'altra Farmacia |
-| **Punti aperti** |  | 
-<br>
-
-| | |
-| :------------- | :----------: 
 | **Titolo** | ResocontoPrenotazioni  |
 | **Descrizione** | Si controllano le prenotazioni non terminate per utente | 
 | **Attori** | Farmacista, FineGiornata | 
@@ -145,21 +175,6 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
-<br>
-
-| | |
-| :------------- | :----------: 
-| **Titolo** | ResocontoFarmaci  |
-| **Descrizione** | Si visualizzano i farmaci in esaurimento | 
-| **Attori** | Farmacista, FineGiornata | 
-| **Relazioni** | Resoconto, GestioneFarmacia | 
-| **Precondizioni** |  | 
-| **Postcondizioni** | Si visualizza l'elenco dei farmaci | 
-| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. il sistema recupera l'elenco dei farmaci in scadenza <br> 3. Il sistema mostra a video l'elenco dei farmaci | 
-| **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
-| **Punti aperti** |  | 
-
 <br>
 
 | | |
@@ -237,3 +252,18 @@ DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di im
 | Autenticazione username/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
  | Cifratura comunicazioni | • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>• La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
  Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffing delle comunicazioni| 
+
+ <br>
+
+ ### Security Use Case & Misuse Case Scenari
+
+| | |
+| :------------- | :----------: |
+| **Titolo** | Integrità |
+| **Descrizione** | Integrità dei dati del sistema | 
+| **Misuse case** | ManInTheMiddle | 
+| **Relazioni** | |
+| **Precondizioni** | 1. L'attaccante ha i mezzi per intercettare i messaggi del sistema <br> 2. L'attaccante ha i mezzi per modificare i messaggi <br> 3. L'attaccante ha i mezzi per spedire il messaggio modificato al destinatario | 
+| **Postcondizioni** | Il sistema rileva il messaggio contraffatto |
+| **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log | 
+| **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema accetta il messaggio e agisce di conseguenza | 
