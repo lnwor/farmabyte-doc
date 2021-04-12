@@ -1,6 +1,10 @@
 # Documento dei Requisiti
 
+<br>
+
 ## Raccolta dei requisiti
+
+<br>
 
 - I clienti delle farmacie hanno a disposizione due servizi: controllare se un farmaco è disponibile vicino alla loro posizione e/o prenotarlo.
 - Il cliente fornisce la sua posizione che l'applicativo userà per indicargli le farmacie più vicine. Contemporaneamente specificherà il farmaco da cercare e l'applicativo fornirà le 10 farmacie più vicine ad averlo in magazzino indicandone se è disponibile o sta per terminare.
@@ -16,8 +20,14 @@
 - Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista e eventualmente bloccare l'utente per 1 mese.
 - Il sistema sarà ovviamente distribuito e di natura client-server con la presenza di un database centrale dove memorizzare i dati
 - la gestione delle vendite e ordini è gestita da un altro software
+
+<br>
+
 ---
+
 ## Analisi dei Requisiti
+
+<br>
 
 ID | Requisiti | Tipo
 --- | --- | ---
@@ -43,9 +53,12 @@ R4NF | Un utente non può avere più di un account verificato | Non Funzionale
 R5NF | L'utente non deve poter fare eccessive prenotazioni | Non Funzionale
 R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non Funzionale
 
+<br>
+
 ## Vocabolario
 
-*da fare dopo aver fatto gli schemi*
+<br>
+
 Voce | Definizione | Sinonimi
 --- | --- | ---
 Cliente | Persona che usufruisce del servizio lato cliente | Utente
@@ -62,26 +75,29 @@ Username | È una parola formata dalla concatenazione di nome e cognome dell’U
 Password | Codice alfanumerico di almeno 8 caratteri | 
 Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita | Deposito
 
+<br>
+
 ---
 
 ## Scenari
 
 | | |
-| :------------- | :----------: |
+| :- | :- |
 | **Titolo** | GestioneFarmacia  |
 | **Descrizione** | Gestione dell'utenza di un cliente registrato |
 | **Attori** | Farmacista | 
 | **Relazioni** | Login, SospensioneUtenza, VerificaIdentità, ResocontoFarmaci, ResocontoPrenotazioni | 
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
-| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni giornaliere o controllare i farmaci | 
+| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni e i farmaci in magazzino | 
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  |
+
 <br>
 
 | | |
-| :------------- | :----------:  |
+| :- | :- |
 | **Titolo** | ResocontoUtenti  |
 | **Descrizione** | Si controllano gli utenti con potenzialmente sospendibili | 
 | **Attori** | Farmacista, FineGiornata | 
@@ -92,24 +108,11 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
+
 <br>
 
 | | |
-| :------------- | :----------: |
-| **Titolo** | SospensioneUtenza |
-| **Descrizione** | Viene sospeso un Utente | 
-| **Attori** | Farmacista | 
-| **Relazioni** | ResocontoUtenti | 
-| **Precondizioni** | L'Utente risulta idoneo per essere sospeso | 
-| **Postcondizioni** | L'Utente risulta sospeso | 
-| **Scenario principale** | 1. Resoconto Utenti <br> 2. Il Farmacista chiede al sistema di sospendere l'utente | 
-| **Scenari Alternativi** |  | 
-| **Requisiti non funzionali** | Semplicità dell'interfaccia |
-| **Punti aperti** |  | 
-<br>
-
-| | |
-| :------------- | :----------: |
+| :- | :- |
 | **Titolo** | ControlloPrenotazioni  |
 | **Descrizione** | Si controllano le prenotazioni non terminate | 
 | **Attori** | Farmacista | 
@@ -120,10 +123,11 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** | | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati |
 | **Punti aperti** | | 
+
 <br>
 
 | | |
-| :------------- | :----------: |
+| :- | :- |
 | **Titolo** | ConfermaPrenotazione |
 | **Descrizione** | Il Farmacista conferma la prenotazione avvenuta | 
 | **Attori** | Farmacista | 
@@ -134,10 +138,26 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** | | 
 | **Requisiti non funzionali** | Semplicità dell'interfaccia |
 | **Punti aperti** | | 
+
 <br>
 
 | | |
-| :------------- | :----------: |
+| :- | :- |
+| **Titolo** | Registrazione |
+| **Descrizione** | Il cliente si registra al servizio | 
+| **Attori** | Cliente | 
+| **Relazioni** | VerificaIdentità | 
+| **Precondizioni** | Il cliente dispone di un codice fiscale valido | 
+| **Postcondizioni** | Il cliente è registrato nel sistema ed è posto in attesa della verifica | 
+| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br/> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e il codice fiscale <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale | 
+| **Scenari Alternativi** | Scenario a: il codice fiscale è già registrato <br> 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore. | 
+| **Requisiti non funzionali** | Semplicità dell'interfaccia |
+| **Punti aperti** | | 
+
+<br>
+
+| | |
+| :- | :- |
 | **Titolo** | VerificaIdentità |
 | **Descrizione** | Verifica dell'identità dell'utente registrato | 
 | **Attori** | Cliente, Farmacista | 
@@ -149,22 +169,25 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
+<br>
+
 | | |
-| :------------- | :----------: 
+| :- | :- | 
 | **Titolo** | SospensioneUtenza |
 | **Descrizione** | Se un utente non ha concluso troppe prenotazioni allora viene proposta la sospensione dell'utente al farmacista |
 | **Attori** | Farmacista | 
 | **Relazioni** | ResocontoPrenotazioni, GestioneFarmacia |
-| **Precondizioni** | Il cliente è diffidato dal sistema (Ha molte prenotazioni non concluse) | 
+| **Precondizioni** | Il cliente è diffidato dal sistema (ha molte prenotazioni non concluse) | 
 | **Postcondizioni** | Il cliente non può più effettuare prenotazioni per 30 giorni |
-| **Scenario principale** | 1. Si veritifa l'evento FineGiornata <br/> 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza <br/> 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala alla farmacista <br/> 4. La farmacista, se ritiene necessario, può confermare la sospensione dell'utente
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br/> 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza <br/> 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala alla farmacista <br/> 4. La farmacista, se ritiene necessario, può confermare la sospensione dell'utente
 | **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Velocità nella ricerca dei dati e semplicità dell'interfaccia |
 | **Punti aperti** |  | 
+
 <br>
 
 | | |
-| :------------- | :----------: 
+| :- | :- | 
 | **Titolo** | ResocontoPrenotazioni  |
 | **Descrizione** | Si controllano le prenotazioni non terminate per utente | 
 | **Attori** | Farmacista, FineGiornata | 
@@ -175,10 +198,11 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
+
 <br>
 
 | | |
-| :- | :- 
+| :- | :- |
 | **Titolo** | RicercaFarmaci  |
 | **Descrizione** | L'utente verifica la disponibilità di un particolare farmaco nelle farmacie più vicine a lui | 
 | **Attori** | Cliente | 
@@ -193,12 +217,12 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 <br>
 
 | | |
-| :- | :- 
+| :- | :- |
 | **Titolo** | NuovaPrenotazione |
 | **Descrizione** | L'utente prenota a suo nome una lista di farmaci | 
 | **Attori** | ClienteRegistrato | 
 | **Relazioni** | Login | 
-| **Precondizioni** | L'utente è già registrato (e quindi verificato) nel sistema | 
+| **Precondizioni** |  | 
 | **Postcondizioni** | Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia | 
 | **Scenario principale** | 1. Il cliente esegue il **Login** <br> 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata <br> 3. Il cliente invia la richiesta di prenotazione <br> 4. Il sistema pone la richiesta in attesa di conferma | 
 | **Scenari Alternativi** | Scenario a: La farmacia non dispone dei farmaci richiesti. <br> 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati <br> 5. Viene inviato al cliente un messaggio di errore| 
@@ -208,23 +232,31 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 <br>
 
 | | |
-| :- | :- 
+| :- | :- |
 | **Titolo** | Login |
 | **Descrizione** | Permette di accedere al sistema | 
 | **Attori** | ClienteRegistrato, Farmacista | 
 | **Relazioni** | NuovaPrenotazione, GestioneFarmacia | 
-| **Precondizioni** | L'utente è registrato nel sistema | 
+| **Precondizioni** |  | 
 | **Postcondizioni** | L'utente ha accesso al sistema, limitato in base ai suoi privilegi | 
 | **Scenario principale** | 1. L'utente inserisce le credenziali di accesso <br> 2. Il sistema verifica le credenziali <br> 3. Se le credenziali sono corrette, viene presentata la schermata iniziale | 
 | **Scenari Alternativi** | Scenario a: Credenziali non riconosciute. <br> 3. Il sistema non riconosce le credenziali e rispedisce l'utente alla schermata di login con un messaggio di errore| 
 | **Requisiti non funzionali** | Velocità di verifica delle credenziali |
 | **Punti aperti** |  | 
 
+<br>
+
 ---
+
+<br>
 
 ## Analisi del Rischio
 
+<br>
+
 ### Tabella Valutazione dei Beni
+
+<br>
 
 Bene | Valore | Esposizione
 --- | --- | ---
@@ -236,6 +268,8 @@ Dati delle prenotazioni | Alto. Necessario per tenere traccia delle prenotazioni
 
 ### Tabella Minacce/Controlli
 
+<br>
+
 Minaccia | Probabilità | Controllo | Fattibilità
 --- | --- | --- | ---
 Furto credenziali Farmacista | Alta | Controllo sulla sicurezza della password - Log delle operazioni | Costo implementativo molto basso
@@ -244,18 +278,25 @@ Alterazione o intercettazione delle comunicazioni | Alta | Utilizzo di un canale
 Accesso non autorizzato al database | Bassa | Accesso da macchine sicure - Log di tutte le operazioni | Basso costo di realizzazione, il server deve essere ben custodito
 DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di implementazione
 
+<br>
+<br>
+
 ### Analisi Tecnologica della Sicurezza
 
-| | |
-| --- | --- 
-| **Tecnologia** | **Vulnerabilità**  |
-| Autenticazione username/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
- | Cifratura comunicazioni | • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>• La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
- Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffing delle comunicazioni| 
+<br>
 
- <br>
+Tecnologia | Vulnerabilità |
+--- | --- |
+Autenticazione username/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
+Cifratura comunicazioni | • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>• La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
+Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffing delle comunicazioni | 
 
- ### Security Use Case & Misuse Case Scenari
+<br>
+<br>
+
+### Security Use Case & Misuse Case Scenari
+
+<br>
 
 | | |
 | :------------- | :----------: |
