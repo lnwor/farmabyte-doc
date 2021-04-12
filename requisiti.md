@@ -299,7 +299,7 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 <br>
 
 | | |
-| :------------- | :----------: |
+| :- | :- |
 | **Titolo** | Integrità |
 | **Descrizione** | Integrità dei dati del sistema | 
 | **Misuse case** | ManInTheMiddle | 
@@ -308,3 +308,19 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 | **Postcondizioni** | Il sistema rileva il messaggio contraffatto |
 | **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log | 
 | **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema accetta il messaggio e agisce di conseguenza | 
+
+<br>
+<br>
+
+<!-- Da discutere: aggiunta di una seconda keyword giornaliera generata per ogni farmacia, richiesta ad ogni farmacista al momento dell'accesso -->
+
+| | |
+| :- | :- |
+| **Titolo** | ControlloAccessi |
+| **Descrizione** | L'accesso alle funzionalità del sistema deve essere controllato | 
+| **Misuse case** | FurtoCredenziali, ManInTheMiddle | 
+| **Relazioni** | |
+| **Precondizioni** | L'attaccante ha i mezzi per carpire in tutto o in parte le credenziali di accesso di un cliente o di un farmacista | 
+| **Postcondizioni** | Il sistema blocca l'accesso non autorizzato e notifica il tentativo di accesso |
+| **Scenario principale** | 1. L'attaccante tenta di accedere al servizio spacciandosi per un utente legittimo, di cui conosce le credenziali solo in parte (ad esempio mediante attacco con dizionario) <br> 2. Il sistema non riconosce le credenziali, restituendo un errore <br> 3. In seguito ad un numero fissato di tentativi falliti, il sistema blocca temporaneamente l'accesso a quell'utente e notifica l'anomalia a chi di dovere | 
+| **Scenari di un attacco avvenuto con successo** | 1. L'attaccante riesce a carpire le credenziali di accesso complete di un utente in un qualsiasi modo <br> 2. Il sistema riconosce la correttezza delle credenziali, e fornisce l'accesso al soggetto malevolo <br> 3. L'attaccante ha libero accesso al sistema, con privilegi diversi in base al tipo di utente | 
