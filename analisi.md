@@ -11,3 +11,18 @@
 ||||
 ||||
 ||||
+
+### GestioneFarmacia: Tabella Informazione/Flusso
+
+|||||
+|:---|:---|:---|:---|
+|**Informazione**|**Tipo**|**Livello protezione/privacy**|**Input/Output**|**Vincoli**|
+|Nome Utente|||||
+|Cognome Utente|||||
+||||||
+||||||
+||||||
+||||||
+||||||
+||||||
+||||||
