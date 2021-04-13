@@ -306,8 +306,8 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 | **Relazioni** | |
 | **Precondizioni** | 1. L'attaccante ha i mezzi per intercettare i messaggi del sistema <br> 2. L'attaccante ha i mezzi per modificare i messaggi <br> 3. L'attaccante ha i mezzi per spedire il messaggio modificato al destinatario | 
 | **Postcondizioni** | Il sistema rileva il messaggio contraffatto |
-| **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log | 
-| **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema accetta il messaggio e agisce di conseguenza | 
+| **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log| 
+| **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema accetta il messaggio e agisce di conseguenza, segnando il messaggio nei log | 
 
 <br>
 <br>
@@ -324,3 +324,10 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 | **Postcondizioni** | Il sistema blocca l'accesso non autorizzato e notifica il tentativo di accesso |
 | **Scenario principale** | 1. L'attaccante tenta di accedere al servizio spacciandosi per un utente legittimo, di cui conosce le credenziali solo in parte (ad esempio mediante attacco con dizionario) <br> 2. Il sistema non riconosce le credenziali, restituendo un errore <br> 3. In seguito ad un numero fissato di tentativi falliti, il sistema blocca temporaneamente l'accesso a quell'utente e notifica l'anomalia a chi di dovere | 
 | **Scenari di un attacco avvenuto con successo** | 1. L'attaccante riesce a carpire le credenziali di accesso complete di un utente in un qualsiasi modo <br> 2. Il sistema riconosce la correttezza delle credenziali, e fornisce l'accesso al soggetto malevolo <br> 3. L'attaccante ha libero accesso al sistema, con privilegi diversi in base al tipo di utente | 
+
+### Requisiti di Protezione dei Dati
+
+Sussistono inoltre i seguenti requisiti:
+1. I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati.
+2. I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati.
+3. Implementazione di un sistema di log per monitorare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati.
