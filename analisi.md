@@ -33,3 +33,16 @@
 |Codice Fiscale|Semplice|Protezione media|Input|Deve essere di 16 caratteri|
 |Email| Semplice|Protezione alta|Input|Deve essere di 256 caratteri e del formato giusto|
 |Password|Semplice|Protezione molto alta|Input|Deve essere almeno di 8 caratteri, di cui uno alfabetico e uno numerico|
+
+## Analisi Documento dei Requisiti: Analisi dei Vincoli
+### Tabella Vincoli
+
+
+|||||
+|:---|:---|:---|:---|
+|**Requisito**|**Categorie**|**Impatto**|**Funzionalità**|
+|Semplicità dell'interfaccia|Usabilità|Intuitività di utilizzo| GestioneFarmacia, Registrazione, RicercaFarmaci, Login, NuovaPrenotazione |
+|Velocità della ricerca dei dati|Tempo di Risposta|Maggiore reattività|GestioneFarmacia, Registrazione, RicercaFarmaci, Login, NuovaPrenotazione|
+|Velocità di memorizzazione dei dati|Tempo di Risposta|Maggiore reattività|GestioneFarmacia, Registrazione, Login, NuovaPrenotazione|
+|Controllo Accessi| Sicurezza | Peggiorano tempo di risposta e usabilità, migliorano la privacy dei dati | GestioneFarmacia, NuovaPrenotazione |
+|Protezione dei Dati| Sicurezza | Peggiorano tempo di risposta, migliorano la privacy dei dati | GestioneFarmacia, Registrazione, RicercaFarmaci, Login, NuovaPrenotazione |
