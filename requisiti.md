@@ -113,6 +113,21 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 
 | | |
 | :- | :- |
+| **Titolo** | ResocontoFarmaci |
+| **Descrizione** | Viene mostrato l'elenco dei farmaci in scadenza o in esaurimento |
+| **Attori** | Farmacista | 
+| **Relazioni** | GestioneFarmacia | 
+| **Precondizioni** |  | 
+| **Postcondizioni** | Viene mostrato l'elenco degli Utenti a rischio sospensione | 
+| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza <br> 3. Il sistema mostra a video l'elenco richiesto | 
+| **Scenari Alternativi** |  | 
+| **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- |
 | **Titolo** | ControlloPrenotazioni  |
 | **Descrizione** | Si controllano le prenotazioni non terminate | 
 | **Attori** | Farmacista | 
@@ -149,7 +164,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | VerificaIdentità | 
 | **Precondizioni** | Il cliente dispone di un codice fiscale valido | 
 | **Postcondizioni** | Il cliente è registrato nel sistema ed è posto in attesa della verifica | 
-| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br/> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e il codice fiscale <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale | 
+| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e il codice fiscale <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale | 
 | **Scenari Alternativi** | Scenario a: il codice fiscale è già registrato <br> 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore. | 
 | **Requisiti non funzionali** | Semplicità dell'interfaccia |
 | **Punti aperti** | | 
@@ -164,7 +179,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | Registrazione, GestioneFarmacia |
 | **Precondizioni** | Il cliente è registrato | 
 | **Postcondizioni** | L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni |
-| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br/> 2. Il cliente viene identificato dal farmacista <br/> 3. Il farmacista attiva l'account dell'utente dopo aver verificato il documento |
+| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br> 2. Il cliente viene identificato dal farmacista <br> 3. Il farmacista attiva l'account dell'utente dopo aver verificato il documento |
 | **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
@@ -179,7 +194,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | ResocontoPrenotazioni, GestioneFarmacia |
 | **Precondizioni** | Il cliente è diffidato dal sistema (ha molte prenotazioni non concluse) | 
 | **Postcondizioni** | Il cliente non può più effettuare prenotazioni per 30 giorni |
-| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br/> 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza <br/> 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala alla farmacista <br/> 4. La farmacista, se ritiene necessario, può confermare la sospensione dell'utente
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza <br> 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala al farmacista <br> 4. Il farmacista, se ritiene necessario, può confermare la sospensione dell'utente
 | **Scenari alternativi** |  | 
 | **Requisiti non funzionali** | Velocità nella ricerca dei dati e semplicità dell'interfaccia |
 | **Punti aperti** |  | 
@@ -277,7 +292,7 @@ Furto credenziali Cliente | Alta | Controllo sulla sicurezza della password - Lo
 Alterazione o intercettazione delle comunicazioni | Alta | Utilizzo di un canale sicuro <!-- (TLS) --> - Log delle operazioni | Basso costo di realizzazione con determinati protocolli
 Accesso non autorizzato al database | Bassa | Accesso da macchine sicure - Log di tutte le operazioni | Basso costo di realizzazione, il server deve essere ben custodito
 DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di implementazione
-Saturazione del database | Bassa | 1. Limitazione delle richieste in un dato intervallo di tempo. <br/> 2. Limite di tempo per la verifica di un cliente | Media complessità di implementazione
+Saturazione del database | Bassa | 1. Limitazione delle richieste in un dato intervallo di tempo. <br> 2. Limite di tempo per la verifica di un cliente | Media complessità di implementazione
 
 <br>
 <br>
@@ -296,6 +311,17 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 <br>
 
 ### Security Use Case & Misuse Case Scenari
+
+| | |
+| :- | :- |
+| **Titolo** | Riservatezza |
+| **Descrizione** | I dati non sono accessibili da chi non ne ha i permessi | 
+| **Misuse case** | Sniffing | 
+| **Relazioni** | |
+| **Precondizioni** | L'attaccante ha i mezzi per intercettare i messaggi del sistema |
+| **Postcondizioni** | Il sistema impedisce all'attaccante di decifrare (in tempi utili) i messaggi intercettati |
+| **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio <br> 3. L'attaccante prova a decifrare i messaggi, ma non riesce a trovare un modo per farlo abbastanza velocemente |
+| **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio <br> 3. L'attaccante riesce a decifrare i messaggi e a leggerne il contenuto, ma solamente per una sessionedi un utente |
 
 <br>
 
