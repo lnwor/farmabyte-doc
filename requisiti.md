@@ -14,7 +14,7 @@
 - L'account viene creato in due fasi:
     1. Registrazione con username, password e codice fiscale
     2. Autenticazione di persona in farmacia
-- L'username deve essere univoco, la password di almeno 8 caratteri.
+- L'username deve essere univoco, la password di almeno 8 caratteri, contentente almeno un numero e un carattere alfabetico.
 - Per l'autenticazione è necessario mostrare il tesserino sanitario per l'identificazione in farmacia.
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento
 - Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista e eventualmente bloccare l'utente per 1 mese.
@@ -27,6 +27,7 @@
 
 ## Analisi dei Requisiti
 
+
 <br>
 
 ID | Requisiti | Tipo
@@ -36,25 +37,24 @@ R2F | Specifica del farmaco da cercare da parte dell'utente | Funzionale
 R3F | Presentazione delle farmacie che dispongono di un farmaco | Funzionale
 R4F | Registrazione di un account tramite l'interfaccia web | Funzionale
 R5F | Attivazione dell'account con identificazione fisica dell'utente con documento | Funzionale
-R6F | Per prenotare l'utente deve essere registrato | Funzionale
-R7F | La prenotazione sarà composta da uno o più farmaci, dalla farmacia e dal giorno | Funzionale
-R8F | Le prenotazioni farmaci con ricetta prevedono il caricamento opzionale della foto o del codice | Funzionale
-R9F | Identificazione attraverso username univoco e password di almeno 8 caratteri | Funzionale
-R10F | Visualizzazione delle prenotazioni | Funzionale
-R11F | Visualizzazione del numero dei farmaci disponibili | Funzionale
-R12F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
-R13F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
-R14F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
-R15F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
+R6F | La prenotazione sarà composta da uno o più farmaci, dalla farmacia e dal giorno | Funzionale
+R7F | Le prenotazioni farmaci con ricetta prevedono il caricamento opzionale della foto o del codice | Funzionale
+R8F | Identificazione attraverso username univoco e password di almeno 8 caratteri, contentente almeno un carattere alfabetico e un carattere numerico | Funzionale
+R9F | Visualizzazione delle prenotazioni | Funzionale
+R10F | Visualizzazione del numero dei farmaci disponibili | Funzionale
+R11F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
+R12F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
+R13F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
+R14F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
 R1NF | Velocità di memorizzazione dei dati | Non Funzionale
 R2NF | Velocità della ricerca dei dati | Non Funzionale
 R3NF | Semplicità dell'interfaccia | Non Funzionale
 R4NF | Un utente non può avere più di un account verificato | Non Funzionale
 R5NF | L'utente non deve poter fare eccessive prenotazioni | Non Funzionale
 R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non Funzionale
+R7NF | Per prenotare l'utente deve essere registrato | Non Funzionale
 
 <br>
-
 ## Vocabolario
 
 <br>
@@ -277,6 +277,7 @@ Furto credenziali Cliente | Alta | Controllo sulla sicurezza della password - Lo
 Alterazione o intercettazione delle comunicazioni | Alta | Utilizzo di un canale sicuro <!-- (TLS) --> - Log delle operazioni | Basso costo di realizzazione con determinati protocolli
 Accesso non autorizzato al database | Bassa | Accesso da macchine sicure - Log di tutte le operazioni | Basso costo di realizzazione, il server deve essere ben custodito
 DoS | Bassa | Controllo e limitazione delle richieste | Media complessità di implementazione
+Saturazione del database | Bassa | 1. Limitazione delle richieste in un dato intervallo di tempo. <br/> 2. Limite di tempo per la verifica di un cliente | Media complessità di implementazione
 
 <br>
 <br>
@@ -331,3 +332,10 @@ Sussistono inoltre i seguenti requisiti:
 1. I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati.
 2. I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati.
 3. Implementazione di un sistema di log per monitorare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati.
+
+
+ID | Requisiti | Tipo
+--- | --- | ---
+R15F | Implementazione di un sistema di log per monitorare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati | Funzionale
+R8NF | I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati | Non Funzionale
+R9NF | I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati | Non Funzionale
