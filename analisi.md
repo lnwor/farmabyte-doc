@@ -57,6 +57,27 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
+### ScritturaLog: Tabella Informazione/Flusso
+
+|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
+|:-:|:-:|:-:|:-:|:-:|
+|Data |Semplice|Protezione media|Input|Non più di 40 caratteri|
+|Ora|Semplice|Protezione media|Input|Non più di 40 caratteri|
+|Attore|Semplice|Protezione alta|Input||
+|Operazione Eseguita|Composto|Protezione alta|Input||
+|Messaggio|Composto|Protezione molto alta|Input||
+
+<br>
+
+### AnalisiLog: Tabella Informazione/Flusso
+
+|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
+|:-:|:-:|:-:|:-:|:-:|
+|Notifica|Composto|Protezione bassa|Output||
+
+
+<br>
+
 ## Analisi Documento dei Requisiti: Analisi dei Vincoli
 ### Tabella Vincoli
 
@@ -67,3 +88,40 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Velocità di memorizzazione dei dati|Tempo di Risposta|Maggiore reattività|GestioneFarmacia, Registrazione, Login, NuovaPrenotazione|
 |Controllo Accessi| Sicurezza | Peggiorano tempo di risposta e usabilità, migliorano la privacy dei dati | GestioneFarmacia, NuovaPrenotazione |
 |Protezione dei Dati| Sicurezza | Peggiorano tempo di risposta, migliorano la privacy dei dati | GestioneFarmacia, Registrazione, RicercaFarmaci, Login, NuovaPrenotazione |
+
+<br>
+
+## Analisi Documento dei Requisiti: Analisi delle Interazioni
+### Tabella Maschere
+
+
+|Requisito|Informazioni|Funzionalità|
+|:-|:-|:-|
+||||
+||||
+||||
+||||
+
+<br>
+
+## Analisi Ruoli e Responsabilità
+### Tabella Ruoli
+
+|Ruolo|Responsabilità|Maschere|Riservatezza|Numerosità|
+|:-|:-|:-|:-|:-|
+|Farmacista|||||
+|Cliente|||||
+|GestoreSicurezza|||||
+||||||
+
+<br>
+
+### Farmacista: Tabella Ruolo-Informazioni
+
+|Informazione|Tipo di Accesso|
+|:-|:-|
+|||
+|||
+|||
+
+<br>
