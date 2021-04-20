@@ -15,7 +15,7 @@
 
 <br>
 
-### GestioneFarmacia: Tabella Informazione/Flusso
+### GestioneFarmacia: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
@@ -28,7 +28,7 @@
 
 <br>
 
-### RicercaFarmaci: Tabella Informazione/Flusso
+### RicercaFarmaci: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
@@ -44,7 +44,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
-### Registrazione: Tabella Informazione/Flusso
+### Registrazione: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
@@ -57,24 +57,47 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
-### ScritturaLog: Tabella Informazione/Flusso
+### ScritturaLog: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
 |Data |Semplice|Protezione media|Input|Non più di 40 caratteri|
 |Ora|Semplice|Protezione media|Input|Non più di 40 caratteri|
-|Attore|Semplice|Protezione alta|Input||
+|Attore|Semplice|Protezione alta|Input|Non più di 20 caratteri|
+|Identificativo Farmacia|Semplice|Protezione alta|Input|Non più di 20 caratteri|
 |Operazione Eseguita|Composto|Protezione alta|Input||
 |Messaggio|Composto|Protezione molto alta|Input||
 
 <br>
 
-### AnalisiLog: Tabella Informazione/Flusso
+### AnalisiLog: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
 |Notifica|Composto|Protezione bassa|Output||
 
+<br>
+
+### Login: Tabella Informazioni/Flusso
+
+
+|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
+|:-:|:-:|:-:|:-:|:-:|
+|Username|semplice|Protezione molto alta|Input|Non più di 50 caratteri|
+|Password|semplice|Protezione molto alta|Input|Non più di 50 caratteri|
+
+<br>
+
+### NuovaPrenotazione: Tabella Informazioni
+
+|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
+|:-:|:-:|:-:|:-:|:-:|
+|Data creazione|semplice|Protezione media|Input|Non più di 40 caratteri|
+|Ora creazione|semplice|Protezione media|Input|Non più di 40 caratteri|
+|Data prenotazione|semplice|Protezione media|Input|Solo una data compresa tra il giorno successivo e 14 giorni dopo|
+|Elenco farmaci|composto|Protezione alta|Input|1. Non più di 5 elementi per ogni farmaco <br> 2. Non più di 20 elementi in totale|
+|Identificativo farmacia|semplice|Protezione alta|Input|Non più di 20 caratteri|
+|Identificativo cliente|semplice|Protezione molto alta|Input|Non pi di 20 caratteri|
 
 <br>
 
@@ -94,12 +117,15 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 ## Analisi Documento dei Requisiti: Analisi delle Interazioni
 ### Tabella Maschere
 
-|Requisito|Informazioni|Funzionalità|
-|:-|:-|:-|
-||||
-||||
-||||
-||||
+|Maschera|Informazioni|Funzionalità|
+|:-:|:-:|:-:|
+|Home Gestione||GestioneFarmacia|
+|Home Prenotazioni||ControlloPrenotazioni|
+|Home Utenti||ResocontoUtenti|
+|View Farmaci||ResocontoFarmaci|
+|View Login||Login|
+|View Registrazione||Registrazione|
+|View RicercaFarmaci||RicercaFarmaci|
 
 <br>
 
