@@ -117,12 +117,15 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 ## Analisi Documento dei Requisiti: Analisi delle Interazioni
 ### Tabella Maschere
 
-|Requisito|Informazioni|Funzionalità|
-|:-|:-|:-|
-||||
-||||
-||||
-||||
+|Maschera|Informazioni|Funzionalità|
+|:-:|:-:|:-:|
+|Home Gestione||GestioneFarmacia|
+|Home Prenotazioni||ControlloPrenotazioni|
+|Home Utenti||ResocontoUtenti|
+|View Farmaci||ResocontoFarmaci|
+|View Login||Login|
+|View Registrazione||Registrazione|
+|View RicercaFarmaci||RicercaFarmaci|
 
 <br>
 
