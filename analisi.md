@@ -94,13 +94,20 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 ## Analisi Documento dei Requisiti: Analisi delle Interazioni
 ### Tabella Maschere
 
-
 |Requisito|Informazioni|Funzionalità|
 |:-|:-|:-|
 ||||
 ||||
 ||||
 ||||
+
+<br>
+
+## Tabella Sistemi Esterni
+
+|Sistema|Descrizione|Protocollo di Interazione|Livello di Sicurezza|
+|:-|:-|:-|:-|
+|||||
 
 <br>
 
