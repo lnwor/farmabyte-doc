@@ -179,8 +179,9 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | Registrazione, GestioneFarmacia |
 | **Precondizioni** | Il cliente è registrato | 
 | **Postcondizioni** | L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni |
-| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br> 2. Il cliente viene identificato dal farmacista <br> 3. Il farmacista attiva l'account dell'utente dopo aver verificato il documento |
-| **Scenari alternativi** |  | 
+| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br> 2. Il cliente viene identificato dal farmacista <br> 3. Il farmacista chiede al sistema di recuperare l'utente <br>
+4.Il farmacista attiva l'account dell'utente |
+| **Scenari alternativi** | 4. Il sistema non trova nessun utente, segnala il farmacista | 
 | **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 
