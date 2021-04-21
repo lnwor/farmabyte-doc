@@ -19,9 +19,10 @@
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Nome Cliente|Semplice|Protezione alta|Input|Non più di 40 caratteri|
-|Cognome Cliente|Semplice|Protezione alta|Input|Non più di 40 caratteri|
-|Codice Fiscale Cliente|Semplice|Protezione media|Input|Deve essere di 16 caratteri|
+|Nome Cliente|Semplice|Protezione alta|Output|Non più di 40 caratteri|
+|Cognome Cliente|Semplice|Protezione alta|Output|Non più di 40 caratteri|
+|Codice Fiscale Cliente|Semplice|Protezione media|Output|Deve essere di 16 caratteri|
+|Stato Cliente|Semplice|Protezione media|Output||
 |Lista Farmaci|Composto|Protezione alta|Output||
 |Lista Prenotazioni|Composto|Protezione molto alta|Output||
 
@@ -88,12 +89,12 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
-### NuovaPrenotazione: Tabella Informazioni
+### NuovaPrenotazione: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Data creazione|semplice|Protezione media|Input|Non più di 40 caratteri|
-|Ora creazione|semplice|Protezione media|Input|Non più di 40 caratteri|
+|Data invio|semplice|Protezione media|Input|Non più di 40 caratteri|
+|Ora invio|semplice|Protezione media|Input|Non più di 40 caratteri|
 |Data prenotazione|semplice|Protezione media|Input|Solo una data compresa tra il giorno successivo e 14 giorni dopo|
 |Elenco farmaci|composto|Protezione alta|Input|1. Non più di 5 elementi per ogni farmaco <br> 2. Non più di 20 elementi in totale|
 |Identificativo farmacia|semplice|Protezione alta|Input|Non più di 20 caratteri|
@@ -119,13 +120,18 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Maschera|Informazioni|Funzionalità|
 |:-:|:-:|:-:|
-|Home Gestione||GestioneFarmacia|
-|Home Prenotazioni||ControlloPrenotazioni|
-|Home Utenti||ResocontoUtenti|
-|View Farmaci||ResocontoFarmaci|
-|View Login||Login|
-|View Registrazione||Registrazione|
-|View RicercaFarmaci||RicercaFarmaci|
+|Home Gestione|Messaggio di benvenuto e scelta della funzionalità|GestioneFarmacia|
+|View LoginFarmacista|Username, Password|Login|
+|View Prenotazioni|Lista Prenotazioni|GestioneFarmacia|
+|View ResocontoUtenti|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente, Stato Cliente|GestioneFarmacia|
+|View Farmaci|Lista Farmaci|GestioneFarmacia|
+|Home Servizio|Messaggio di benvenuto, Nome farmaco, Località utente, Lista farmacie pertinenti|RicercaFarmaci|
+|View Registrazione|Pagina di registrazione di un nuovo utente|Registrazione|
+|View NuovaPrenotazione|Data invio, Ora invio, Data prenotazione, Elenco farmaci, Identificativo farmacia<!--, Identificativo cliente-->|NuovaPrenotazione|
+|View PrenotazioniPersonali|||
+|View LoginUtente|Username, Password|Login|
+
+<!-- |Home Utente||| -->
 
 <br>
 

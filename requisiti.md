@@ -55,6 +55,7 @@ R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non 
 R7NF | Per prenotare l'utente deve essere registrato | Non Funzionale
 
 <br>
+
 ## Vocabolario
 
 <br>
@@ -179,8 +180,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | Registrazione, GestioneFarmacia |
 | **Precondizioni** | Il cliente è registrato | 
 | **Postcondizioni** | L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni |
-| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br> 2. Il cliente viene identificato dal farmacista <br> 3. Il farmacista chiede al sistema di recuperare l'utente <br>
-4.Il farmacista attiva l'account dell'utente |
+| **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br> 2. Il cliente viene identificato dal farmacista <br> 3. Il farmacista chiede al sistema di recuperare l'utente <br> 4. Il farmacista attiva l'account dell'utente |
 | **Scenari alternativi** | 4. Il sistema non trova nessun utente, segnala il farmacista | 
 | **Requisiti non funzionali** | Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
@@ -352,6 +352,9 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 | **Postcondizioni** | Il sistema blocca l'accesso non autorizzato e notifica il tentativo di accesso |
 | **Scenario principale** | 1. L'attaccante tenta di accedere al servizio spacciandosi per un utente legittimo, di cui conosce le credenziali solo in parte (ad esempio mediante attacco con dizionario) <br> 2. Il sistema non riconosce le credenziali, restituendo un errore <br> 3. In seguito ad un numero fissato di tentativi falliti, il sistema blocca temporaneamente l'accesso a quell'utente e notifica l'anomalia a chi di dovere | 
 | **Scenari di un attacco avvenuto con successo** | 1. L'attaccante riesce a carpire le credenziali di accesso complete di un utente in un qualsiasi modo <br> 2. Il sistema riconosce la correttezza delle credenziali, e fornisce l'accesso al soggetto malevolo <br> 3. L'attaccante ha libero accesso al sistema, con privilegi diversi in base al tipo di utente | 
+
+<br>
+
 
 ### Requisiti di Protezione dei Dati
 
