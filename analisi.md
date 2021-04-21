@@ -130,6 +130,9 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |View NuovaPrenotazione|Data invio, Ora invio, Data prenotazione, Elenco farmaci, Identificativo farmacia<!--, Identificativo cliente-->|NuovaPrenotazione|
 |View PrenotazioniPersonali|||
 |View LoginUtente|Username, Password|Login|
+|Home Log|Scelta del tipo di analisi dei log|AnalisiLog|
+|View Log|Data, Ora, Operazione eseguita, Attore, Identificativo farmacia|AnalisiLog|
+|View Anomalie|Elenco delle anomalie|AnalisiLog|
 
 <!-- |Home Utente||| -->
 
@@ -138,7 +141,10 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 ## Tabella Sistemi Esterni
 
 |Sistema|Descrizione|Protocollo di Interazione|Livello di Sicurezza|
-|:-|:-|:-|:-|
+|:-:|:-:|:-:|:-:|
+|||||
+|||||
+|||||
 |||||
 
 <br>
@@ -147,18 +153,19 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 ### Tabella Ruoli
 
 |Ruolo|Responsabilità|Maschere|Riservatezza|Numerosità|
-|:-|:-|:-|:-|:-|
-|Farmacista|||||
-|Cliente|||||
-|GestoreSicurezza|||||
-||||||
+|:-:|:-:|:-:|:-:|:-:|
+|Farmacista|Gestione di tutte le informazioni relative agli utenti e alle prenotazioni di una farmacia|||Massimo 10 farmacisti per ogni farmacia|
+|Cliente|Ricerca di un farmaco senza necessità di login|||Illimitati|
+|ClienteRegistrato|Ricerca e prenotazione di farmaci presso una farmacia|||Illimitati|
+|GestoreSicurezza|Visualizzazione di log relativi alle operazioni della propria farmacia|||2-3 persone considerando l'alternanza dei giorni di lavoro|
+|Amministratore di sistema|Manutenzione del sistema e gestione delle utenze di farmacie e farmacisti|||1-2|
 
 <br>
 
 ### Farmacista: Tabella Ruolo-Informazioni
 
 |Informazione|Tipo di Accesso|
-|:-|:-|
+|:-:|:-:|
 |||
 |||
 |||
