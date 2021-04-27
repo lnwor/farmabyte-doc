@@ -166,9 +166,31 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Informazione|Tipo di Accesso|
 |:-:|:-:|
-|||
-|||
-|||
+|Nome Cliente|Lettura|
+|Cognome Cliente|Lettura|
+|Codice Fiscale|Lettura|
+|Stato Cliente|Lettura/Scrittura|
+|Lista Farmaci|Lettura/Scrittura|
+|Lista Prenotazioni|Lettura/Scrittura|
+
+<br>
+
+### ClienteRegistrato: Tabella Ruolo-Informazioni
+
+|Informazione|Tipo di Accesso|
+|:-:|:-:|
+|Nome Cliente|Lettura/Scrittura| <!-- Modificabili nel caso in cui un cliente cambi nome dall'anagrafe, tanto l'identificazione non avviene attraverso questi dati -->
+|Cognome Cliente|Lettura/Scrittura|
+|Data di Nascita|Lettura|
+|Codice Fiscale|Lettura|
+|Email|Lettura/Scrittura|
+|Password|Lettura/Scrittura|
+|Nome Farmaco|Scrittura|
+|Località Utente|Lettura|
+|Lista Farmacie Pertinenti |Lettura|
+|Data prenotazione|Scrittura|
+|Elenco farmaci|Scrittura|
+
 
 <br>
 
@@ -187,10 +209,9 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Informazione|Tipo di Accesso|
 |:-:|:-:|
 |Data|Lettura|
-!Ora|Lettura|
+|Ora|Lettura|
 |Attore|Lettura|
 |Identificativo Farmacia|Lettura|
 |Operazione Eseguita|Lettura|
 |Messaggio|Lettura|
-|Username|Scrittura|
 |Username|Scrittura|
