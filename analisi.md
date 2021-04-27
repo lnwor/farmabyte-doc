@@ -155,9 +155,9 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Ruolo|Responsabilità|Maschere|Riservatezza|Numerosità|
 |:-:|:-:|:-:|:-:|:-:|
 |Farmacista|Gestione di tutte le informazioni relative agli utenti e alle prenotazioni di una farmacia|||Massimo 10 farmacisti per ogni farmacia|
-|Cliente|Ricerca di un farmaco senza necessità di login|||Illimitati|
+|Cliente|Ricerca di un farmaco senza necessità di login|Home Servizio, View Login, View Registrazione |E' richiesto un medio grado di riservatezza|Illimitati|
 |ClienteRegistrato|Ricerca e prenotazione di farmaci presso una farmacia|||Illimitati|
-|GestoreSicurezza|Visualizzazione di log relativi alle operazioni della propria farmacia|||2-3 persone considerando l'alternanza dei giorni di lavoro|
+|GestoreSicurezza|Visualizzazione di log relativi alle operazioni della propria farmacia|View Login, Home Log, View Log, view Anomalie|E' richiesto un medio grado di riservatezza|2-3 persone considerando l'alternanza dei giorni di lavoro|
 |Amministratore di sistema|Manutenzione del sistema e gestione delle utenze di farmacie e farmacisti|||1-2|
 
 <br>
@@ -171,3 +171,23 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |||
 
 <br>
+### Cliente: Tabella Ruolo-Informazioni
+
+|Informazione|Tipo di Accesso|
+|:-:|:-:|
+|Farmaco|Scrittura|
+|Farmacia|Lettura|
+|Quantità|Lettura|
+<--|Distanza|Lettura|-->
+<br>
+### GestoreSicurezza: Tabella Ruolo-Informazioni
+
+|Informazione|Tipo di Accesso|
+|:-:|:-:|
+|Data|Lettura|
+!Ora|Lettura|
+|Attore|Lettura|
+|Identificativo Farmacia|Lettura|
+|Operazione Eseguita|Lettura|
+|Username|Scrittura|
+|Username|Scrittura|
