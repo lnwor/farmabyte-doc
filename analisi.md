@@ -35,7 +35,7 @@
 |:-:|:-:|:-:|:-:|:-:|
 |Nome Farmaco|Semplice|Protezione bassa|Input||
 |Località Utente|Composto|Protezione alta|Input||
-|Lista farmacie pertinenti|Composto|Protezione bassa|Output|Non più di 10 farmacie| 
+|Lista Farmacie Pertinenti|Composto|Protezione bassa|Output|Non più di 10 farmacie| 
 
 <!-- 
 Località Utente = {Latitudine, Longitudine};
@@ -171,15 +171,17 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |||
 
 <br>
+
 ### Cliente: Tabella Ruolo-Informazioni
 
 |Informazione|Tipo di Accesso|
 |:-:|:-:|
-|Farmaco|Scrittura|
-|Farmacia|Lettura|
-|Quantità|Lettura|
-<--|Distanza|Lettura|-->
+|Nome Farmaco|Scrittura|
+|Località Utente|Lettura|
+|Lista Farmacie Pertinenti |Lettura|
+
 <br>
+
 ### GestoreSicurezza: Tabella Ruolo-Informazioni
 
 |Informazione|Tipo di Accesso|
@@ -189,5 +191,6 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Attore|Lettura|
 |Identificativo Farmacia|Lettura|
 |Operazione Eseguita|Lettura|
+|Messaggio|Lettura|
 |Username|Scrittura|
 |Username|Scrittura|
