@@ -199,7 +199,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Informazione|Tipo di Accesso|
 |:-:|:-:|
 |Nome Farmaco|Scrittura|
-|Località Utente|Lettura|
+|Località Utente|Scrittura|
 |Lista Farmacie Pertinenti |Lettura|
 
 <br>
@@ -215,3 +215,4 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Operazione Eseguita|Lettura|
 |Messaggio|Lettura|
 |Username|Scrittura|
+|Password|Scrittura|
