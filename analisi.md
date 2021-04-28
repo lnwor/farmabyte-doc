@@ -12,7 +12,6 @@
 |NuovaPrenotazione|Interazione esterno e memorizzazione dati|Semplice|R6F, R7F, R8F|
 |ScritturaLog|Memorizzazione dati|Semplice| R15F|
 |AnalisiLog|Gestione dati|Semplice| R15F|
-|Amministrazione|Memorizzazione e gestione dati|||
 
 <br>
 
@@ -125,6 +124,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |View LoginFarmacista|Username, Password|Login|
 |View Prenotazioni|Lista Prenotazioni|GestioneFarmacia|
 |View ResocontoUtenti|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente, Stato Cliente|GestioneFarmacia|
+|View VerificaIdentita|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente |VerificaIdentita|
 |View Farmaci|Lista Farmaci|GestioneFarmacia|
 |Home Servizio|Messaggio di benvenuto, Nome farmaco, Località utente, Lista farmacie pertinenti|RicercaFarmaci|
 |View Registrazione|Pagina di registrazione di un nuovo utente|Registrazione|
@@ -143,10 +143,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Sistema|Descrizione|Protocollo di Interazione|Livello di Sicurezza|
 |:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
-|||||
+|Gestione Magazzino|Sistema che si occupa della gestione dei farmaci in magazzino|GestioneMagazzino mette a disposizione delle funzionalità di elencazione dei farmaci. L'elenco restituito varierà in base ai parametri passati |Medio livello di sicurezza perchè protegge i dati della farmacia |
 
 <br>
 
@@ -159,7 +156,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Cliente|Ricerca di un farmaco senza necessità di login|Home Servizio, View Login, View Registrazione |E' richiesto un medio grado di riservatezza|Illimitati|
 |ClienteRegistrato|Ricerca e prenotazione di farmaci presso una farmacia|||Illimitati|
 |GestoreSicurezza|Visualizzazione di log relativi alle operazioni della propria farmacia|View Login, Home Log, View Log, view Anomalie|E' richiesto un medio grado di riservatezza|2-3 persone considerando l'alternanza dei giorni di lavoro|
-|Amministratore di sistema|Manutenzione del sistema e gestione delle utenze di farmacie e farmacisti||È richiesto un alto grado di riservatezza|1-2|
+|Amministratore di sistema|Manutenzione del sistema e gestione delle utenze di farmacie e farmacisti|||1-2|
 
 <br>
 
@@ -218,8 +215,20 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Username|Scrittura|
 |Password|Scrittura|
 
-### Amministratore di Sistema: Tabella Ruolo-Informazioni
+<br>
 
-|Informazione|Tipo di Accesso|
-|:-:|:-:|
+## Scomposizione del Problema
+
+### Tabella Scomposizione Funzionalità
+
+|Funzionalità|Scomposizione|
+|:-|:-|
+|Gestione Farmacia| ResocontoFarmaci, ResocontoUtenti, ControlloPrenotazioni, VerificaIdentità |
 |||
+|||
+
+|GestioneFarmacia|Memorizzazione dati e gestione dati|Complessa|
+
+
+## Creazione Modello del Dominio
+
