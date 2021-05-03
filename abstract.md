@@ -1,5 +1,7 @@
 # FarmaByte 
 
+<!-- da aggiornare, sarà l'ultima cosa che faremo :( -->
+
 ### Abstract
 
 Il progetto riguarda la creazione di un applicativo software per la gestione interna dell’inventario delle farmacie e per l'interfacciamento con i clienti. 

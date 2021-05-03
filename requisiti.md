@@ -90,7 +90,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | Login, SospensioneUtenza, VerificaIdentità, ResocontoFarmaci, ResocontoPrenotazioni | 
 | **Precondizioni** |  | 
 | **Postcondizioni** |  | 
-| **Scenario principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni e i farmaci in magazzino | 
+| **Scenario Principale** | 1. Login <br> 2. Il farmacista può eseguire la verifica, sospendere un'account, controllare le prenotazioni e i farmaci in magazzino | 
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  |
@@ -105,7 +105,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | SospensioneUtenza, GestioneFarmacia | 
 | **Precondizioni** |  | 
 | **Postcondizioni** | Viene mostrato l'elenco degli Utenti a rischio sospensione | 
-| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione utenti <br> 2. Il sistema recupera l'elenco degli utenti a rischio <br> 3. Il sistema mostra a video l'elenco degli utenti | 
+| **Scenario Principale** | 1. Il Farmacista va nella schermata di visualizzazione utenti <br> 2. Il sistema recupera l'elenco degli utenti a rischio <br> 3. Il sistema mostra a video l'elenco degli utenti | 
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
@@ -120,7 +120,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | GestioneFarmacia | 
 | **Precondizioni** |  | 
 | **Postcondizioni** | Viene mostrato l'elenco degli Utenti a rischio sospensione | 
-| **Scenario principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza <br> 3. Il sistema mostra a video l'elenco richiesto | 
+| **Scenario Principale** | 1. Il Farmacista va nella schermata di visualizzazione farmaci <br> 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza <br> 3. Il sistema mostra a video l'elenco richiesto | 
 | **Scenari Alternativi** |  | 
 | **Requisiti non funzionali** | Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
@@ -162,13 +162,13 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Titolo** | Registrazione |
 | **Descrizione** | Il cliente si registra al servizio | 
 | **Attori** | Cliente | 
-| **Relazioni** | VerificaIdentità | 
+| **Relazioni** | | 
 | **Precondizioni** | Il cliente dispone di un codice fiscale valido | 
 | **Postcondizioni** | Il cliente è registrato nel sistema ed è posto in attesa della verifica | 
 | **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e il codice fiscale <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale | 
 | **Scenari Alternativi** | Scenario a: il codice fiscale è già registrato <br> 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore. | 
 | **Requisiti non funzionali** | Semplicità dell'interfaccia |
-| **Punti aperti** | | 
+| **Punti aperti** | |
 
 <br>
 
@@ -177,7 +177,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Titolo** | VerificaIdentità |
 | **Descrizione** | Verifica dell'identità dell'utente registrato | 
 | **Attori** | Cliente, Farmacista | 
-| **Relazioni** | Registrazione, GestioneFarmacia |
+| **Relazioni** | GestioneFarmacia |
 | **Precondizioni** | Il cliente è registrato | 
 | **Postcondizioni** | L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni |
 | **Scenario principale** | 1. Il cliente va in farmacia con il documento specificato in fase di registrazione <br> 2. Il cliente viene identificato dal farmacista <br> 3. Il farmacista chiede al sistema di recuperare l'utente <br> 4. Il farmacista attiva l'account dell'utente |
@@ -237,11 +237,41 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Titolo** | NuovaPrenotazione |
 | **Descrizione** | L'utente prenota a suo nome una lista di farmaci | 
 | **Attori** | ClienteRegistrato | 
-| **Relazioni** | Login | 
+| **Relazioni** | GestionePrenotazioni | 
 | **Precondizioni** |  | 
 | **Postcondizioni** | Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia | 
 | **Scenario principale** | 1. Il cliente esegue il **Login** <br> 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata <br> 3. Il cliente invia la richiesta di prenotazione <br> 4. Il sistema pone la richiesta in attesa di conferma | 
 | **Scenari Alternativi** | Scenario a: La farmacia non dispone dei farmaci richiesti. <br> 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati <br> 5. Viene inviato al cliente un messaggio di errore| 
+| **Requisiti non funzionali** | Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- |
+| **Titolo** | ListaPrenotazioni |
+| **Descrizione** | L'utente ottiene la lista delle proprie prenotazioni passate ed in corso |
+| **Attori** | ClienteRegistrato | 
+| **Relazioni** | GestionePrenotazioni | 
+| **Precondizioni** | | 
+| **Postcondizioni** | Al cliente viene mostrata la lista delle prenotazioni passate ed in corso|
+| **Scenario Principale** | 1. Il cliente esegue il Login <br> 2. Il cliente seleziona l'opzione di visualizzazione della lista delle prenotazioni <br> 3. Al cliente viene mostrato l'elenco delle prenotazioni effettuate|
+| **Scenari Alternativi** | |
+| **Requisiti non funzionali** | Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- |
+| **Titolo** | GestionePrenotazioni |
+| **Descrizione** | Gestione delle prenotazioni di un cliente registrato |
+| **Attori** | ClienteRegistrato | 
+| **Relazioni** | Login, ListaPrenotazioni, NuovaPrenotazione | 
+| **Precondizioni** | | 
+| **Postcondizioni** | | 
+| **Scenario Principale** | 1. Il cliente registrato esegue il login <br> 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.|
+| **Scenari Alternativi** | |
 | **Requisiti non funzionali** | Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere |
 | **Punti aperti** |  | 
 

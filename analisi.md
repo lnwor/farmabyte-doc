@@ -29,6 +29,28 @@
 
 <br>
 
+<!-- 
+### RegistraFarmacie: Tabella Informazioni/Flusso
+
+|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
+|:-:|:-:|:-:|:-:|:-:|
+|Id Farmacia|Semplice|Protezione media|Input|Non più di 40 caratteri|
+
+<br>
+
+### RegistraFarmacisti: Tabella Informazioni/Flusso
+
+|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
+|:-:|:-:|:-:|:-:|:-:|
+|Nome Farmacista|Semplice|Protezione alta|Input|Non più di 40 caratteri|
+|Cognome Farmacista|Semplice|Protezione alta|Input|Non più di 40 caratteri|
+|Id Farmacia|Semplice|Protezione media|Input|Non più di 40 caratteri|
+|Username Farmacista|Semplice|Protezione molto alta|Input|Non più di 40 caratteri|
+|Password Farmacista|Semplice|Protezione molto alta|Input|
+
+<br>
+-->
+
 ### RicercaFarmaci: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
@@ -124,7 +146,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |View LoginFarmacista|Username, Password|Login|
 |View Prenotazioni|Lista Prenotazioni|GestioneFarmacia|
 |View ResocontoUtenti|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente, Stato Cliente|GestioneFarmacia|
-|View VerificaIdentita|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente |VerificaIdentita|
+|View VerificaIdentità|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente |VerificaIdentità|
 |View Farmaci|Lista Farmaci|GestioneFarmacia|
 |Home Servizio|Messaggio di benvenuto, Nome farmaco, Località utente, Lista farmacie pertinenti|RicercaFarmaci|
 |View Registrazione|Pagina di registrazione di un nuovo utente|Registrazione|
