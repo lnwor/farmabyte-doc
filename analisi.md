@@ -89,7 +89,6 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Attore|Semplice|Protezione alta|Input|Non più di 20 caratteri|
 |Identificativo Farmacia|Semplice|Protezione alta|Input|Non più di 20 caratteri|
 |Operazione Eseguita|Composto|Protezione alta|Input||
-|Messaggio|Composto|Protezione molto alta|Input||
 
 <br>
 
@@ -245,12 +244,12 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Funzionalità|Scomposizione|
 |:-|:-|
-|Gestione Farmacia| ResocontoFarmaci, ResocontoUtenti, ControlloPrenotazioni, VerificaIdentità |
-|||
-|||
+|GestioneFarmacia| ResocontoFarmaci,<br> ResocontoUtenti, <br>ControlloPrenotazioni,<br> VerificaIdentità |
+|ControlloPrenotazioni|ConfermaPrenotazione|
+|ResocontoUtenti|SospensioneUtenza|
 
-|GestioneFarmacia|Memorizzazione dati e gestione dati|Complessa|
-
+<br>
+<!--  Tabella sotto funzionalità (non penso sia necessaria)-->
 
 ## Creazione Modello del Dominio
 
