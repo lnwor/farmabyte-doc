@@ -364,7 +364,7 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 | **Relazioni** | |
 | **Precondizioni** | 1. L'attaccante ha i mezzi per intercettare i messaggi del sistema <br> 2. L'attaccante ha i mezzi per modificare i messaggi <br> 3. L'attaccante ha i mezzi per spedire il messaggio modificato al destinatario | 
 | **Postcondizioni** | Il sistema rileva il messaggio contraffatto |
-| **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log| 
+| **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log | 
 | **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio e lo modifica <br> 3. Il sistema accetta il messaggio e agisce di conseguenza, segnando il messaggio nei log | 
 
 <br>
