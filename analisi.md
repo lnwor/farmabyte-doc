@@ -5,13 +5,13 @@
 
 |Funzionalità|Tipo|Grado Complessità|Requisiti Collegati|
 |:-:|:-:|:-:|:-:|
-|GestioneFarmacia|Memorizzazione dati e gestione dati|Complessa|R5F, R10F, R11F, R12F, R13F, R14F |
-|Registrazione|Interazione esterno e memorizzazione dati|Semplice|R4F|
-|RicercaFarmaci|Interazione esterno e lettura dati|Semplice|R1F, R2F, R3F|
-|Login|Interazione esterno e lettura dati|Semplice|R9F|
-|NuovaPrenotazione|Interazione esterno e memorizzazione dati|Semplice|R6F, R7F, R8F|
-|ScritturaLog|Memorizzazione dati|Semplice| R15F|
-|AnalisiLog|Gestione dati|Semplice| R15F|
+|GestioneFarmacia|Memorizzazione dati e gestione dati|complessa|R5F, R10F, R11F, R12F, R13F, R14F |
+|Registrazione|Interazione esterno e memorizzazione dati|semplice|R4F|
+|RicercaFarmaci|Interazione esterno e lettura dati|semplice|R1F, R2F, R3F|
+|Login|Interazione esterno e lettura dati|semplice|R9F|
+|GestionePrenotazioni|Interazione esterno e memorizzazione dati|somposta|R6F, R7F, R8F, R9F|
+|ScritturaLog|Memorizzazione dati|semplice| R15F|
+|AnalisiLog|Gestione dati|semplice| R15F|
 
 <br>
 
@@ -19,12 +19,12 @@
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Nome Cliente|Semplice|Protezione alta|Output|Non più di 40 caratteri|
-|Cognome Cliente|Semplice|Protezione alta|Output|Non più di 40 caratteri|
-|Codice Fiscale Cliente|Semplice|Protezione media|Output|Deve essere di 16 caratteri|
-|Stato Cliente|Semplice|Protezione media|Output||
-|Lista Farmaci|Composto|Protezione alta|Output||
-|Lista Prenotazioni|Composto|Protezione molto alta|Output||
+|Nome Cliente|semplice|Protezione alta|Output|Non più di 40 caratteri|
+|Cognome Cliente|semplice|Protezione alta|Output|Non più di 40 caratteri|
+|Codice Fiscale Cliente|semplice|Protezione media|Output|Deve essere di 16 caratteri|
+|Stato Cliente|semplice|Protezione media|Output||
+|Lista Farmaci|composto|Protezione alta|Output||
+|Lista Prenotazioni|composto|Protezione molto alta|Output||
 
 
 <br>
@@ -55,9 +55,9 @@
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Nome Farmaco|Semplice|Protezione bassa|Input||
-|Località Utente|Composto|Protezione alta|Input||
-|Lista Farmacie Pertinenti|Composto|Protezione bassa|Output|Non più di 10 farmacie| 
+|Nome Farmaco|semplice|Protezione bassa|Input||
+|Località Utente|composto|Protezione alta|Input||
+|Lista Farmacie Pertinenti|composto|Protezione bassa|Output|Non più di 10 farmacie| 
 
 <!-- 
 Località Utente = {Latitudine, Longitudine};
@@ -72,11 +72,11 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
 |Nome Cliente|Semplice|Protezione media|Input|Non più di 40 caratteri|
-|Cognome Cliente|Semplice|Protezione media|Input|Non più di 40 caratteri|
-|Data di Nascita|Semplice|Protezione media|Input|Deve avere più di 16 anni e data di nascita successiva al 1900|
-|Codice Fiscale|Semplice|Protezione media|Input|Deve essere di 16 caratteri|
-|Email| Semplice|Protezione alta|Input|Deve essere di 256 caratteri e del formato giusto|
-|Password|Semplice|Protezione molto alta|Input|Deve essere almeno di 8 caratteri, di cui uno alfabetico e uno numerico|
+|Cognome Cliente|semplice|Protezione media|Input|Non più di 40 caratteri|
+|Data di Nascita|semplice|Protezione media|Input|Deve avere più di 16 anni e data di nascita successiva al 1900|
+|Codice Fiscale|semplice|Protezione media|Input|Deve essere di 16 caratteri|
+|Email| semplice|Protezione alta|Input|Deve essere di 256 caratteri e del formato giusto|
+|Password|semplice|Protezione molto alta|Input|Deve essere almeno di 8 caratteri, di cui uno alfabetico e uno numerico|
 
 <br>
 
@@ -84,12 +84,12 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Data |Semplice|Protezione media|Input|Non più di 40 caratteri|
-|Ora|Semplice|Protezione media|Input|Non più di 40 caratteri|
-|Attore|Semplice|Protezione alta|Input|Non più di 20 caratteri|
-|Identificativo Farmacia|Semplice|Protezione alta|Input|Non più di 20 caratteri|
-|Operazione Eseguita|Composto|Protezione alta|Input||
-|Evento|Composto|Protezione molto alta|Input||
+|Data |semplice|Protezione media|Input|Non più di 40 caratteri|
+|Ora|semplice|Protezione media|Input|Non più di 40 caratteri|
+|Attore|semplice|Protezione alta|Input|Non più di 20 caratteri|
+|Identificativo Farmacia|semplice|Protezione alta|Input|Non più di 20 caratteri|
+|Operazione Eseguita|composto|Protezione alta|Input||
+|Evento|composto|Protezione molto alta|Input||
 
 <br>
 
@@ -97,7 +97,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Notifica|Composto|Protezione bassa|Output||
+|Notifica|composto|Protezione bassa|Output||
 
 <br>
 
@@ -111,7 +111,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
-### NuovaPrenotazione: Tabella Informazioni/Flusso
+### GestionePrenotazione: Tabella Informazioni/Flusso
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
@@ -120,7 +120,8 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Data prenotazione|semplice|Protezione media|Input|Solo una data compresa tra il giorno successivo e 14 giorni dopo|
 |Elenco farmaci|composto|Protezione alta|Input|1. Non più di 5 elementi per ogni farmaco <br> 2. Non più di 20 elementi in totale|
 |Identificativo farmacia|semplice|Protezione alta|Input|Non più di 20 caratteri|
-|Identificativo cliente|semplice|Protezione molto alta|Input|Non pi di 20 caratteri|
+|Identificativo cliente|semplice|Protezione molto alta|Input|Non più di 20 caratteri|
+|Lista prenotazioni | composto | Protezione alta | Output ||
 
 <br>
 
@@ -151,10 +152,10 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Home Servizio|Messaggio di benvenuto, Nome farmaco, Località utente, Lista farmacie pertinenti|RicercaFarmaci|
 |View Registrazione|Pagina di registrazione di un nuovo utente|Registrazione|
 |View NuovaPrenotazione|Data invio, Ora invio, Data prenotazione, Elenco farmaci, Identificativo farmacia<!--, Identificativo cliente-->|NuovaPrenotazione|
-|View PrenotazioniPersonali|||
+|View PrenotazioniPersonali|Lista prenotazioni|ListaPrenotazioni|
 |View LoginUtente|Username, Password|Login|
 |Home Log|Scelta del tipo di analisi dei log|AnalisiLog|
-|View Log|Data, Ora, Operazione eseguita, Attore, Identificativo farmacia|AnalisiLog|
+|View Log|Data, Ora, Operazione eseguita, Attore, Identificativo farmacia, Evento|AnalisiLog|
 |View Anomalie|Elenco delle anomalie|AnalisiLog|
 
 <!-- |Home Utente||| -->
@@ -246,12 +247,30 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Funzionalità|Scomposizione|
 |:-|:-|
 |GestioneFarmacia| ResocontoFarmaci,<br> ResocontoUtenti, <br>ControlloPrenotazioni,<br> VerificaIdentità |
+|GestionePrenotazioni| NuovaPrenotazione, <br> ListaPrenotazioni |
 |ControlloPrenotazioni|ConfermaPrenotazione|
 |ResocontoUtenti|SospensioneUtenza|
 
 <br>
 
-<!--###  Tabella sotto funzionalità (non penso sia necessaria)-->
+###  Tabella sotto funzionalità 
+|Sotto-funzionalità|Sotto-funzionalità|Legame|Informazioni|
+|:-|:-|:-|:-|
+|||
+
+<br>
 
 ## Creazione Modello del Dominio
+
+Il seguente diagramma delle classi rappresenta la parte di modello del dominio relativa al sistema.
+
+Modellodominio.drawio
+
+Il seguente diagramma delle classi rappresenta la parte di modello del dominio relativo alla gestione dei Log.
+
+Logs.drawio
+
+## Architettura Logica: Struttura
+
+### Diagramma dei package
 
