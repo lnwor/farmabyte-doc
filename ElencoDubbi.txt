@@ -1,3 +1,2 @@
-come registrare nuove farmacie e farmacisti e se questo è necessario. Nel villaggio turistico non vengono considerati nessuno dei due casi d'uso
-Perchè non ha messo i log nei casi d'uso?
 Cliente non registrato?
+Password e username in dominio

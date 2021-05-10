@@ -9,9 +9,8 @@
 |Registrazione|Interazione esterno e memorizzazione dati|semplice|R4F|
 |RicercaFarmaci|Interazione esterno e lettura dati|semplice|R1F, R2F, R3F|
 |Login|Interazione esterno e lettura dati|semplice|R9F|
-|GestionePrenotazioni|Interazione esterno e memorizzazione dati|somposta|R6F, R7F, R8F, R9F|
+|GestionePrenotazioni|Interazione esterno e memorizzazione dati|comp|R6F, R7F, R8F, R9F|
 |ScritturaLog|Memorizzazione dati|semplice| R15F|
-|AnalisiLog|Gestione dati|semplice| R15F|
 
 <br>
 
@@ -154,9 +153,6 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |View NuovaPrenotazione|Data invio, Ora invio, Data prenotazione, Elenco farmaci, Identificativo farmacia<!--, Identificativo cliente-->|NuovaPrenotazione|
 |View PrenotazioniPersonali|Lista prenotazioni|ListaPrenotazioni|
 |View LoginUtente|Username, Password|Login|
-|Home Log|Scelta del tipo di analisi dei log|AnalisiLog|
-|View Log|Data, Ora, Operazione eseguita, Attore, Identificativo farmacia, Evento|AnalisiLog|
-|View Anomalie|Elenco delle anomalie|AnalisiLog|
 
 <!-- |Home Utente||| -->
 
@@ -247,9 +243,9 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Funzionalità|Scomposizione|
 |:-|:-|
 |GestioneFarmacia| ResocontoFarmaci,<br> ResocontoUtenti, <br>ControlloPrenotazioni,<br> VerificaIdentità |
-|GestionePrenotazioni| NuovaPrenotazione, <br> ListaPrenotazioni |
-|ControlloPrenotazioni|ConfermaPrenotazione|
-|ResocontoUtenti|SospensioneUtenza|
+|GestionePrenotazioni | NuovaPrenotazione, <br> ListaPrenotazioni |
+|ControlloPrenotazioni | ConfermaPrenotazione |
+|ResocontoUtenti| SospensioneUtenza |
 
 <br>
 
