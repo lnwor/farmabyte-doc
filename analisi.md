@@ -162,7 +162,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Sistema|Descrizione|Protocollo di Interazione|Livello di Sicurezza|
 |:-:|:-:|:-:|:-:|
-|Gestione Magazzino|Sistema che si occupa della gestione dei farmaci in magazzino|GestioneMagazzino mette a disposizione delle funzionalità di elencazione dei farmaci. L'elenco restituito varierà in base ai parametri passati |Medio livello di sicurezza perchè protegge i dati della farmacia |
+|Gestione Magazzino | Sistema che si occupa della gestione dei farmaci in magazzino | GestioneMagazzino mette a disposizione delle funzionalità di elencazione dei farmaci |Medio livello di sicurezza perchè protegge i dati della farmacia |
 
 <br>
 

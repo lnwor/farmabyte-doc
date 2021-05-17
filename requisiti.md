@@ -19,7 +19,8 @@
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento
 - Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista e eventualmente bloccare l'utente per 1 mese.
 - Il sistema sarà ovviamente distribuito e di natura client-server con la presenza di un database centrale dove memorizzare i dati
-- la gestione delle vendite e ordini è gestita da un altro software
+- La gestione delle vendite, degli ordini e modifiche di magazzino è gestita da un altro software
+- Non va considerata la gestione dei dati del personale 
 
 <br>
 
@@ -53,6 +54,8 @@ R4NF | Un utente non può avere più di un account verificato | Non Funzionale
 R5NF | L'utente non deve poter fare eccessive prenotazioni | Non Funzionale
 R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non Funzionale
 R7NF | Per prenotare l'utente deve essere registrato | Non Funzionale
+R8NF | La gestione delle vendite, degli ordini e modifiche di magazzino è gestita da un altro software | Non Funzionale
+R9NF | Non va considerata la gestione dei dati del personale | Non Funzionale 
 
 <br>
 
@@ -391,11 +394,11 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 Sussistono inoltre i seguenti requisiti:
 1. I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati.
 2. I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati.
-3. Implementazione di un sistema di log per monitorare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati.
+3. Tutte le azioni avvenute sul sistema devono essere tracciate tramite un sistema di log. La visione e l'analisi dei log verrà gestita con un editor di testo esterno, accessibile solo al personale autorizzato.
 
 
 ID | Requisiti | Tipo
 --- | --- | ---
-R15F | Implementazione di un sistema di log per monitorare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati | Funzionale
-R8NF | I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati | Non Funzionale
-R9NF | I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati | Non Funzionale
+R15F | Implementazione di un sistema di log per tracciare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati | Funzionale
+R10NF | I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati | Non Funzionale
+R11NF | I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati | Non Funzionale
