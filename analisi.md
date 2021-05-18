@@ -270,3 +270,42 @@ Logs.drawio
 
 ### Diagramma dei package
 
+### Diagramma delle classi: Dominio
+
+### Diagramma delle classi: 
+
+### Diagramma delle classi:
+
+## Architettura Logica: Interazione
+
+### Diagramma di sequenza:
+
+## Architettura Logica: Comportamento
+
+### Diagramma di stato: AnalizzaUtente
+
+
+## Piano di lavoro
+
+|Package|Progetto|Sviluppo|
+|:--|:--|:--|
+|Dominio | Guerra,Palaferri,Romanini | Guerra,Palaferri,Romanini|
+|Log | Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+|RicercaFarmaci | Guerra,Palaferri,Romanini| Guerra,Palaferri,Romanini|
+|GestionePrenotazioni |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+|GestioneAccesso |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+|GestioneFarmacia |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+|InterfacciaUtente |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+|InterfacciaGestioneAccsso |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+|InterfacciaFarmacia |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
+
+I tempi di rilascio sono i seguenti:
+- Progettazione entro 14 giorni dalla data di odierna
+- Sviluppo dei vai moduli con annessi test unitari entro due settimane dalla fine della fase di progettazione
+- Integrazione e testing del sistema entro due settimane dalla fine dello sviluppo
+
+Sviluppi futuri:
+Il cliente ha richiesto la creazione di un applicativo mobile, per sistemi android e iOS, con l'obbiettivo di rendere il più pratico possibile l'utilizzo del programma. 
+
+## Piano di collaudo
+
