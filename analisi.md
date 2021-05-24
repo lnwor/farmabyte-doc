@@ -143,7 +143,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Maschera|Informazioni|Funzionalità|
 |:-:|:-:|:-:|
 |Home Gestione|Messaggio di benvenuto e scelta della funzionalità|GestioneFarmacia|
-|View LoginFarmacista|Username, Password|Login|
+|View Login|Username, Password|Login|
 |View Prenotazioni|Lista Prenotazioni|GestioneFarmacia|
 |View ResocontoUtenti|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente, Stato Cliente|GestioneFarmacia|
 |View VerificaIdentità|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente |VerificaIdentità|
@@ -152,7 +152,6 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |View Registrazione|Pagina di registrazione di un nuovo utente|Registrazione|
 |View NuovaPrenotazione|Data invio, Ora invio, Data prenotazione, Elenco farmaci, Identificativo farmacia<!--, Identificativo cliente-->|NuovaPrenotazione|
 |View PrenotazioniPersonali|Lista prenotazioni|ListaPrenotazioni|
-|View LoginUtente|Username, Password|Login|
 
 <!-- |Home Utente||| -->
 
