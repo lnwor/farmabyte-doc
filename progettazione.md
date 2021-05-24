@@ -11,8 +11,8 @@ Dall'analisi dei requisiti sono emersi i seguenti requisiti non funzionali:
 - Protezione dei dati 
 - Sicurezza delle comunicazioni
 
-La protezione dei dati e delle comunicazioni assume fondamentale importanza vista la natura del software, che deve trattare dati personali e sanitari dei clienti. La compromissione di questi risulterebbe in una grave perdita finanziaria e di immagine, senza considerare i danni apportati alla privacy degli utenti. L'utilizzo di tecnologie standard per la cifratura delle comunicazioni quali HTTPS e TLS è quindi obbligatorio, oltre ad una corretta configurazione di queste. Inoltre, sarà necessario assicurare la sicurezza fisica dei dati immagazzinati nel sistema.
-L'introduzione di misure di sicurezza non compromette l'usabilità del sistema, ma potrebbe peggiorare leggermente le prestazioni del sistema: è possibile comunque bilanciare le due esigenze senza troppi problemi. Va notato inoltre che il sistema non presenta vincoli di tempo particolarmente stringenti (nessun vincolo real-time).
+La protezione dei dati e delle comunicazioni assume fondamentale importanza vista la natura del software, che deve trattare dati personali e sanitari dei clienti. La compromissione di questi risulterebbe in una grave perdita finanziaria e di immagine, senza considerare i danni apportati alla privacy degli utenti. Inoltre, sarà necessario assicurare la sicurezza fisica dei dati immagazzinati nel sistema.
+L'introduzione di misure di sicurezza delle comunicazioni e protezione dei dati non compromette l'usabilità del sistema, ma potrebbe peggiorare leggermente le prestazioni del sistema: è possibile comunque bilanciare le due esigenze senza troppi problemi mediante le tecnologie esposte di seguito. Va notato inoltre che il sistema non presenta vincoli di tempo particolarmente stringenti (nessun vincolo real-time).
 
 <br>
 
@@ -39,4 +39,6 @@ In modo analogo alla scomposizione dei client, si è deciso di scomporre i serve
 <br>
 La gestione della persistenza verrà implementata in un server dedicato sul quale sarà installato un DBMS che gestisca i dati di tutte le farmacie aderenti al servizio.<br>
 ---L'interfacciamento con il DBMS avverrà mediante la metodologia "forza bruta" utilizzando i metodi CRUD.---
+
+### Da aggiungere un breve paragrafo che esponga le tecnologie da utilizzare
 
