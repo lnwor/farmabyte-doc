@@ -1,2 +1,5 @@
 Cliente non registrato?
 Password e username in dominio
+Dominio doppio
+Log
+due client un server
