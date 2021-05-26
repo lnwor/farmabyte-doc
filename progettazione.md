@@ -18,7 +18,7 @@ L'introduzione di misure di sicurezza delle comunicazioni e protezione dei dati 
 
 ### Scelta dell'architettura
 
-Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il sistema è l'**architettura client-server a 3 livelli**. Si è deciso inoltre di scomporre i diversi componenti in base alle funzionalità per avere una separazione netta tra l'applicativo utilizzato dai clienti 
+Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il sistema è l'**architettura client-server a 3 livelli**.
 
 **L1 - Client:**
 <br>
