@@ -18,7 +18,7 @@ L'introduzione di misure di sicurezza delle comunicazioni e protezione dei dati 
 
 ### Scelta dell'architettura
 
-Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il sistema è l'**architettura client-server a 3 livelli**.
+Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il sistema è l'**architettura client-server a 3 livelli**. Si è deciso inoltre di scomporre i diversi componenti in base alle funzionalità per avere una separazione netta tra l'applicativo utilizzato dai clienti 
 
 **L1 - Client:**
 <br>
@@ -40,5 +40,12 @@ In modo analogo alla scomposizione dei client, si è deciso di scomporre i serve
 La gestione della persistenza verrà implementata in un server dedicato sul quale sarà installato un DBMS che gestisca i dati di tutte le farmacie aderenti al servizio.<br>
 ---L'interfacciamento con il DBMS avverrà mediante la metodologia "forza bruta" utilizzando i metodi CRUD.---
 
-### Da aggiungere un breve paragrafo che esponga le tecnologie da utilizzare
+Infine, dopo un'attenta analisi, si è optato per l'adozione del pattern **Broker**: un componente verrà interposto nella comunicazione Client-Server e avrà il compito di indirizzare le richieste dei client al relativo server, effettuando un controllo sulle sessioni attive per determinare lo stato del client. La scomposizione in diversi client e server consente di avere una separazione netta tra gli applicativi del cliente e del farmacista, in modo da localizzare le operazioni critiche e ottenere maggiore protezione dei dati.
+<br>
+Chiaramente l'affidabilità del sistema dipende dalla robustezza del broker e soprattutto del sistema di autenticazione.
 
+Si riportano di seguito i diagrammi di package e componenti che descrivono l'architettura del sistema.
+
+_inserire immagine dei diagrammi qui_
+
+### Da aggiungere un breve paragrafo che esponga le tecnologie da utilizzare
