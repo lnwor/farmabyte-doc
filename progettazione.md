@@ -22,18 +22,18 @@ Dopo una rapida analisi, si è constatato che l'architettura più adeguata per i
 
 **L1 - Client:**
 <br>
-Rispettando il principio del "minimo privilegio" per dividere le varie funzionalità si è deciso di sviluppare due Client distinti:
+La parte di Client sarà implementata da due interfacce web differenti:
 
-- Un client per le funzionalità relative ai clienti (registrati e non)
-- Un client per la gestione della farmacia da parte di un operatore (farmacista)
+- Un'interfaccia per le funzionalità relative ai clienti (registrati e non)
+- Un'interfaccia per la gestione della farmacia da parte di un operatore (farmacista)
 
 **L2 - Server:**
 <br>
-In modo analogo alla scomposizione dei client, si è deciso di scomporre i server in base alle funzionalità offerte ai client, si hanno quindi tre server:
+Rispettando il principio del "minimo privilegio" per limitare i danni in caso di attacco e per distribuire meglio il carico, si è deciso di scomporre i server in base alle funzionalità offerte. Si hanno quindi tre server:
 
 - Un server che fornisce i servizi ai clienti registrati e non
 - Un server che funge da pannello di controllo per i farmacisti
-- Un server per le funzionalità di login
+- Un server per le funzionalità di autenticazione
 
 **L3 - Persistenza:**
 <br>
