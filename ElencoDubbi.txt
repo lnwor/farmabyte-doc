@@ -3,3 +3,11 @@ Password e username in dominio
 Dominio doppio
 Log
 due client un server
+
+diagrammi di sequenza in piu volendo:
+lista Prenotazioni Utente
+lista Farmaci 
+lista Utenti bloccabili
+Cerca Utente Farmacia
+
+inserisci i Farmaci durante la prenotazione 
