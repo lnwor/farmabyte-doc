@@ -10,14 +10,14 @@
 - Il cliente fornisce la sua posizione che l'applicativo userà per indicargli le farmacie più vicine. Contemporaneamente specificherà il farmaco da cercare e l'applicativo fornirà le 10 farmacie più vicine ad averlo in magazzino indicandone se è disponibile o sta per terminare.
 - Per la prenotazione è necessario possedere un account
 - La prenotazione sarà composta da uno o più farmaci, dalla farmacia, e dal giorno. 
-- Se il farmaco necessita di ricetta, il cliente può decidere se inserirla in fase di prenotazione (sotto forma di foto o codice univoco) oppure presentarla fisicamente.
 - L'account viene creato in due fasi:
-    1. Registrazione con username, password e codice fiscale
+    1. Registrazione con username, password, numero di telefono e codice fiscale
     2. Autenticazione di persona in farmacia
 - L'username deve essere univoco, la password di almeno 8 caratteri, contentente almeno un numero e un carattere alfabetico.
 - Per l'autenticazione è necessario mostrare il tesserino sanitario per l'identificazione in farmacia.
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento
-- Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista e eventualmente bloccare l'utente per 1 mese.
+- Il farmacista può confermare le prenotazioni andate a buon fine
+- Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista che può eventualmente bloccare l'utente per 1 mese.
 - Il sistema sarà ovviamente distribuito e di natura client-server con la presenza di un database centrale dove memorizzare i dati
 - La gestione delle vendite, degli ordini e modifiche di magazzino è gestita da un altro software
 - Non va considerata la gestione dei dati del personale 
@@ -39,11 +39,11 @@ R3F | Presentazione delle farmacie che dispongono di un farmaco | Funzionale
 R4F | Registrazione di un account tramite l'interfaccia web | Funzionale
 R5F | Attivazione dell'account con identificazione fisica dell'utente con documento | Funzionale
 R6F | La prenotazione sarà composta da uno o più farmaci, dalla farmacia e dal giorno | Funzionale
-R7F | Le prenotazioni farmaci con ricetta prevedono il caricamento opzionale della foto o del codice | Funzionale
-R8F | Identificazione attraverso username univoco e password di almeno 8 caratteri, contentente almeno un carattere alfabetico e un carattere numerico | Funzionale
-R9F | Visualizzazione delle prenotazioni | Funzionale
-R10F | Visualizzazione del numero dei farmaci disponibili | Funzionale
-R11F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
+R7F | Identificazione attraverso username univoco e password di almeno 8 caratteri, contentente almeno un carattere alfabetico e un carattere numerico | Funzionale
+R8F | Visualizzazione delle prenotazioni | Funzionale
+R9F | Visualizzazione del numero dei farmaci disponibili | Funzionale
+R10F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
+R11F | Conferma della prenotazione andata a buon fine| Funzionale
 R12F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
 R13F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
 R14F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
@@ -51,11 +51,10 @@ R1NF | Velocità di memorizzazione dei dati | Non Funzionale
 R2NF | Velocità della ricerca dei dati | Non Funzionale
 R3NF | Semplicità dell'interfaccia | Non Funzionale
 R4NF | Un utente non può avere più di un account verificato | Non Funzionale
-R5NF | L'utente non deve poter fare eccessive prenotazioni | Non Funzionale
-R6NF | la gestione delle vendite e ordini è gestita da un altro software | Non Funzionale
-R7NF | Per prenotare l'utente deve essere registrato | Non Funzionale
-R8NF | La gestione delle vendite, degli ordini e modifiche di magazzino è gestita da un altro software | Non Funzionale
-R9NF | Non va considerata la gestione dei dati del personale | Non Funzionale 
+R5NF | la gestione delle vendite e ordini è gestita da un altro software | Non Funzionale
+R6NF | Per prenotare l'utente deve essere registrato | Non Funzionale
+R7NF | La gestione delle vendite, degli ordini e modifiche di magazzino è gestita da un altro software | Non Funzionale
+R8NF | Non va considerata la gestione dei dati del personale | Non Funzionale 
 
 <br>
 
@@ -72,7 +71,6 @@ Farmaco | Medicinale che viene venduto in farmacia |
 Farmacista | Utente che accede con le credenziali della farmacia | Operatore
 Prenotazione | Richiesta di farmaci da comprare in negozio  |
 Data e ora prenotazione | Indicazione temporale del momento in cui avverrà la prenotazione | 
-Codice Ricetta | Codice associato alla ricetta elettronica, necessario comprare certi farmaci | 
 Posizione | Luogo della ricerca o collocamento geografico della farmacia |
 Credenziali | Insieme composto da username e password necessari per acccedere al sistema | 
 Username | È una parola formata dalla concatenazione di nome e cognome dell’Utente o del nome della farmacia | 
@@ -310,7 +308,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 Bene | Valore | Esposizione
 --- | --- | ---
 Sistema Informativo | Alto. Fondamentale per il funzionamento del servizio | Alta. Perdita finanziaria e di immagine
-Informazioni dei clienti | Medio. Dati generali dei clienti della farmacia, comprese le credenziali | Alta. Perdita di immagine dovuta alla divulgazione di dati sensibili
+Informazioni dei clienti | Alto. Dati generali dei clienti della farmacia, comprese le credenziali | Alta. Perdita di immagine dovuta alla divulgazione di dati sensibili
 Informazioni relative al personale | Alto. Dati relativi ai farmacisti, incluse le credenziali di accesso all'area riservata | Molto Alta. Perdita finanziaria dovuta a usi impropri delle credenziali con privilegi elevati. Perdita di immagine possibile con la divulgazione dei dati relativi ai clienti
 Dati delle prenotazioni | Alto. Necessario per tenere traccia delle prenotazioni | Molto Alta. Perdita finanziaria dovuta allo smarrimento di prenotazioni. Perdita di immagine con la divulgazione dei farmaci prenotati dai clienti
 
@@ -355,7 +353,7 @@ Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffin
 | **Precondizioni** | L'attaccante ha i mezzi per intercettare i messaggi del sistema |
 | **Postcondizioni** | Il sistema impedisce all'attaccante di decifrare (in tempi utili) i messaggi intercettati |
 | **Scenario principale** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio <br> 3. L'attaccante prova a decifrare i messaggi, ma non riesce a trovare un modo per farlo abbastanza velocemente |
-| **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio <br> 3. L'attaccante riesce a decifrare i messaggi e a leggerne il contenuto, ma solamente per una sessionedi un utente |
+| **Scenari di un attacco avvenuto con successo** | 1. Il Sistema protegge i messaggi <br> 2. L'attaccante riesce ad intercettare un messaggio <br> 3. L'attaccante riesce a decifrare i messaggi e a leggerne il contenuto, ma solamente per una sessione di un utente |
 
 <br>
 
@@ -400,5 +398,5 @@ Sussistono inoltre i seguenti requisiti:
 ID | Requisiti | Tipo
 --- | --- | ---
 R15F | Implementazione di un sistema di log per tracciare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati | Funzionale
-R10NF | I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati | Non Funzionale
-R11NF | I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati | Non Funzionale
+R9NF | I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati | Non Funzionale
+R10NF | I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati | Non Funzionale

@@ -10,7 +10,13 @@ lista Farmaci
 lista Utenti bloccabili
 Cerca Utente Farmacia
 
+Diagramma di sequenza: ricerca utente(da registrare)?
+
 inserisci i Farmaci durante la prenotazione 
 non molte funzioni in più nei controlli 
 un gestore unico per DBMS e LOG
 Log non è un vero e proprio DB
+
+Relazioni Diagramma ER
+
+include di ricercaFarmaci

@@ -5,11 +5,12 @@
 
 |Funzionalità|Tipo|Grado Complessità|Requisiti Collegati|
 |:-:|:-:|:-:|:-:|
-|GestioneFarmacia|Memorizzazione dati e gestione dati|complessa|R5F, R10F, R11F, R12F, R13F, R14F |
-|Registrazione|Interazione esterno e memorizzazione dati|semplice|R4F|
-|RicercaFarmaci|Interazione esterno e lettura dati|semplice|R1F, R2F, R3F|
-|Login|Interazione esterno e lettura dati|semplice|R9F|
-|GestionePrenotazioni|Interazione esterno e memorizzazione dati|comp|R6F, R7F, R8F, R9F|
+|GestioneFarmacia|Memorizzazione dati e gestione dati|complessa| R5F, R10F, R11F, R12F, R13F, R14F |
+|Registrazione|Interazione esterno e memorizzazione dati|semplice| R4F |
+|RicercaFarmaci|Interazione esterno e lettura dati|semplice| R1F, R2F, R3F|
+
+|Login|Interazione esterno e lettura dati|semplice| R7F |
+|GestionePrenotazioni|Interazione esterno e memorizzazione dati|comp| R2F, R6F, R8F, R9F|
 |ScritturaLog|Memorizzazione dati|semplice| R15F|
 
 <br>
@@ -27,28 +28,6 @@
 
 
 <br>
-
-<!-- 
-### RegistraFarmacie: Tabella Informazioni/Flusso
-
-|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
-|:-:|:-:|:-:|:-:|:-:|
-|Id Farmacia|Semplice|Protezione media|Input|Non più di 40 caratteri|
-
-<br>
-
-### RegistraFarmacisti: Tabella Informazioni/Flusso
-
-|Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
-|:-:|:-:|:-:|:-:|:-:|
-|Nome Farmacista|Semplice|Protezione alta|Input|Non più di 40 caratteri|
-|Cognome Farmacista|Semplice|Protezione alta|Input|Non più di 40 caratteri|
-|Id Farmacia|Semplice|Protezione media|Input|Non più di 40 caratteri|
-|Username Farmacista|Semplice|Protezione molto alta|Input|Non più di 40 caratteri|
-|Password Farmacista|Semplice|Protezione molto alta|Input|
-
-<br>
--->
 
 ### RicercaFarmaci: Tabella Informazioni/Flusso
 
