@@ -5,13 +5,12 @@
 
 |Funzionalità|Tipo|Grado Complessità|Requisiti Collegati|
 |:-:|:-:|:-:|:-:|
-|GestioneFarmacia|Memorizzazione dati e gestione dati|complessa| R5F, R10F, R11F, R12F, R13F, R14F |
+|GestioneFarmacia|Memorizzazione dati e gestione dati|complessa| R5F, R9F, R10F, R11F, R12F, R13F, R14F, R15F |
 |Registrazione|Interazione esterno e memorizzazione dati|semplice| R4F |
-|RicercaFarmaci|Interazione esterno e lettura dati|semplice| R1F, R2F, R3F|
-
+|RicercaFarmaci|Interazione esterno e lettura dati|semplice| R1F, R2F, R3F |
 |Login|Interazione esterno e lettura dati|semplice| R7F |
-|GestionePrenotazioni|Interazione esterno e memorizzazione dati|comp| R2F, R6F, R8F, R9F|
-|ScritturaLog|Memorizzazione dati|semplice| R15F|
+|GestionePrenotazioni|Interazione esterno e memorizzazione dati|comp| R2F, R6F, R8F |
+|ScritturaLog|Memorizzazione dati|semplice| R16F |
 
 <br>
 
@@ -84,7 +83,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Informazione|Tipo|Livello protezione/privacy|Input/Output|Vincoli|
 |:-:|:-:|:-:|:-:|:-:|
-|Username|semplice|Protezione molto alta|Input|Non più di 50 caratteri|
+|Email|semplice|Protezione molto alta|Input|Non più di 256 caratteri|
 |Password|semplice|Protezione molto alta|Input|Non più di 50 caratteri|
 
 <br>
@@ -122,17 +121,15 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Maschera|Informazioni|Funzionalità|
 |:-:|:-:|:-:|
 |Home Gestione|Messaggio di benvenuto e scelta della funzionalità|GestioneFarmacia|
-|View Login|Username, Password|Login|
+|View Login|Email, Password|Login|
 |View Prenotazioni|Lista Prenotazioni|GestioneFarmacia|
 |View ResocontoUtenti|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente, Stato Cliente|GestioneFarmacia|
 |View VerificaIdentità|Nome Cliente, Cognome Cliente, Codice Fiscale Cliente |VerificaIdentità|
 |View Farmaci|Lista Farmaci|GestioneFarmacia|
 |Home Servizio|Messaggio di benvenuto, Nome farmaco, Località utente, Lista farmacie pertinenti|RicercaFarmaci|
-|View Registrazione|Pagina di registrazione di un nuovo utente|Registrazione|
+|View Registrazione| Nome Cliente, Cognome Cliente, Data di Nascita, Codice Fiscale, Email, Password |Registrazione|
 |View NuovaPrenotazione|Data invio, Ora invio, Data prenotazione, Elenco farmaci, Identificativo farmacia<!--, Identificativo cliente-->|NuovaPrenotazione|
-|View PrenotazioniPersonali|Lista prenotazioni|ListaPrenotazioni|
-
-<!-- |Home Utente||| -->
+|View PrenotazioniPersonali|Lista Prenotazioni|ListaPrenotazioni|
 
 <br>
 
@@ -149,11 +146,9 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 |Ruolo|Responsabilità|Maschere|Riservatezza|Numerosità|
 |:-:|:-:|:-:|:-:|:-:|
-|Farmacista|Gestione di tutte le informazioni relative agli utenti e alle prenotazioni di una farmacia|||Massimo 10 farmacisti per ogni farmacia|
+|Farmacista|Gestione di tutte le informazioni relative agli utenti e alle prenotazioni di una farmacia|Home Gestione, View Login, View Prenotazioni, View ResocontoUtenti, View VerificaIdentità, View Farmaci, |E' richiesto un alto grado di riservatezza |Massimo 10 farmacisti per ogni farmacia|
 |Cliente|Ricerca di un farmaco senza necessità di login|Home Servizio, View Login, View Registrazione |E' richiesto un medio grado di riservatezza|Illimitati|
-|ClienteRegistrato|Ricerca e prenotazione di farmaci presso una farmacia|||Illimitati|
-|GestoreSicurezza|Visualizzazione di log relativi alle operazioni della propria farmacia|View Login, Home Log, View Log, view Anomalie|E' richiesto un medio grado di riservatezza|2-3 persone considerando l'alternanza dei giorni di lavoro|
-|Amministratore di sistema|Manutenzione del sistema e gestione delle utenze di farmacie e farmacisti|||1-2|
+|ClienteRegistrato|Ricerca e prenotazione di farmaci presso una farmacia|Home Servizio, View NuovaPrenotazione, View PrenotazioniPersonali| E' richiesto un alto grado di riservatezza |Illimitati|
 
 <br>
 
@@ -199,21 +194,6 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
-### GestoreSicurezza: Tabella Ruolo-Informazioni
-
-|Informazione|Tipo di Accesso|
-|:-:|:-:|
-|Data|Lettura|
-|Ora|Lettura|
-|Attore|Lettura|
-|Identificativo Farmacia|Lettura|
-|Operazione Eseguita|Lettura|
-|Messaggio|Lettura|
-|Username|Scrittura|
-|Password|Scrittura|
-
-<br>
-
 ## Scomposizione del Problema
 
 ### Tabella Scomposizione Funzionalità
@@ -227,10 +207,7 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 
 <br>
 
-###  Tabella sotto funzionalità 
-|Sotto-funzionalità|Sotto-funzionalità|Legame|Informazioni|
-|:-|:-|:-|:-|
-|||
+Non sono presenti legami di esclusione o di necessità tra le sotto-funzionalità del sistema. 
 
 <br>
 
@@ -245,23 +222,26 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 Logs.drawio
 
 ## Architettura Logica: Struttura
-
+Diagrammi.drawio
 ### Diagramma dei package
 
-### Diagramma delle classi: Dominio
 
-### Diagramma delle classi: 
 
-### Diagramma delle classi:
+### Diagramma delle classi: Farmacia
+
+### Diagramma delle classi: Utente
+
+### Diagramma delle classi: Gestione Accesso
 
 ## Architettura Logica: Interazione
-
+ ArchitetturaLogica.drawio
 ### Diagramma di sequenza:
 
 ## Architettura Logica: Comportamento
 
 ### Diagramma di stato: AnalizzaUtente
 
+Comportamento.drawio
 
 ## Piano di lavoro
 

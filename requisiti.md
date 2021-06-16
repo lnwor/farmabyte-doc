@@ -11,10 +11,11 @@
 - Per la prenotazione è necessario possedere un account
 - La prenotazione sarà composta da uno o più farmaci, dalla farmacia, e dal giorno. 
 - L'account viene creato in due fasi:
-    1. Registrazione con username, password, numero di telefono e codice fiscale
+    1. Registrazione con nome, cognome, password, data di nascita, email e codice fiscale
     2. Autenticazione di persona in farmacia
-- L'username deve essere univoco, la password di almeno 8 caratteri, contentente almeno un numero e un carattere alfabetico.
+- La email deve essere univoca, la password di almeno 8 caratteri, contentente almeno un numero e un carattere alfabetico.
 - Per l'autenticazione è necessario mostrare il tesserino sanitario per l'identificazione in farmacia.
+- Il cliente può vedere la lista delle sue prenotazioni in corso
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento
 - Il farmacista può confermare le prenotazioni andate a buon fine
 - Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista che può eventualmente bloccare l'utente per 1 mese.
@@ -26,7 +27,7 @@
 
 ---
 
-## Analisi dei Requisiti
+## Tabella dei Requisiti
 
 
 <br>
@@ -39,14 +40,15 @@ R3F | Presentazione delle farmacie che dispongono di un farmaco | Funzionale
 R4F | Registrazione di un account tramite l'interfaccia web | Funzionale
 R5F | Attivazione dell'account con identificazione fisica dell'utente con documento | Funzionale
 R6F | La prenotazione sarà composta da uno o più farmaci, dalla farmacia e dal giorno | Funzionale
-R7F | Identificazione attraverso username univoco e password di almeno 8 caratteri, contentente almeno un carattere alfabetico e un carattere numerico | Funzionale
-R8F | Visualizzazione delle prenotazioni | Funzionale
-R9F | Visualizzazione del numero dei farmaci disponibili | Funzionale
-R10F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
-R11F | Conferma della prenotazione andata a buon fine| Funzionale
-R12F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
-R13F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
-R14F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
+R7F | Identificazione attraverso email univoca e password di almeno 8 caratteri, contentente almeno un carattere alfabetico e un carattere numerico | Funzionale
+R8F | Visualizzazione delle prenotazioni del cliente | Funzionale
+R9F | Visualizzazione delle prenotazioni della farmacia | Funzionale
+R10F | Visualizzazione del numero dei farmaci disponibili | Funzionale
+R11F | Notifica dei farmaci in esaurimento o in scadenza | Funzionale
+R12F | Conferma della prenotazione andata a buon fine| Funzionale
+R13F | Notifica della mancata finzalizzazione in acquisto di una prenotazione | Funzionale
+R14F | Blocco dell'utente che effettua troppe prenotazioni senza presentarsi | Funzionale
+R15F | Verrà memorizzato il numero di prenotazioni andate a buon fine | Funzionale
 R1NF | Velocità di memorizzazione dei dati | Non Funzionale
 R2NF | Velocità della ricerca dei dati | Non Funzionale
 R3NF | Semplicità dell'interfaccia | Non Funzionale
@@ -72,8 +74,8 @@ Farmacista | Utente che accede con le credenziali della farmacia | Operatore
 Prenotazione | Richiesta di farmaci da comprare in negozio  |
 Data e ora prenotazione | Indicazione temporale del momento in cui avverrà la prenotazione | 
 Posizione | Luogo della ricerca o collocamento geografico della farmacia |
-Credenziali | Insieme composto da username e password necessari per acccedere al sistema | 
-Username | È una parola formata dalla concatenazione di nome e cognome dell’Utente o del nome della farmacia | 
+Credenziali | Insieme composto da email e password necessari per acccedere al sistema | 
+Email | Indirizzo di posta elettronica del cliente utilizzata anche per l'autenticazione |
 Password | Codice alfanumerico di almeno 8 caratteri | 
 Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita | Deposito
 
@@ -166,7 +168,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Relazioni** | | 
 | **Precondizioni** | Il cliente dispone di un codice fiscale valido | 
 | **Postcondizioni** | Il cliente è registrato nel sistema ed è posto in attesa della verifica | 
-| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br> 2. Il cliente inserisce i propri dati: nome, cognome, numero di telefono e il codice fiscale <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale | 
+| **Scenario principale** | 1. Il cliente accede alla sezione di registrazione <br> 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email e il codice fiscale <br> 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale | 
 | **Scenari Alternativi** | Scenario a: il codice fiscale è già registrato <br> 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore. | 
 | **Requisiti non funzionali** | Semplicità dell'interfaccia |
 | **Punti aperti** | |
@@ -335,7 +337,7 @@ Saturazione del database | Bassa | 1. Limitazione delle richieste in un dato int
 
 Tecnologia | Vulnerabilità |
 --- | --- |
-Autenticazione username/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
+Autenticazione email/password | • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale <br>• Utente non esce dal sistema dopo aver eseguito le operazioni <br> • Password banali
 Cifratura comunicazioni | • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione <br>• La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica
 Architettura Client/Server | • DoS <br> • Man in the Middle <br> • Sniffing delle comunicazioni | 
 
@@ -397,6 +399,6 @@ Sussistono inoltre i seguenti requisiti:
 
 ID | Requisiti | Tipo
 --- | --- | ---
-R15F | Implementazione di un sistema di log per tracciare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati | Funzionale
+R16F | Implementazione di un sistema di log per tracciare tutti i messaggi tra i client e i server, inclusi gli accessi, le richieste di prenotazione, di conferma, di sospensione e di invio e ricezione di dati | Funzionale
 R9NF | I dati salvati devono essere protetti da un attaccante che abbia accesso al sistema, prendendo misure di sicurezza fisica, eventualmente cifrando i dati | Non Funzionale
 R10NF | I dati inviati tra le parti remote devono essere protetti, utilizzando la cifratura dei dati | Non Funzionale

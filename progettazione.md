@@ -46,6 +46,6 @@ Chiaramente l'affidabilità del sistema dipende dalla robustezza del broker e so
 
 Si riportano di seguito i diagrammi di package e componenti che descrivono l'architettura del sistema.
 
-_\*inserire immagine dei diagrammi qui\*_
+_\*Package.drawio\*_
 
 ### Da aggiungere un breve paragrafo che esponga le tecnologie da utilizzare

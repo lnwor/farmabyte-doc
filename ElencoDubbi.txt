@@ -20,3 +20,9 @@ Log non è un vero e proprio DB
 Relazioni Diagramma ER
 
 include di ricercaFarmaci
+
+Gesione magazzino nei sistemi esterni
+
+Amministratore nell'analisi ruoli e Responsabilità
+
+Implementazione comportamento
