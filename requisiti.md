@@ -104,7 +104,7 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | :- | :- |
 | **Titolo** | ResocontoUtenti  |
 | **Descrizione** | Si controllano gli utenti con potenzialmente sospendibili | 
-| **Attori** | Farmacista, FineGiornata | 
+| **Attori** | Farmacista | 
 | **Relazioni** | SospensioneUtenza, GestioneFarmacia | 
 | **Precondizioni** |  | 
 | **Postcondizioni** | Viene mostrato l'elenco degli Utenti a rischio sospensione | 
@@ -291,6 +291,36 @@ Magazzino | Luogo fisico in cui vengono conservati i farmaci di un punto vendita
 | **Scenario principale** | 1. L'utente inserisce le credenziali di accesso <br> 2. Il sistema verifica le credenziali <br> 3. Se le credenziali sono corrette, viene presentata la schermata iniziale | 
 | **Scenari Alternativi** | Scenario a: Credenziali non riconosciute. <br> 3. Il sistema non riconosce le credenziali e rispedisce l'utente alla schermata di login con un messaggio di errore| 
 | **Requisiti non funzionali** | Velocità di verifica delle credenziali |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- |
+| **Titolo** | AggiornamentoUtenti |
+| **Descrizione** | Aggiorna l'elenco degli utenti a rischio sospensione | 
+| **Attori** | FineGiornata | 
+| **Relazioni** | | 
+| **Precondizioni** |  | 
+| **Postcondizioni** | Il DataBase degli utenti è aggiornato | 
+| **Scenario principale** | 1. Si verifica l'evento FineGiornata <br> 2. Il sistema controlla le prenotazioni non andate a buon fine <br> 3. Il sistema aggiorna i dati relativi alle infrazioni degli utenti | 
+| **Scenari Alternativi** | | 
+| **Requisiti non funzionali** | Velocità della ricerca dei dati |
+| **Punti aperti** |  | 
+
+<br>
+
+| | |
+| :- | :- |
+| **Titolo** | Aggiornamento Farmaci |
+| **Descrizione** | Aggiorna l'elenco dei farmaci in magazzino | 
+| **Attori** | ModificheFarmaci | 
+| **Relazioni** | | 
+| **Precondizioni** |  | 
+| **Postcondizioni** | Il DataBase dei farmaci è aggiornato | 
+| **Scenario principale** | 1. Si verifica l'evento ModificheFarmaci <br> 2. Il sistema recupera le modifiche dal DataBase Remoto <br> 3. Il sistema aggiorna i dati relativi ai farmaci in magazzino | 
+| **Scenari Alternativi** | | 
+| **Requisiti non funzionali** | Velocità della ricerca dei dati |
 | **Punti aperti** |  | 
 
 <br>

@@ -26,3 +26,8 @@ Gesione magazzino nei sistemi esterni
 Amministratore nell'analisi ruoli e Responsabilità
 
 Implementazione comportamento
+
+Jack:
+attori casi d'uso: bastano gli eventi o ci va qualche entità in più?
+staccato evento da controlloUtenti
+Integrità?

@@ -1,0 +1,5 @@
+-aggiornare casiDuso
+-modificare approccio Log interazione
+-aggiornare schemi interazione
+-modificare Dominio
+-connettere DataBase a servers in deployment
