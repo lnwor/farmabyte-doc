@@ -1,1 +1,5 @@
-latex/*
+latex/*.log
+latex/*.toc
+latex/*.dvi
+latex/*.aux
+latex/*.out
