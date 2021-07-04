@@ -13,7 +13,7 @@
 - L'account viene creato in due fasi:
     1. Registrazione con nome, cognome, password, data di nascita, email e codice fiscale
     2. Autenticazione di persona in farmacia
-- La email deve essere univoca, la password di almeno 8 caratteri, contentente almeno un numero e un carattere alfabetico.
+- La email deve essere univoca, la password di almeno 8 caratteri, contenente almeno un numero e un carattere alfabetico.
 - Per l'autenticazione è necessario mostrare il tesserino sanitario per l'identificazione in farmacia.
 - Il cliente può vedere la lista delle sue prenotazioni in corso
 - Il farmacista vede le prenotazioni, i farmaci disponibili in negozio e viene segnalato riguardo ai farmaci in esaurimento

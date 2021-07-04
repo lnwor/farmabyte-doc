@@ -1,0 +1,47 @@
+\newpage
+\section{Analisi del Problema}
+\subsection{Analisi Documento dei Requisiti: Analisi delle Funzionalità}
+
+\textbf{Tabella delle Funzionalità}
+\\
+
+\begin{tabular} {|P{4cm}|P{4cm}|P{3.5cm}|P{4cm}|} % Qua cambiate a piacimento la larghezza
+\hline
+    \textbf{Funzionalità} & \textbf{Tipo} & \textbf{Grado di complessità} & \textbf{Requisiti Collegati} \\
+\hline
+    Gestione Farmacia & Memorizzazione dati e gestione dati & complessa & R5F, R9F, R10F, R11F, R12F, R13F, R14F, R15F \\
+\hline
+    Registrazione & Interazione esterno e memorizzazione dati & semplice & R4F \\
+\hline
+    RicercaFarmaci  &  Interazione esterno e lettura dati  &  semplice  &   R1F, R2F, R3F \\
+\hline
+    Login  &  Interazione esterno e lettura dati  &  semplice  &   R7F \\
+\hline
+    GestionePrenotazioni  &  Interazione esterno e memorizzazione dati  &  comp  &   R2F, R6F, R8F \\
+\hline
+    ScritturaLog  &  Memorizzazione dati  &  semplice  &   R16F \\
+\hline
+\end{tabular}
+\\
+\\
+
+\textbf{GestioneFarmacia: Tabella Informazioni/Flusso}
+\newline
+
+\begin{tabular} {|P{3cm}|P{3cm}|P{3cm}|P{3cm}|P{3cm}|}
+\hline
+    \textbf{Informazione} & \textbf{Tipo} & \textbf{Livello protezione/privacy} & \textbf{Input / Output} & \textbf{Vincoli}\\
+\hline
+    Nome Cliente & semplice & Protezione alta & Output & Non più di 40 caratteri \\
+\hline
+    Cognome Cliente & semplice & Protezione alta & Output & Non più di 40 caratteri \\
+\hline
+     Codice Fiscale Cliente & semplice & Protezione media & Output & Deve essere di 16 caratteri \\
+\hline
+     Stato Cliente & semplice & Protezione media & Output & \\
+\hline
+     Lista Farmaci & composto & Protezione alta & Output & \\
+\hline
+     Lista Prenotazioni & composto & Protezione molto alta & Output & \\
+\hline
+\end{tabular}
