@@ -45,6 +45,7 @@ Rispettando il principio del "minimo privilegio" per limitare i danni in caso di
 
 \paragraph{L3 -- Persistenza}\mbox{}\\ \\
 La gestione della persistenza verrà implementata in un server dedicato sul quale sarà installato un DBMS che gestisca i dati di tutte le farmacie aderenti al servizio.
+Su tale server sarà installato il DBMS IBM DB2.
 L'interfacciamento con il DBMS avverrà mediante la metodologia "forza bruta" utilizzando i metodi CRUD.
 Per quanto riguarda il log delle operazioni, invece, questo verrà salvato su file system (un semplice file sul server adibito)
 
@@ -58,13 +59,65 @@ in modo da localizzare le operazioni critiche e ottenere maggiore protezione dei
 Il pattern Model View Controller (\textbf{MVC}) è stato invece scelto come pattern architetturale.
 \\
 Chiaramente l'affidabilità del sistema dipende dalla robustezza del broker e soprattutto del sistema di autenticazione.
-\\ \\
+\\
 Si riportano di seguito i diagrammi di package e componenti che descrivono l'architettura del sistema.
 
 \begin{figure}[h]
     \begin{center}
         \includegraphics[scale=0.4]{immagini/Package-progettazione.png}
         \caption{Diagramma dei package}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Componenti-progettazione.png}
+        \caption{Diagramma dei componenti}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Progettazione di dettaglio}
+
+\subsubsection{Struttura}
+
+Per quanto riguarda il dominio, i diagrammi rimangono sostanzialmente uguali a quelli visti in analisi.
+Nonostante il dominio del cliente sia pressoché identico a quello del farmacista, 
+si è comunque deciso di distinguere i due domini al fine di evitare l'introduzione di classi non necessarie.
+In particolare, la parte di applicativo relativa al cliente non dovrà gestire né conoscere i farmacisti legati ad ogni farmacia (informazione nota solo al server delle farmacie).
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[scale=0.525]{immagini/DominioCliente-progettazione.png}
+        \caption{Diagramma di dettaglio: Dominio Clienti}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[scale=0.56]{immagini/DominioFarmacia-progettazione.png}
+        \caption{Diagramma di dettaglio: Dominio Farmacia}
+    \end{center}
+\end{figure}
+
+\newpage
+
+Come si può notare, il dominio della farmacia presenta diversi metodi aggiuntivi (in particolare per effettuare operazioni sul cliente e per elencare farmaci)
+non necessari al cliente e anzi da nascondere ad esso per evitare che i permessi o privilegi vengano aggirati.
+Inoltre, le associazioni \texttt{Lotto} e \texttt{SelezioneFarmaco} sono state mantenute nei diagrammi per chiarezza. 
+L'associazione \texttt{Lotto} dovrà necessariamente essere una classe a sé stante,
+mentre l'associazione \texttt{SelezioneFarmaco} potrà essere concretizzata in classe o sostituita da un semplice Integer. Quest'ultima scelta è lasciata agli implementatori.
+Le associazioni vere e proprie dovranno poi essere implementate mediante una \textbf{mappa}, ad esempio con un oggetto del tipo \mbox{\texttt{HashMap<Farmaco, Lotto>}}
+
+\vspace{2em}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Interfacce-progettazione.png}
+        \caption{Diagramma di dettaglio: Interfacce}
     \end{center}
 \end{figure}
 
