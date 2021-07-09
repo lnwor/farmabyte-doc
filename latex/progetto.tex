@@ -82,6 +82,8 @@ Si riportano di seguito i diagrammi di package e componenti che descrivono l'arc
 
 \subsubsection{Struttura}
 
+\paragraph{Struttura: Dominio}\mbox{}\\
+
 Per quanto riguarda il dominio, i diagrammi rimangono sostanzialmente uguali a quelli visti in analisi.
 Nonostante il dominio del cliente sia pressoché identico a quello del farmacista, 
 si è comunque deciso di distinguere i due domini al fine di evitare l'introduzione di classi non necessarie.
@@ -89,7 +91,7 @@ In particolare, la parte di applicativo relativa al cliente non dovrà gestire n
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.525]{immagini/DominioCliente-progettazione.png}
+        \includegraphics[scale=0.53]{immagini/DominioCliente-progettazione.png}
         \caption{Diagramma di dettaglio: Dominio Clienti}
     \end{center}
 \end{figure}
@@ -112,7 +114,9 @@ L'associazione \texttt{Lotto} dovrà necessariamente essere una classe a sé sta
 mentre l'associazione \texttt{SelezioneFarmaco} potrà essere concretizzata in classe o sostituita da un semplice Integer. Quest'ultima scelta è lasciata agli implementatori.
 Le associazioni vere e proprie dovranno poi essere implementate mediante una \textbf{mappa}, ad esempio con un oggetto del tipo \mbox{\texttt{HashMap<Farmaco, Lotto>}}
 
-\vspace{2em}
+%\vspace{2em}
+
+\paragraph{Struttura: Interfacce}\mbox{}\\
 
 \begin{figure}[h!]
     \begin{center}
@@ -121,3 +125,59 @@ Le associazioni vere e proprie dovranno poi essere implementate mediante una \te
     \end{center}
 \end{figure}
 
+L'aggiunta di tali interfacce consente di applicare il \textit{Dependency Inversion Principle}
+in modo da disaccoppiare gli utilizzatori dalle implementazioni, che potrebbero cambiare.
+
+\newpage
+
+\paragraph{Struttura: Controller}\mbox{}\\
+
+Si è deciso di utilizzare una classe \texttt{Controller} in cui inserire le funzionalità relative alla persistenza (Database e Log).
+Si è pensato di posizionare questa classe in cima alla gerarchia dei controller: 
+in questo modo, le funzionalità comuni di lettura/scrittura su database e log sono riutilizzabili dai controller figli senza bisogno di reimplementarle.
+Nonostante il controller "monolitico" non rispetti il \textit{Single Responsibility Principle}, 
+abbiamo comunque optato per questa soluzione, in quanto le funzionalità relative al database e al logging risultano facilmente accoppiabili essendo entrambe legate a un qualche tipo di persistenza.
+Inoltre, non si prevede alcun tipo di estensione/modifica per quanto riguarda la persistenza.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/ControllerCliente-progettazione.png}
+        \caption{Diagramma di dettaglio: RicercaFarmaci, GestionePrenotazioni}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/ControllerFarmacia-progettazione.png}
+        \caption{Diagramma di dettaglio: GestioneFarmacia}
+    \end{center}
+\end{figure}
+
+Anche i controller presenti sul server relativo alle farmacie seguono lo stesso principio esposto sopra.
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/ControllerLogin-progettazione.png}
+        \caption{Diagramma di dettaglio: GestioneAccesso}
+    \end{center}
+\end{figure}
+
+Il diagramma di dettaglio del server login risulta più complesso degli altri due
+poiché contiene le ulteriori classi necessarie per implementare l'aggiornamento dello stato dei clienti
+e caching del database in seguito al ricevimento di eventi.
+In particolare, per implementare il caching locale del database remoto contenente i dati dei magazzini,
+si è deciso di utilizzare un pattern \textit{Observer}: Un'istanza della classe \texttt{MagazzinoObserver} viene registrata
+nel \texttt{MagazzinoWorker}. Quest'ultimo poi comunicherà con il server remoto mediante un protocollo prestabilito e,
+alla ricezione di un aggiornamento da parte del server, notificherà l'Observer. Lo scambio dei dati riguardanti l'aggiornamento può avvenire tra Worker e Observer in diversi modi,
+pertanto la scelta viene lasciata agli implementatori.
+
+Si noti che la scelta del pattern Observer è dettata dal fatto che l'evento di aggiornamento del database remoto può risultare importante anche per future estensioni del software:
+per questo motivo l'Observer si basa sull'interfaccia \texttt{IMagazzinoObserver}.
+
+Per quanto riguarda invece l'aggiornamento dello stato dei clienti a fine giornata,
+il metodo \texttt{updateUtenti()} della classe \texttt{UtentiUpdater} verrà invocato automaticamente
+allo scattare di un nuovo giorno, in base all'orario del server.
