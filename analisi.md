@@ -217,10 +217,6 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 Modellodominio.drawio
 
-Il seguente diagramma delle classi rappresenta la parte di modello del dominio relativo alla gestione dei Log.
-
-Logs.drawio
-
 ## Architettura Logica: Struttura
 Diagrammi.drawio
 ### Diagramma dei package
@@ -234,7 +230,7 @@ Diagrammi.drawio
 ### Diagramma delle classi: Gestione Accesso
 
 ## Architettura Logica: Interazione
- ArchitetturaLogica.drawio
+Interazione.drawio
 ### Diagramma di sequenza:
 
 ## Architettura Logica: Comportamento
