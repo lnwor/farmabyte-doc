@@ -90,21 +90,21 @@
 \hline
   Farmacia & Farmacia che aderisce al servizio & Punto vendita\\
 \hline
-  Farmaco & Medicinale che viene venduto in farmacia \\
+  Farmaco & Medicinale che viene venduto in farmacia & \\
 \hline
   Farmacista & Utente che accede con le credenziali della farmacia & Operatore \\
 \hline
-  Prenotazione & Richiesta di farmaci da comprare in negozio \\
+  Prenotazione & Richiesta di farmaci da comprare in negozio & \\
 \hline
-  Data e ora prenotazione & Indicazione temporale del momento in cui avverrà la prenotazione\\
+  Data e ora prenotazione & Indicazione temporale del momento in cui avverrà la prenotazione & \\
 \hline
-  Posizione & Luogo della ricerca o collocamento geografico della farmacia \\
+  Posizione & Luogo della ricerca o collocamento geografico della farmacia & \\
 \hline
-  Credenziali & Insieme composto da email e password necessari per acccedere al sistema\\
+  Credenziali & Insieme composto da email e password necessari per acccedere al sistema&\\
 \hline
-  Email & Indirizzo di posta elettronica del cliente utilizzata anche per l'autenticazione\\
+  Email & Indirizzo di posta elettronica del cliente utilizzata anche per l'autenticazione &\\
 \hline
-  Password & Codice alfanumerico di almeno 8 caratteri \\
+  Password & Codice alfanumerico di almeno 8 caratteri &\\
 \hline
   Magazzino & Luogo fisico in cui vengono conservati i farmaci di un punto vendita & Deposito \\
 \hline
@@ -113,7 +113,11 @@
 \newpage %optional
 \subsubsection{Casi d'uso della farmacia}
 
-\includegraphics[width=\textwidth]{casiUso.jpg}
+\begin{figure}[h!]
+  \begin{center}
+      \includegraphics[width=\textwidth]{casiUso.jpg}
+  \end{center}
+\end{figure}
 
 \newpage %optional
 \subsubsection{Scenari}
@@ -400,7 +404,7 @@
 \hline
   \textbf{Postcondizioni} & Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia\\
 \hline
-  \textbf{Scenario principale} & 1. Il cliente esegue il \textbf{Login} \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
+  \textbf{Scenario principale} & 1. Il cliente esegue il Login \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
 \hline
   \textbf{Scenari Alternativi} & Scenario a: La farmacia non dispone dei farmaci richiesti. \linebreak 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati \linebreak 5. Viene inviato al cliente un messaggio di errore\\
 \hline
@@ -454,7 +458,7 @@
 \hline
   \textbf{Postcondizioni} &\\
 \hline
-  \textbf{Scenario Principale} & 1. Il cliente registrato esegue il login \linebreak 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.\\
+  \textbf{Scenario Principale} & 1. Il cliente esegue il login \linebreak 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -601,7 +605,12 @@
 \newpage
 \subsubsection{Security Use Case \& Misuse Case}
 \par
-\includegraphics[width=\textwidth]{SecurityCase.jpg}
+
+\begin{figure}[h!]
+  \begin{center}
+      \includegraphics[width=\textwidth]{SecurityCase.jpg}
+  \end{center}
+\end{figure}
 \newpage
 
 
