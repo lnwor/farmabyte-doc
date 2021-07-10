@@ -270,7 +270,7 @@
 \hline
   \textbf{Postcondizioni} & Il cliente è registrato nel sistema ed è posto in attesa della verifica\\
 \hline
-  \textbf{Scenario principale} & 1. Il cliente accede alla sezione di registrazione\linebreak 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email e il codice fiscale \linebreak 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale\\
+  \textbf{Scenario principale} & 1. Il cliente accede alla sezione di registrazione\linebreak 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email, password e il codice fiscale \linebreak 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale\\
 \hline
   \textbf{Scenari Alternativi} & Scenario a: il codice fiscale è già registrato \linebreak 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore.\\
 \hline
@@ -380,7 +380,7 @@
 \hline
   \textbf{Scenario principale} & 1. Il cliente si reca nella pagina di ricerca \linebreak 2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 3. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 4. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente 5. La lista viene mostrata all'utente\\
 \hline
-  \textbf{Scenari Alternativi} & Scenario alternativo A: \linebreak 1. Il cliente registrato effettua il login \linebreak 2. Il cliente si reca nella pagina di ricerca \linebreak 3. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \linebreak Scenario alternativo B: \linebreak1. Il cliente registrato effettua il login \linebreak 2. Il cliente avvia una nuova prenotazione dalla home \linebreak 3. Il cliente seleziona la farmacia in cui effettuare la prenotazione \linebreak 4. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 5. Il sistema ottiene la la lista dei farmaci disponibili nella farmacia scelta il cui nome inizia per il testo inserito dall'utente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco corrispondente, se è presente nella lista, ed aggiungerlo alla prenotazione in corso\\
+  \textbf{Scenari Alternativi} & Scenario alternativo A: \linebreak 1. Login \linebreak 2. Il cliente si reca nella pagina di ricerca \linebreak 3. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \linebreak Scenario alternativo B: \linebreak 1.  Login \linebreak 2. Il cliente avvia una nuova prenotazione dalla home \linebreak 3. Il cliente seleziona la farmacia in cui effettuare la prenotazione \linebreak 4. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 5. Il sistema ottiene la la lista dei farmaci disponibili nella farmacia scelta il cui nome inizia per il testo inserito dall'utente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco corrispondente, se è presente nella lista, ed aggiungerlo alla prenotazione in corso\\
 \hline
   \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
 \hline
@@ -404,7 +404,7 @@
 \hline
   \textbf{Postcondizioni} & Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia\\
 \hline
-  \textbf{Scenario principale} & 1. Il cliente esegue il Login \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
+  \textbf{Scenario principale} & 1. Login \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
 \hline
   \textbf{Scenari Alternativi} & Scenario a: La farmacia non dispone dei farmaci richiesti. \linebreak 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati \linebreak 5. Viene inviato al cliente un messaggio di errore\\
 \hline
@@ -431,7 +431,7 @@
 \hline
   \textbf{Postcondizioni} & Al cliente viene mostrata la lista delle prenotazioni passate ed in corso\\
 \hline
-  \textbf{Scenario Principale} & 1. Il cliente esegue il Login \linebreak 2. Il cliente seleziona l'opzione di visualizzazione della lista delle prenotazioni \linebreak 3. Al cliente viene mostrato l'elenco delle prenotazioni effettuate\\
+  \textbf{Scenario Principale} & 1. Login \linebreak 2. Il cliente seleziona l'opzione di visualizzazione della lista delle prenotazioni \linebreak 3. Al cliente viene mostrato l'elenco delle prenotazioni effettuate\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
