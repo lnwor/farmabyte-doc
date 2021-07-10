@@ -507,3 +507,131 @@ del programma.
 
 \newpage
 \subsubsection{Piano del Collaudo}
+
+\usemintedstyle{manni}
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{java}
+public class testPrenotazione{
+    private Prenotazione prenotazione;
+
+    @Before
+    public void setUp(){
+       prenotazione = new Prenotazione();
+    }
+
+    @Test
+    public void testCostruttore(){
+        prenotazione = new Prenotazione(new SimpleDateFormat("2021-06-01"), true);
+        Assert.assertNull(prenotazione.isConfermata());
+    }
+
+    @Test
+    public void testGetter(){
+        prenotazione = new Prenotazione(new SimpleDateFormat("2021-06-01"), true);
+        Assert.assertEquals(prenotazione.getData(), new SimpleDateFormat("2021-06-01"));
+        Assert.assertEquals(prenotazione.getConfermata(), true);
+    }
+
+    @Test
+    public void testSetter(){
+        prenotazione.setData(new SimpleDateFormat("2021-07-02"));
+        Assert.assertEquals(prenotazione.getData(), new SimpleDateFormat("2021-07-02"));
+        prenotazione.setConfermata(true);
+        Assert.assertEquals(prenotazione.getConfermata(), true);
+    }
+}
+
+public class testFarmacia{
+    private Farmacia farmacia;
+
+    @Before 
+    public void setUp(){
+        farmacia = new Farmacia();
+    }
+
+    @Test
+    public void testCostruttore(){
+        Assert.assertNull(farmacia.getNome());
+        Assert.assertNull(farmacia.getId());
+    }
+
+    @Test 
+    public void testGetter(){
+        farmacia = new Farmacia("N23N230SD", "Ubertini", "BO", "Bologna", "via Libia", "10");
+        Assert.assertEquals(farmacia.getId(),"N23N230SD");
+        Assert.assertEquals(farmacia.getNome(),"Ubertini");
+        Assert.assertEquals(farmacia.getProvincia(),"BO");
+        Assert.assertEquals(farmacia.getComune(),"Bologna");
+        Assert.assertEquals(farmacia.getVia(),"via Libia");
+        Assert.assertEquals(farmacia.getNumeroCivico(),"10");
+    }
+
+    @Test 
+    public void testSetter(){
+        farmacia.setId("N23N230SD");
+        Assert.assertEquals(farmacia.getId(),"N23N230SD");
+        farmacia.setNome("Ubertini");
+        Assert.assertEquals(farmacia.getNome(),"Ubertini");
+        farmacia.setProvincia("BO");
+        Assert.assertEquals(farmacia.getProvincia(),"BO");
+        farmacia.setComune("Bologna");
+        Assert.assertEquals(farmacia.getComune(),"Bologna");
+        farmacia.setVia("via Libia");
+        Assert.assertEquals(farmacia.getVia(),"via Libia");
+        farmacia.setNumeroCivico("10");
+        Assert.assertEquals(farmacia.getNumeroCivico(),"10");
+    }
+}
+
+public class testCliente{
+    private ClienteRegistrato cliente;
+
+    @Before 
+    public void setUp(){
+        cliente = new ClienteRegistrato();
+    }
+
+    @Test 
+    public void testGetter(){
+        cliente = new ClienteRegistrato("Federico", "Chesani", new
+        SimpleDateFormat("1920-07-10"), "CHSFRC20L10A944G",
+        "federico.chesani@unibo.it", 0, null, true, false);
+        Assert.assertEquals(cliente.getNome(), "Federico");
+        Assert.assertEquals(cliente.getCognome(), "Chesani");
+        Assert.assertEquals(cliente.getNascita(), new SimpleDateFormat("1920-07-10"));
+        Assert.assertEquals(cliente.getCodiceFiscale(), "CHSFRC20L10A944G");
+        Assert.assertEquals(cliente.getEmail(), "federico.chesani@unibo.it");
+        Assert.assertEquals(cliente.getEffrazioni(), 0);
+        Assert.assertEquals(cliente.getVerificato(), true);
+        Assert.assertEquals(cliente.getBloccato(), false);
+    }
+
+    @Test 
+    public void testSetter(){
+        cliente.setNome("Federico");
+        Assert.assertEquals(cliente.getNome(), "Federico");
+        cliente.setCognome("Chesani");
+        Assert.assertEquals(cliente.getCognome(), "Chesani");
+        cliente.setNascita(new SimpleDateFormat("1920-07-10"));
+        Assert.assertEquals(cliente.getNascita(), new SimpleDateFormat("1920-07-10"));
+        cliente.setCodiceFiscale("CHSFRC20L10A944G");
+        Assert.assertEquals(cliente.getCodiceFiscale(), "CHSFRC20L10A944G");
+        cliente.setEmail("federico.chesani@unibo.it");
+        Assert.assertEquals(cliente.getEmail(), "federico.chesani@unibo.it");
+        cliente.setEffrazioni(0);
+        Assert.assertEquals(cliente.getEffrazioni(), 0);
+        cliente.setVerificato(true);
+        Assert.assertEquals(cliente.getVerificato(), true);
+        cliente.setBloccato(false);
+        Assert.assertEquals(cliente.getBloccato(), false);
+    }
+}
+\end{minted}
