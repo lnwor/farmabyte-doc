@@ -183,3 +183,108 @@ per questo motivo l'Observer si basa sull'interfaccia \texttt{IMagazzinoObserver
 Per quanto riguarda invece l'aggiornamento dello stato dei clienti a fine giornata,
 il metodo \texttt{updateUtenti()} della classe \texttt{UtentiUpdater} verrà invocato automaticamente
 allo scattare di un nuovo giorno, in base all'orario del server.
+
+\newpage
+
+\paragraph{Struttura: Broker}\mbox{}\\
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Broker.jpg}
+        \caption{Diagramma di dettaglio: Broker}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\paragraph{Struttura: View}\mbox{}\\
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/ViewCliente-progettazione.jpg}
+        \caption{Diagramma di dettaglio: InterfacciaUtente}
+    \end{center}
+\end{figure}
+
+\textit{Inserire disegni interfacce qui}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/ViewFarmacia-progettazione.jpg}
+        \caption{Diagramma di dettaglio: InterfacciaFarmacista}
+    \end{center}
+\end{figure}
+
+\textit{Inserire disegni interfacce qui}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/ViewGestioneAccesso.jpg}
+        \caption{Diagramma di dettaglio: InterfacciaGestioneAccesso}
+    \end{center}
+\end{figure}
+
+L'interfaccia di GestioneAccesso è composta dalle view che permettono a clienti e farmacisti di registrarsi e/o effettuare l'accesso al servizio.
+Pertanto, è presente in entrambi i client, completata dalle ulteriori interfacce specifiche del client.
+\\
+
+\textit{Inserire disegni interfacce qui}
+
+\newpage
+
+\subsubsection{Interazione}
+
+Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quelli visti in fase di analisi.
+
+\vspace{3em}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Interazione-LoginUtente-progettaz.jpg}
+        \caption{Diagramma di Sequenza: LoginUtente}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\textit{Registrazione Utente}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Interazione-NuovaPrenotazione-progettaz.jpg}
+        \caption{Diagramma di Sequenza: NuovaPrenotazione}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Interazione-ConfermaPrenotazione-progettaz.jpg}
+        \caption{Diagramma di Sequenza: ConfermaPrenotazione}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Interazione-RicercaFarmaco-progettaz.jpg}
+        \caption{Diagramma di Sequenza: RicercaFarmaci}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Interazione-SospensioneUtenza-progettaz.jpg}
+        \caption{Diagramma di Sequenza: SospensioneUtenza}
+    \end{center}
+\end{figure}
