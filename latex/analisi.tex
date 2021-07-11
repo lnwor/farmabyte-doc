@@ -387,8 +387,24 @@ Non viene riportato il diagramma delle classi associato al package Dominio in qu
         \includegraphics[width=\textwidth]{Diagrammi-Gestione Accesso.jpg}
     \end{center}
 \end{figure}
+Tutte le ViewLogin contattano lo stesso Controller, che distingue il tipo di
+credenziali da verificare in base ad un parametro che gli viene passato dalla
+view che fa la richiesta
 \hfill \break
 
+\textbf{Diagramma delle classi: InterfacciaUtente \& RicercaFarmaci \& GestionePrenotazioni }
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{Diagrammi-Utente.jpg}
+    \end{center}
+\end{figure}
+HomeServizio fornisce la funzione di ricerca farmaco contattando direttamente
+il controller. Inoltre per i clienti ad aver fatto il login espone anche le
+funzionalità relative alle prenotazioni, come quella di crearne una nuova o di
+elencare quelle effettuate.
+
+\newpage
 \textbf{Diagramma delle classi: InterfacciaGestioneFarmacia \& GestioneFarmacia}
 \hfill \break
 
@@ -397,19 +413,12 @@ Non viene riportato il diagramma delle classi associato al package Dominio in qu
         \includegraphics[width=\textwidth]{Diagrammi-Farmacia.jpg}
     \end{center}
 \end{figure}
-\hfill \break
+L'InterfacciaFarmacia raccoglie tutte le funzionalità accessibili da
+HomeGestione, le quali si relazionano con i rispettivi controller contenuti in
+GestioneFarmacia.
 
 \newpage
-\textbf{Diagramma delle classi: InterfacciaUtente \& RicercaFarmaci \& GestionePrenotazioni }
 
-\begin{figure}[h!]
-    \begin{center}
-        \includegraphics[width=\textwidth]{Diagrammi-Utente.jpg}
-    \end{center}
-\end{figure}
-\hfill \break
-
-\newpage
 \subsubsection{Architettura Logica: Interazione}
 
 In seguito saranno riportati i principali diagrammi di sequenza durante un normale utilizzo dell'applicazione.
@@ -422,7 +431,6 @@ In seguito saranno riportati i principali diagrammi di sequenza durante un norma
         \includegraphics[scale=0.5]{Interazione-LoginUtente.jpg}
     \end{center}
 \end{figure}
-\hfill \break
 
 \textbf{Diagramma di Sequenza: Login Farmacista}
 

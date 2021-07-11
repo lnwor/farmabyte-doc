@@ -231,6 +231,12 @@ allo scattare di un nuovo giorno, in base all'orario del server.
     \includegraphics[width=0.9\textwidth]{VisteUtente-Home.jpg}
     \caption{Home}
 \end{figure}
+L'interfaccia utente appena entrato nel sito consente di cercare immediatamente
+un farmaco appena inserita la località in cui effettuare la ricerca. Inoltre
+sarà visibile la quantità approssimativa dei farmaci rimasti per ogni farmacia.
+Infine sarà possibile effettuare il login per poter accedere alle funzionalità
+di prenotazione dei farmaci.
+
 \newpage
 
 \begin{figure}[h!]
@@ -241,20 +247,26 @@ allo scattare di un nuovo giorno, in base all'orario del server.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{VisteUtente-Nuova Prenotazione.jpg}
-    \caption{Nuova Prenotazione}
-\end{figure}
-\newpage
-
-\begin{figure}[h!]
-    \centering
     \includegraphics[width=0.9\textwidth]{VisteUtente-Prenotazioni.jpg}
     \caption{Prenotazioni}
 \end{figure}
 
 \newpage
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-Nuova Prenotazione.jpg}
+    \caption{Nuova Prenotazione}
+\end{figure}
+La schermata di NuovaPrenotazione permette di indicare la farmacia e la data
+per cui effettuare la prenotazione. Sarà possibile aggiungere farmaci
+prima della conferma utilizzando la stessa funzione di RicercaFarmaco, che
+quindi permetta di inserire solo farmaci disponibili nella farmacia scelta.
+
+\newpage
+
 \textbf{Diagramma di dettaglio: InterfacciaFarmacista}
+\\
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.9\textwidth]{ViewFarmacia-progettazione.jpg}
@@ -279,6 +291,9 @@ allo scattare di un nuovo giorno, in base all'orario del server.
     \includegraphics[width=0.9\textwidth]{VisteFarmacia-Utenti.jpg}
     \caption{Utenti}
 \end{figure}
+La schermata Utenti permette ai farmacisti di visualizzare lo stato degli
+utenti che non hanno finalizzato le prenotazioni e gli permette di bloccarli o
+eventualmente sbloccarli.
 \newpage
 
 \begin{figure}[h!]
@@ -335,7 +350,7 @@ Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quel
 \end{figure}
 
 Si riporta solo il diagramma del login del farmacista. Il ViewLogin del cliente è
-pressochè identico se non per le View (ViewLoginUtente e HomeServizio).
+pressochè identico se non per le View, che in quel caso sarebbero ViewLoginUtente e HomeServizio).
 
 \newpage
 
@@ -343,7 +358,7 @@ pressochè identico se non per le View (ViewLoginUtente e HomeServizio).
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/Interazione-RegistrazioneUtente.jpg}
+        \includegraphics[width=\textwidth]{immagini/Interazione-RegistrazioneUtente-progettaz.jpg}
     \end{center}
 \end{figure}
 
