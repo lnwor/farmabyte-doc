@@ -145,7 +145,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & \\
 \hline
-  \textbf{Scenario Principale} & 1. Login \linebreak 2. Il farmacista può eseguire la verifica, sospendere un account, controllare le prenotazioni \\
+  \textbf{Scenario Principale} & 1. Login \\ 2. Il farmacista può eseguire la verifica, sospendere un account, controllare le prenotazioni \\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -172,7 +172,7 @@ acquisti avvenuti in ogni farmacia associata.
   \hline
     \textbf{Postcondizioni} & Viene mostrato l'elenco degli Utenti a rischio sospensione\\
   \hline
-    \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione farmaci \linebreak 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza \linebreak 3. Il sistema mostra a video l'elenco richiesto\\
+    \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione farmaci \\ 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza \\ 3. Il sistema mostra a video l'elenco richiesto\\
   \hline
     \textbf{Scenari Alternativi} &\\
   \hline
@@ -199,7 +199,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Viene mostrato l'elenco degli Utenti a rischio sospensione\\
 \hline
-  \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione utenti \linebreak 2. Il sistema recupera l'elenco degli utenti a rischio o sospesi \linebreak 3. Il sistema mostra a video l'elenco degli utenti\\
+  \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione utenti \\ 2. Il sistema recupera l'elenco degli utenti a rischio o sospesi \\ 3. Il sistema mostra a video l'elenco degli utenti\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -226,7 +226,7 @@ acquisti avvenuti in ogni farmacia associata.
   \hline
     \textbf{Postcondizioni} & Il cliente non può più effettuare prenotazioni per 30 giorni\\
   \hline
-    \textbf{Scenario principale} & 1. ControlloUtenti \linebreak 2. Il farmacista può sospendere o annullare la sospensione di un utente \\
+    \textbf{Scenario principale} & 1. ControlloUtenti \\ 2. Il farmacista può sospendere o annullare la sospensione di un utente \\
   \hline
     \textbf{Scenari alternativi} &\\
   \hline
@@ -253,7 +253,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Viene mostrato l'elenco delle prenotazioni\\
 \hline
-  \textbf{Scenario principale} & 1. Il Farmacista va nella schermata di visualizzazione prenotazioni \linebreak 2. Il sistema recupera l'elenco delle prenotazioni giornaliere \linebreak 3. Il sistema mostra a video l'elenco delle prenotazioni\\
+  \textbf{Scenario principale} & 1. Il Farmacista va nella schermata di visualizzazione prenotazioni \\ 2. Il sistema recupera l'elenco delle prenotazioni giornaliere \\ 3. Il sistema mostra a video l'elenco delle prenotazioni\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -280,7 +280,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & La prenotazione viene confermata\\
 \hline
-  \textbf{Scenario principale} & 1. ControlloPrenotazioni \linebreak 2. Il Farmacista conferma l'avvenuta prenotazione\\
+  \textbf{Scenario principale} & 1. ControlloPrenotazioni \\ 2. Il Farmacista conferma l'avvenuta prenotazione\\
 \hline
   \textbf{Scenari Alternativi} & \\
 \hline
@@ -307,7 +307,7 @@ acquisti avvenuti in ogni farmacia associata.
   \hline
     \textbf{Postcondizioni} & L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni\\
   \hline
-    \textbf{Scenario principale} & 1. Il cliente va in farmacia con il documento specificato in fase di registrazione \linebreak 2. Il cliente viene identificato dal farmacista \linebreak 3. Il farmacista chiede al sistema di recuperare l'utente \linebreak 4. Il farmacista attiva l'account dell'utente\\
+    \textbf{Scenario principale} & 1. Il cliente va in farmacia con il documento specificato in fase di registrazione \\ 2. Il cliente viene identificato dal farmacista \\ 3. Il farmacista chiede al sistema di recuperare l'utente \\ 4. Il farmacista attiva l'account dell'utente\\
   \hline
     \textbf{Scenari alternativi} & 4. Il sistema non trova nessun utente, segnala il farmacista\\
   \hline
@@ -334,11 +334,28 @@ acquisti avvenuti in ogni farmacia associata.
   \hline
     \textbf{Postcondizioni} & Si visualizza la lista delle farmacie con disponibilità\\
   \hline
-    \textbf{Scenario principale} & 1. Il cliente si reca nella pagina di ricerca \linebreak 2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 3. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 4. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente 5. La lista viene mostrata all'utente\\
+    \textbf{Scenario principale} & 
+      1. Il cliente si reca nella pagina di ricerca \\
+      2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \\
+      3. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \\ 
+      4. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \\
+      5. La lista viene mostrata all'utente\\
   \hline
     \textbf{Scenari Alternativi} &
-      Scenario alternativo A: \linebreak 1. Login \linebreak 2. Il cliente si reca nella pagina di ricerca \linebreak 3. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \linebreak
-      Scenario alternativo B: \linebreak 1. Login \linebreak 2. Il cliente avvia una nuova prenotazione dalla home \linebreak 3. Il cliente seleziona la farmacia in cui effettuare la prenotazione \linebreak 4. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 5. Il sistema ottiene la la lista dei farmaci disponibili nella farmacia scelta il cui nome inizia per il testo inserito dall'utente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco corrispondente, se è presente nella lista, ed aggiungerlo alla prenotazione in corso\\
+      Scenario alternativo A: \\
+        1. Login \\ 
+        2. Il cliente si reca nella pagina di ricerca \\ 
+        3. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \\ 
+        4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \\ 
+        5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \\ 
+        6. La lista viene mostrata all'utente \\ 
+        7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \\
+      Scenario alternativo B: \\
+        1. NuovaPrenotazione scenario alternativo A \\ 
+        2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \\ 
+        3. Il sistema ottiene la lista dei farmaci disponibili nella farmacia scelta il cui nome inizia per il testo inserito dall'utente \\ 
+        4. La lista viene mostrata all'utente \\ 
+        5. L'utente può selezionare il farmaco corrispondente, se è presente nella lista, ed aggiungerlo alla prenotazione in corso \\
   \hline
     \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
   \hline
@@ -362,7 +379,7 @@ acquisti avvenuti in ogni farmacia associata.
   \hline
     \textbf{Postcondizioni} &\\
   \hline
-    \textbf{Scenario Principale} & 1. Il cliente esegue il login \linebreak 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.\\
+    \textbf{Scenario Principale} & 1. Il cliente esegue il login \\ 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.\\
   \hline
     \textbf{Scenari Alternativi} &\\
   \hline
@@ -389,9 +406,23 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia\\
 \hline
-  \textbf{Scenario principale} & 1. RicercaFarmaci Scenario Alternativo A \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
+  \textbf{Scenario principale} &
+    1. RicercaFarmaci scenario alternativo A \\
+    2. Il cliente può selezionare altri farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \\
+    3. Il cliente invia la richiesta di prenotazione \\
+    4. Il sistema pone la richiesta in attesa di conferma\\
 \hline
-  \textbf{Scenari Alternativi} & Scenario a: La farmacia non dispone dei farmaci richiesti. \linebreak 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati \linebreak 5. Viene inviato al cliente un messaggio di errore\\
+  \textbf{Scenari Alternativi} & 
+    Scenario A:
+      1. Login \\
+      2. Il cliente seleziona l'opzione "nuova prenotazione" \\
+      3. Il cliente seleziona la farmacia e inserisce la data di ritiro desiderata \\
+      4. Il cliente seleziona i farmaci che vuole prenotare e le relative quantità\\
+      5. Il cliente invia la richiesta di prenotazione \\
+      6. Il sistema pone la richiesta in attesa di conferma\\
+    Scenario B: La farmacia non dispone dei farmaci richiesti. \\ 
+    1. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati \\ 
+    5. Viene inviato al cliente un messaggio di errore\\
 \hline
   \textbf{Requisiti non funzionali} & Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere\\
 \hline
@@ -416,7 +447,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Al cliente viene mostrata la lista delle prenotazioni passate ed in corso\\
 \hline
-  \textbf{Scenario Principale} & 1. Login \linebreak 2. Il cliente seleziona l'opzione di visualizzazione della lista delle prenotazioni \linebreak 3. Al cliente viene mostrato l'elenco delle prenotazioni effettuate\\
+  \textbf{Scenario Principale} & 1. Login \\ 2. Il cliente seleziona l'opzione di visualizzazione della lista delle prenotazioni \\ 3. Al cliente viene mostrato l'elenco delle prenotazioni effettuate\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -443,9 +474,9 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & L'utente ha accesso al sistema, limitato in base ai suoi privilegi\\
 \hline
-  \textbf{Scenario principale} & 1. L'utente inserisce le credenziali di accesso \linebreak 2. Il sistema verifica le credenziali \linebreak 3. Se le credenziali sono corrette, viene presentata la schermata iniziale\\
+  \textbf{Scenario principale} & 1. L'utente inserisce le credenziali di accesso \\ 2. Il sistema verifica le credenziali \\ 3. Se le credenziali sono corrette, viene presentata la schermata iniziale\\
 \hline
-  \textbf{Scenari Alternativi} & Scenario a: Credenziali non riconosciute. \linebreak 3. Il sistema non riconosce le credenziali e rispedisce l'utente alla schermata di login con un messaggio di errore\\
+  \textbf{Scenari Alternativi} & Scenario a: Credenziali non riconosciute. \\ 3. Il sistema non riconosce le credenziali e rispedisce l'utente alla schermata di login con un messaggio di errore\\
 \hline
   \textbf{Requisiti non funzionali} & Velocità di verifica delle credenziali\\
 \hline
@@ -470,9 +501,9 @@ acquisti avvenuti in ogni farmacia associata.
   \hline
     \textbf{Postcondizioni} & Il cliente è registrato nel sistema ed è posto in attesa della verifica\\
   \hline
-    \textbf{Scenario principale} & 1. Il cliente accede alla sezione di registrazione \linebreak 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email, password e il codice fiscale \linebreak 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale\\
+    \textbf{Scenario principale} & 1. Il cliente accede alla sezione di registrazione \\ 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email, password e il codice fiscale \\ 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale\\
   \hline
-    \textbf{Scenari Alternativi} & Scenario a: il codice fiscale è già registrato \linebreak 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore.\\
+    \textbf{Scenari Alternativi} & Scenario a: il codice fiscale è già registrato \\ 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore.\\
   \hline
     \textbf{Requisiti non funzionali} & Semplicità dell'interfaccia\\
   \hline
@@ -497,7 +528,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Il DataBase degli utenti è aggiornato\\
 \hline
-  \textbf{Scenario principale} & 1. Si verifica l'evento FineGiornata\linebreak 2. Il sistema controlla le prenotazioni non andate a buon fine \linebreak 3. Il sistema aggiorna i dati relativi alle infrazioni degli utenti\\
+  \textbf{Scenario principale} & 1. Si verifica l'evento FineGiornata\\ 2. Il sistema controlla le prenotazioni non andate a buon fine \\ 3. Il sistema aggiorna i dati relativi alle infrazioni degli utenti\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -524,7 +555,7 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Il DataBase dei farmaci è aggiornato\\
 \hline
-  \textbf{Scenario principale} & 1. Si verifica l'evento ModificheFarmaci \linebreak 2. Il sistema recupera le modifiche dal DataBase Remoto \linebreak 3. Il sistema aggiorna i dati relativi ai farmaci in magazzino\\
+  \textbf{Scenario principale} & 1. Si verifica l'evento ModificheFarmaci \\ 2. Il sistema recupera le modifiche dal DataBase Remoto \\ 3. Il sistema aggiorna i dati relativi ai farmaci in magazzino\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -580,11 +611,11 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   Tecnologia & Vulnerabilità\\
 \hline
-  Autenticazione email/password & • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale \linebreak • Utente non esce dal sistema dopo aver eseguito le operazioni \linebreak • Password banali\\
+  Autenticazione email/password & • Utente rivela volontariamente la password Utente rivela la password con un attacco di ingegneria sociale \\ • Utente non esce dal sistema dopo aver eseguito le operazioni \\ • Password banali\\
 \hline
-  Cifratura comunicazioni & • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione \linebreak • La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica\\
+  Cifratura comunicazioni & • In caso di cifratura simmetrica particolare attenzione va alla lunghezza delle chiavi ed alla loro memorizzazione \\ • La memorizzazione è un fattore fondamentale anche nella cifratura asimmetrica\\
 \hline
-  Architettura Client/Server & • DoS \linebreak • Man in the Middle \linebreak • Sniffing delle comunicazioni\\
+  Architettura Client/Server & • DoS \\ • Man in the Middle \\ • Sniffing delle comunicazioni\\
 \hline
 \end{tabular}
 
@@ -617,9 +648,9 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Il sistema impedisce all'attaccante di decifrare (in tempi utili) i messaggi intercettati\\
 \hline
-  \textbf{Scenario principale} & 1. Il Sistema protegge i messaggi \linebreak 2. L'attaccante riesce ad intercettare un messaggio \linebreak 3. L'attaccante prova a decifrare i messaggi, ma non riesce a trovare un modo per farlo abbastanza velocemente\\
+  \textbf{Scenario principale} & 1. Il Sistema protegge i messaggi \\ 2. L'attaccante riesce ad intercettare un messaggio \\ 3. L'attaccante prova a decifrare i messaggi, ma non riesce a trovare un modo per farlo abbastanza velocemente\\
 \hline
-  \textbf{Scenari di un attacco avvenuto con successo} & 1. Il Sistema protegge i messaggi \linebreak 2. L'attaccante riesce ad intercettare un messaggio \linebreak 3. L'attaccante riesce a decifrare i messaggi e a leggerne il contenuto, ma solamente per una sessione di un utente\\
+  \textbf{Scenari di un attacco avvenuto con successo} & 1. Il Sistema protegge i messaggi \\ 2. L'attaccante riesce ad intercettare un messaggio \\ 3. L'attaccante riesce a decifrare i messaggi e a leggerne il contenuto, ma solamente per una sessione di un utente\\
 \hline
 \end{tabular}
 
@@ -636,13 +667,13 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Relazioni} &\\
 \hline
-  \textbf{Precondizioni} & 1. L'attaccante ha i mezzi per intercettare i messaggi del sistema \linebreak 2. L'attaccante ha i mezzi per modificare i messaggi \linebreak 3. L'attaccante ha i mezzi per spedire il messaggio modificato al destinatario\\
+  \textbf{Precondizioni} & 1. L'attaccante ha i mezzi per intercettare i messaggi del sistema \\ 2. L'attaccante ha i mezzi per modificare i messaggi \\ 3. L'attaccante ha i mezzi per spedire il messaggio modificato al destinatario\\
 \hline
   \textbf{Postcondizioni} & Il sistema rileva il messaggio contraffatto\\
 \hline
-  \textbf{Scenario principale} & 1. Il Sistema protegge i messaggi \linebreak 2. L'attaccante riesce ad intercettare un messaggio e lo modifica \linebreak 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log\\
+  \textbf{Scenario principale} & 1. Il Sistema protegge i messaggi \\ 2. L'attaccante riesce ad intercettare un messaggio e lo modifica \\ 3. Il sistema si accorge del messaggio contraffatto e lo segna nei log\\
 \hline
-  \textbf{Scenari di un attacco avvenuto con successo} & 1. Il Sistema protegge i messaggi \linebreak 2. L'attaccante riesce ad intercettare un messaggio e lo modifica \linebreak 3. Il sistema accetta il messaggio e agisce di conseguenza, segnando il messaggio nei log\\
+  \textbf{Scenari di un attacco avvenuto con successo} & 1. Il Sistema protegge i messaggi \\ 2. L'attaccante riesce ad intercettare un messaggio e lo modifica \\ 3. Il sistema accetta il messaggio e agisce di conseguenza, segnando il messaggio nei log\\
 \hline
 \end{tabular}
 \\
@@ -661,9 +692,9 @@ acquisti avvenuti in ogni farmacia associata.
 \hline
   \textbf{Postcondizioni} & Il sistema blocca l'accesso non autorizzato e notifica il tentativo di accesso\\
 \hline
-  \textbf{Scenario principale} & 1. L'attaccante tenta di accedere al servizio spacciandosi per un utente legittimo, di cui conosce le credenziali solo in parte (ad esempio mediante attacco con dizionario) \linebreak 2. Il sistema non riconosce le credenziali, restituendo un errore \linebreak 3. In seguito ad un numero fissato di tentativi falliti, il sistema blocca temporaneamente l'accesso a quell'utente e notifica l'anomalia a chi di dovere\\
+  \textbf{Scenario principale} & 1. L'attaccante tenta di accedere al servizio spacciandosi per un utente legittimo, di cui conosce le credenziali solo in parte (ad esempio mediante attacco con dizionario) \\ 2. Il sistema non riconosce le credenziali, restituendo un errore \\ 3. In seguito ad un numero fissato di tentativi falliti, il sistema blocca temporaneamente l'accesso a quell'utente e notifica l'anomalia a chi di dovere\\
 \hline
-  \textbf{Scenari di un attacco avvenuto con successo} & 1. L'attaccante riesce a carpire le credenziali di accesso complete di un utente in un qualsiasi modo \linebreak 2. Il sistema riconosce la correttezza delle credenziali, e fornisce l'accesso al soggetto malevolo 3. L'attaccante ha libero accesso al sistema, con privilegi diversi in base al tipo di utente\\
+  \textbf{Scenari di un attacco avvenuto con successo} & 1. L'attaccante riesce a carpire le credenziali di accesso complete di un utente in un qualsiasi modo \\ 2. Il sistema riconosce la correttezza delle credenziali, e fornisce l'accesso al soggetto malevolo 3. L'attaccante ha libero accesso al sistema, con privilegi diversi in base al tipo di utente\\
 \hline
 \end{tabular}
 \\
