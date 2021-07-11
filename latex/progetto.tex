@@ -34,7 +34,7 @@ Inoltre, un'applicazione web consente di avere una gestione maggiormente central
 
 Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il sistema è l'\textbf{architettura client-server a 3 livelli}.
 
-\paragraph{L1 -- Client}\mbox{}\\ \\
+\paragraph{L1 -- Client}\mbox{}\\
 La componente lato Client sarà implementata da due interfacce differenti:
 
 \begin{itemize}
@@ -42,7 +42,7 @@ La componente lato Client sarà implementata da due interfacce differenti:
 \item[-] Un'interfaccia per la gestione della farmacia da parte di un operatore (farmacista)
 \end{itemize}
 
-\paragraph{L2 -- Server}\mbox{}\\ \\
+\paragraph{L2 -- Server}\mbox{}\\
 Rispettando il principio del "minimo privilegio" per limitare i danni in caso di attacco e per distribuire meglio il carico, si è deciso di scomporre i server in base alle funzionalità offerte. Si hanno quindi tre server:
 
 \begin{itemize}
@@ -51,7 +51,7 @@ Rispettando il principio del "minimo privilegio" per limitare i danni in caso di
 \item[-] Un server per le funzionalità di autenticazione
 \end{itemize}
 
-\paragraph{L3 -- Persistenza}\mbox{}\\ \\
+\paragraph{L3 -- Persistenza}\mbox{}\\
 La gestione della persistenza verrà implementata in un server dedicato sul quale sarà installato un DBMS che gestisca i dati di tutte le farmacie aderenti al servizio.
 Su tale server sarà installato il DBMS IBM DB2.
 L'interfacciamento con il DBMS avverrà mediante la metodologia "forza bruta" utilizzando i metodi CRUD.
@@ -94,26 +94,31 @@ Si riportano di seguito i diagrammi di package e componenti che descrivono l'arc
 
 \subsubsection{Struttura}
 
-\paragraph{Struttura: Dominio}\mbox{}\\
+\textbf{Struttura: Dominio}\\
 
 Per quanto riguarda il dominio, i diagrammi rimangono sostanzialmente uguali a quelli visti in analisi.
 Nonostante il dominio del cliente sia pressoché identico a quello del farmacista, 
 si è comunque deciso di distinguere i due domini al fine di evitare l'introduzione di classi non necessarie.
-In particolare, la parte di applicativo relativa al cliente non dovrà gestire né conoscere i farmacisti legati ad ogni farmacia (informazione nota solo al server delle farmacie).
+In particolare, la parte di applicativo relativa al cliente non dovrà gestire
+né conoscere i farmacisti legati ad ogni farmacia (informazione nota solo al
+server delle farmacie).
+
+\vspace{2em}
+
+\textbf{Diagramma di dettaglio: Dominio Clienti}
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[scale=0.53]{immagini/DominioCliente-progettazione.png}
-        \caption{Diagramma di dettaglio: Dominio Clienti}
     \end{center}
 \end{figure}
 
 \newpage
 
+\textbf{Diagramma di dettaglio: Dominio Farmacia}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[scale=0.56]{immagini/DominioFarmacia-progettazione.jpg}
-        \caption{Diagramma di dettaglio: Dominio Farmacia}
     \end{center}
 \end{figure}
 
@@ -125,15 +130,12 @@ Inoltre, le associazioni \texttt{Lotto} e \texttt{SelezioneFarmaco} sono state m
 L'associazione \texttt{Lotto} dovrà necessariamente essere una classe a sé stante,
 mentre l'associazione \texttt{SelezioneFarmaco} potrà essere concretizzata in classe o sostituita da un semplice Integer. Quest'ultima scelta è lasciata agli implementatori.
 Le associazioni vere e proprie dovranno poi essere implementate mediante una \textbf{mappa}, ad esempio con un oggetto del tipo \mbox{\texttt{HashMap<Farmaco, Lotto>}}
+\vspace{2em}
 
-%\vspace{2em}
-
-\paragraph{Struttura: Interfacce}\mbox{}\\
-
+\textbf{Diagramma di dettaglio: Interfacce}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Interfacce-progettazione.png}
-        \caption{Diagramma di dettaglio: Interfacce}
     \end{center}
 \end{figure}
 
@@ -152,20 +154,21 @@ in questo modo, le funzionalità comuni di lettura/scrittura su database e log s
 Nonostante il controller "monolitico" non rispetti il \textit{Single Responsibility Principle}, 
 abbiamo comunque optato per questa soluzione, in quanto le funzionalità relative al database e al logging risultano facilmente accoppiabili essendo entrambe legate a un qualche tipo di persistenza.
 Inoltre, non si prevede alcun tipo di estensione/modifica per quanto riguarda la persistenza.
+\vspace{2em}
 
+\textbf{Diagramma di dettaglio: RicercaFarmaci, GestionePrenotazioni}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/ControllerCliente-progettazione.png}
-        \caption{Diagramma di dettaglio: RicercaFarmaci, GestionePrenotazioni}
     \end{center}
 \end{figure}
 
 \newpage
 
+\textbf{Diagramma di dettaglio: GestioneFarmacia}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/ControllerFarmacia-progettazione.png}
-        \caption{Diagramma di dettaglio: GestioneFarmacia}
     \end{center}
 \end{figure}
 
@@ -173,10 +176,10 @@ Anche i controller presenti sul server relativo alle farmacie seguono lo stesso 
 
 \newpage
 
+\textbf{Diagramma di dettaglio: GestioneAccesso}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/ControllerLogin-progettazione.png}
-        \caption{Diagramma di dettaglio: GestioneAccesso}
     \end{center}
 \end{figure}
 
@@ -198,45 +201,90 @@ allo scattare di un nuovo giorno, in base all'orario del server.
 
 \newpage
 
-\paragraph{Struttura: Broker}\mbox{}\\
-
+\textbf{Diagramma di dettaglio: Broker}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Broker.jpg}
-        \caption{Diagramma di dettaglio: Broker}
     \end{center}
 \end{figure}
 
 \newpage
 
-\paragraph{Struttura: View}\mbox{}\\
 
+\textbf{Diagramma di dettaglio: InterfacciaUtente}
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/ViewCliente-progettazione.jpg}
-        \caption{Diagramma di dettaglio: InterfacciaUtente}
+        \includegraphics[width=0.9\textwidth]{immagini/ViewCliente-progettazione.jpg}
     \end{center}
 \end{figure}
 
-\textit{Inserire disegni interfacce qui}
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-Home.jpg}
+    \caption{Home}
+\end{figure}
 \newpage
 
 \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-HomeLogin.jpg}
+    \caption{HomeLogin}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-Nuova Prenotazione.jpg}
+    \caption{Nuova Prenotazione}
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-Prenotazioni.jpg}
+    \caption{Prenotazioni}
+\end{figure}
+
+\newpage
+
+\textbf{Diagramma di dettaglio: InterfacciaFarmacista}
+\begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/ViewFarmacia-progettazione.jpg}
-        \caption{Diagramma di dettaglio: InterfacciaFarmacista}
+        \includegraphics[width=0.9\textwidth]{ViewFarmacia-progettazione.jpg}
     \end{center}
 \end{figure}
 
-\textit{Inserire disegni interfacce qui}
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteFarmacia-HomeFarmacista.jpg}
+    \caption{Home}
+\end{figure}
 \newpage
 
 \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteFarmacia-Prenotazioni.jpg}
+    \caption{Prenotazioni}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteFarmacia-Utenti.jpg}
+    \caption{Utenti}
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteFarmacia-Verifica Identità.jpg}
+    \caption{VerificaIdentità}
+\end{figure}
+
+\vspace{3em}
+
+\textbf{Diagramma di dettaglio: InterfacciaGestioneAccesso}
+\begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/ViewGestioneAccesso.jpg}
-        \caption{Diagramma di dettaglio: InterfacciaGestioneAccesso}
+        \includegraphics[width=\textwidth]{DettaglioBrokerLoginInterfacce-ViewLogin.jpg}
     \end{center}
 \end{figure}
 
@@ -244,8 +292,24 @@ L'interfaccia di GestioneAccesso è composta dalle view che permettono a clienti
 Pertanto, è presente in entrambi i client, completata dalle ulteriori interfacce specifiche del client.
 \\
 
-\textit{Inserire disegni interfacce qui}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-Login.jpg}
+    \caption{Login Utente}
+\end{figure}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteUtente-Registrazione.jpg}
+    \caption{Registrazione Utente}
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{VisteFarmacia-Login.jpg}
+    \caption{Login Farmacista}
+\end{figure}
 \newpage
 
 \subsubsection{Interazione}
@@ -254,25 +318,26 @@ Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quel
 
 \vspace{3em}
 
+\textbf{Diagramma di Sequenza: LoginFarmacista}
+
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Interazione-LoginUtente-progettaz.jpg}
-        \caption{Diagramma di Sequenza: LoginUtente}
     \end{center}
 \end{figure}
 
 \newpage
 
-\textit{Registrazione Utente}
+\textbf{Diagramma di Sequenza: RegistrazioneUtente}
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/Interazione-RegistrazioneUtente-progettaz.jpg}
-        \caption{Diagramma di Sequenza: RegistrazioneUtente}
+        \includegraphics[width=\textwidth]{immagini/Interazione-RegistrazioneUtente.jpg}
     \end{center}
 \end{figure}
 
 \newpage
+\textbf{Diagramma di Sequenza: VerificaIdentità}
 
 \begin{figure}[h!]
     \begin{center}
@@ -281,6 +346,7 @@ Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quel
     \end{center}
 \end{figure}
 
+\textbf{Diagramma di Sequenza: SospensioneUtenza}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Interazione-SospensioneUtenza-progettaz.jpg}
@@ -291,30 +357,28 @@ Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quel
 
 \newpage
 
+\textbf{Diagramma di Sequenza: NuovaPrenotazione}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Interazione-NuovaPrenotazione-progettaz.jpg}
-        \caption{Diagramma di Sequenza: NuovaPrenotazione}
     \end{center}
 \end{figure}
 
 \newpage
 
-\subsubsection*{Interazione: ConfermaPrenotazione}
+\textbf{Diagramma di Sequenza: ConfermaPrenotazione}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Interazione-ConfermaPrenotazione-progettaz.jpg}
-        %\caption{Diagramma di Sequenza: ConfermaPrenotazione}
     \end{center}
 \end{figure}
 
 \newpage
 
-\subsubsection*{Interazione: RicercaFarmaci}
+\textbf{Diagramma di Sequenza: RicercaFarmaci}
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=\textwidth]{immagini/Interazione-RicercaFarmaco-progettaz.jpg}
-        %\caption{Diagramma di Sequenza: RicercaFarmaci}
     \end{center}
 \end{figure}
 
@@ -342,7 +406,7 @@ sarà il seguente:\\
 
 Esempio: File \texttt{/var/log/farmabyte.log}\\
 
-\texttt{\$ Data - Ora - Operazione - Descrizione - ID utente}\\ \\
+\texttt{\$ Data - Ora - Operazione - Descrizione - ID utente}\\
 \textbf{Nota}: l'ID utente è l'identificativo dell'esecutore di tale operazione, può essere quindi sia un cliente che un farmacista.
 Se nell'eseguire l'operazione, l'utente interagisce o modifica lo stato di altri utenti questo dovrà essere specificato nella descrizione (Caso tipico: farmacista verifica l'identità di un cliente).
 L'operazione sarà semplicemente il nome del metodo invocato. 
