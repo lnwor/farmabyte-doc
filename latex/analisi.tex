@@ -4,13 +4,13 @@
 \hfill \break
 
 \textbf{Tabella delle Funzionalità}
-\\
+\hfill \break
 
 \begin{tabular} {|P{4cm}|P{4cm}|P{3.5cm}|P{4cm}|} % Qua cambiate a piacimento la larghezza
     \hline
     \textbf{Funzionalità} & \textbf{Tipo} & \textbf{Grado di complessità} & \textbf{Requisiti Collegati} \\
     \hline
-    Gestione Farmacia & Memorizzazione dati e gestione dati & complessa & R5F, R9F, R10F, R11F, R12F, R13F, R14F, R15F \\
+    Gestione Farmacia & Memorizzazione dati e gestione dati & complessa & R5F, R9F, R10F, R11F, R12F, R13F \\
     \hline
     Registrazione & Interazione esterno e memorizzazione dati & semplice & R4F \\
     \hline
@@ -27,7 +27,7 @@
 \hfill \break
 
 \textbf{GestioneFarmacia: Tabella Informazioni/Flusso}
-\\
+\hfill \break
 
 \begin{tabular} {|P{3cm}|P{3cm}|P{3cm}|P{3cm}|P{3cm}|}
     \hline
@@ -49,7 +49,7 @@
 \hfill \break
 
 \textbf{RicercaFarmaci: Tabella Informazioni/Flusso}
-\\
+\hfill \break
 
 \begin{tabular} {|P{3cm}|P{3cm}|P{3cm}|P{3cm}|P{3cm}|}
     \hline
@@ -66,7 +66,6 @@
 \end{tabular}
 \hfill \break
 
-\newpage
 \textbf{Registrazione: Tabella Informazioni/Flusso}
 \hfill \break
 
@@ -109,7 +108,8 @@
     Evento & composto & Protezione molto alta & Input &  \\
     \hline
 \end{tabular}
-\hfill \break
+
+\newpage
 
 \textbf{Login: Tabella Informazioni/Flusso}
 \hfill \break
@@ -138,7 +138,7 @@
     \hline
     Data prenotazione & semplice & Protezione media & Input & Solo una data compresa tra il giorno successivo e 14 giorni dopo \\
     \hline
-    Elenco farmaci & composto & Protezione alta & Input & 1. Non più di 5 elementi per ogni farmaco <br> 2. Non più di 20 elementi in totale \\
+    Elenco farmaci & composto & Protezione alta & Input & 1. Non più di 5 elementi per ogni farmaco \linebreak 2. Non più di 20 elementi in totale \\
     \hline
     Identificativo farmacia & semplice & Protezione alta & Input & Non più di 20 caratteri \\
     \hline
@@ -155,7 +155,8 @@
 \textbf{Tabella Vincoli}
 \hfill \break
 
-\begin{tabular} {|P{3cm}|P{2.5cm}|P{3.5cm}|P{6cm}|}
+
+\begin{tabular} {|P{4cm}|P{2.5cm}|P{3.5cm}|P{6cm}|}
     \hline
     \textbf{Requisito} & \textbf{Categorie} & \textbf{Impatto} & \textbf{Funzionalità} \\
     \hline
@@ -179,7 +180,7 @@
 \textbf{Tabella Maschere}
 \hfill \break
 
-\begin{tabular} {|P{3.5cm}|P{7cm}|P{5cm}|}
+\begin{tabular} {|P{5cm}|P{7cm}|P{4cm}|}
     \hline
     \textbf{Maschera} & \textbf{Informazioni} & \textbf{Funzionalità} \\
     \hline
@@ -193,7 +194,7 @@
     \hline
     View VerificaIdentità & nome cliente, cognome cliente, codice fiscale cliente  & VeriticaIdentità \\
     \hline
-    View Farmaci & lista farmaci & gestioneFarmacia \\
+    View Farmaci & lista farmaci & GestioneFarmacia \\
     \hline
     Home Servizio & messaggio di benvenuto, nome farmaco, località utente, lista farmacie pertinenti & RicercaFarmaci \\
     \hline
@@ -210,11 +211,11 @@
 \textbf{Tabella Sistemi Esterni}
 \hfill \break
 
-\begin{tabular} {|P{3cm}|P{4cm}|P{4cm}|P{4cm}|}
+\begin{tabular} {|P{2.5cm}|P{4cm}|P{4cm}|P{4.5cm}|}
     \hline
     \textbf{Sistema} & \textbf{Descrizione} & \textbf{Protocollo di Interazione} & \textbf{Livello di Sicurezza} \\
     \hline
-    Gestione Magazzino  &  Sistema che si occupa della gestione dei farmaci in magazzino  &  GestioneMagazzino mette a disposizione delle funzionalità di elencazione dei farmaci  & Medio livello di sicurezza perchè protegge i dati della farmacia  \\
+    Gestione \linebreak Magazzino  &  Sistema che si occupa della gestione dei farmaci in magazzino  & Mette a disposizione il modello publisher-subscriber per notificare aggiornamenti & Medio livello di sicurezza perchè protegge i dati della farmacia  \\
     \hline
 \end{tabular}
 \hfill \break
@@ -226,16 +227,25 @@
 \textbf{Tabella Ruoli}
 \hfill \break
 
-\begin{tabular} {|P{2.5cm}|P{3cm}|P{3.5cm}|P{3cm}|P{3cm}|}
+\begin{tabular} {|P{2.5cm}|P{3cm}|P{4cm}|P{3cm}|P{2.5cm}|}
     \hline
     \textbf{Ruolo} & \textbf{Responsabilità} & \textbf{Maschere} & \textbf{Riservatezza} & \textbf{Numerosità} \\
     \hline
-    Farmacista & Gestione di tutte le informazioni relative agli utenti e alle prenotazioni di una farmacia & Home Gestione, View Login, View Prenotazioni, View ResocontoUtenti, View VerificaIdentità, View Farmaci,  & È richiesto un alto grado di riservatezza  & Massimo 10 farmacisti per ogni farmacia \\
+    Farmacista & Gestione di tutte le informazioni relative agli utenti e alle
+    prenotazioni di una farmacia & Home Gestione, View Login, View
+    Prenotazioni, View ResocontoUtenti, View VerificaIdentità, View Farmaci  &
+    È richiesto un alto grado di riservatezza  & Massimo 10 farmacisti per ogni
+    farmacia \\
     \hline
-    Cliente & Ricerca di un farmaco senza necessità di login & Home Servizio, View Login, View Registrazione  & È richiesto un medio grado di riservatezza & Illimitati \\
+    Cliente & Ricerca di un farmaco senza necessità di login & Home Servizio,
+    View Login, View Registrazione  & È richiesto un medio grado di
+    riservatezza & Illimitati \\
     \hline
     % roba molto brutta ma non so perchè non va a capo automaticamente questo
-    ClienteRegi- strato & Ricerca e prenotazione di farmaci presso una farmacia & Home Servizio, View NuovaPrenotazione, View PrenotazioniPersonali &  È richiesto un alto grado di riservatezza  & Illimitati \\
+    ClienteRegi-\linebreak strato & Ricerca e prenotazione di farmaci presso una farmacia
+                        & Home Servizio, View NuovaPrenotazione, View
+    PrenotazioniPersonali &  È richiesto un alto grado di riservatezza  &
+    Illimitati \\
     \hline
 \end{tabular}
 \hfill \break
@@ -294,6 +304,7 @@
     Elenco farmaci & Scrittura \\
     \hline
 \end{tabular}
+\hfill \break
 
 \textbf{Cliente: Tabella Ruolo-Informazioni}
 \hfill \break

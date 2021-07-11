@@ -16,7 +16,7 @@
   \item[-] La email deve essere univoca, la password di almeno 8 caratteri, contentente almeno un numero e un carattere alfabetico.
   \item[-] Per l'autenticazione è necessario mostrare il tesserino sanitario per l'identificazione in farmacia.
   \item[-] Il cliente può vedere la lista delle sue prenotazioni in corso
-  \item[-] Il farmacista vede le prenotazioni effettuate dagli utenti per la propria farmacia
+  \item[-] Il farmacista vede le prenotazioni effettuate nella propria farmacia e la lista dei farmaci, con specificato quelli in scadenza o in esaurimento
   \item[-] Il farmacista può confermare le prenotazioni andate a buon fine
   \item[-] Se alla fine della giornata un utente non si presenta allora l'evento viene registrato, per poi avvisare il farmacista che può eventualmente bloccare l'utente
   \item[-] Il sistema sarà ovviamente distribuito e di natura client-server con la presenza di un database centrale dove memorizzare i dati
@@ -33,7 +33,7 @@
 \hline
   R1F & Localizzazione delle farmacie ad avere il farmaco da cercare nella città specificata & Funzionale \\
 \hline
-  R2F & Specifica del farmaco da cercare da parte dell'utente & Funzionale \\
+  R2F & Specifica da parte dell'utente del farmaco da cercare e della città in cui cercarlo & Funzionale \\
 \hline
   R3F & Presentazione delle farmacie che dispongono di un farmaco & Funzionale \\
 \hline 
@@ -49,17 +49,13 @@
 \hline
   R9F & Visualizzazione delle prenotazioni della farmacia & Funzionale\\
 \hline
-  R10F & Visualizzazione del numero dei farmaci disponibili & Funzionale\\
+  R10F & Conferma della prenotazione andata a buon fine & Funzionale\\
 \hline
-  R11F & Notifica dei farmaci in esaurimento o in scadenza & Funzionale\\
+  R11F & Visualizzazione dei farmaci e notifica dei farmaci in scadenza e in esaurimento & Funzionale\\
 \hline
-  R12F & Conferma della prenotazione andata a buon fine & Funzionale\\
+  R12F & Notifica della mancata finzalizzazione in acquisto di una prenotazione & Funzionale\\
 \hline
-  R13F & Notifica della mancata finzalizzazione in acquisto di una prenotazione & Funzionale\\
-\hline
-  R14F & Blocco dell'utente che effettua troppe prenotazioni senza presentarsi & Funzionale\\
-\hline
-  R15F & Verrà memorizzato il numero di prenotazioni andate a buon fine & Funzionale\\
+  R13F & Blocco dell'utente che effettua troppe prenotazioni senza presentarsi & Funzionale\\
 \hline
   R1NF & Velocità di memorizzazione dei dati & Non Funzionale\\
 \hline
@@ -69,7 +65,7 @@
 \hline
   R4NF & Un utente non può avere più di un account verificato & Non Funzionale\\
 \hline
-  R5NF & la gestione delle vendite e ordini è gestita da un altro software & Non Funzionale\\
+  R5NF & La gestione delle vendite e ordini è gestita da un altro software & Non Funzionale\\
 \hline
   R6NF & Per prenotare l'utente deve essere registrato & Non Funzionale\\
 \hline
@@ -109,6 +105,8 @@
   Password & Codice alfanumerico di almeno 8 caratteri &\\
 \hline
   Magazzino & Luogo fisico in cui vengono conservati i farmaci di un punto vendita & Deposito \\
+\hline
+  Blocco & Blocco di un utente a seguito di prenotazioni non concluse & Sospensione \\
 \hline
 \end{tabular}
 
@@ -153,7 +151,8 @@ publisher-subscriber.
   \textbf{Postcondizioni} & \\
 \hline
   \textbf{Scenario Principale} & 1. Login \linebreak 2. Il farmacista può
-  eseguire la verifica, sospendere un account, controllare le prenotazioni \\
+  eseguire la verifica e la sospensione di un account, controllare le prenotazioni e i
+  farmaci disponibili, in scadenza o in esaurimento \\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -202,7 +201,7 @@ publisher-subscriber.
 \hline
   \textbf{Titolo} & ControlloUtenti\\
 \hline
-  \textbf{Descrizione} & Si controllano gli utenti con potenzialmente sospendibili\\
+  \textbf{Descrizione} & Si controllano gli utenti potenzialmente sospendibili\\
 \hline
   \textbf{Attori} & Farmacista\\
 \hline
@@ -212,7 +211,7 @@ publisher-subscriber.
 \hline
   \textbf{Postcondizioni} & Viene mostrato l'elenco degli Utenti a rischio sospensione\\
 \hline
-  \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di
+  \textbf{Scenario Principale} & 1. Il farmacista va nella schermata di
   visualizzazione utenti \linebreak 2. Il sistema recupera l'elenco degli
   utenti a rischio o sospesi \linebreak 3. Il sistema mostra a video l'elenco
   degli utenti\\
@@ -240,7 +239,7 @@ publisher-subscriber.
   \hline
     \textbf{Precondizioni} & Il cliente è diffidato dal sistema (ha molte prenotazioni non concluse)\\
   \hline
-    \textbf{Postcondizioni} & Il cliente non può più effettuare prenotazioni per 30 giorni\\
+    \textbf{Postcondizioni} & Il cliente non può più effettuare prenotazioni finchè non viene sbloccato\\
   \hline
     \textbf{Scenario principale} & 1. ControlloUtenti \linebreak 2. Il
     farmacista può sospendere o annullare la sospensione di un utente \\
@@ -270,12 +269,16 @@ publisher-subscriber.
 \hline
   \textbf{Postcondizioni} & Viene mostrato l'elenco delle prenotazioni\\
 \hline
-  \textbf{Scenario principale} & 1. Il Farmacista va nella schermata di
+  \textbf{Scenario principale} & 1. Il farmacista va nella schermata di
   visualizzazione prenotazioni \linebreak 2. Il sistema recupera l'elenco delle
   prenotazioni giornaliere \linebreak 3. Il sistema mostra a video l'elenco delle
   prenotazioni\\
 \hline
-  \textbf{Scenari Alternativi} &\\
+  \textbf{Scenari Alternativi} & 1. Il farmacista va nella schermata di
+  visualizzazione delle prenotazioni \linebreak 2. Il farmacista specifica
+  l'intervallo di tempo nel quale recuperare le prenotazioni \linebreak 3. Il
+  sistema recupera l'elenco delle prenotazioni richiesto \linebreak 4. Il
+  sistema mostra a video l'elenco delle prenotazioni \\
 \hline
   \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati\\
 \hline
@@ -290,7 +293,7 @@ publisher-subscriber.
 \hline
   \textbf{Titolo} & ConfermaPrenotazione\\
 \hline
-  \textbf{Descrizione} & Il Farmacista conferma la prenotazione avvenuta\\
+  \textbf{Descrizione} & Il farmacista conferma la prenotazione avvenuta\\
 \hline
   \textbf{Attori} & Farmacista\\
 \hline
@@ -300,7 +303,7 @@ publisher-subscriber.
 \hline
   \textbf{Postcondizioni} & La prenotazione viene confermata\\
 \hline
-  \textbf{Scenario principale} & 1. ControlloPrenotazioni \linebreak 2. Il Farmacista conferma l'avvenuta prenotazione\\
+  \textbf{Scenario principale} & 1. ControlloPrenotazioni \linebreak 2. Il farmacista conferma l'avvenuta prenotazione\\
 \hline
   \textbf{Scenari Alternativi} & \\
 \hline
@@ -376,7 +379,7 @@ publisher-subscriber.
         4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak
         5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \linebreak
         6. La lista viene mostrata all'utente \linebreak
-        7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta linebreak
+        7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \linebreak
       Scenario alternativo B: \linebreak
         1. NuovaPrenotazione scenario alternativo A \linebreak
         2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak
@@ -511,7 +514,8 @@ publisher-subscriber.
   accesso \linebreak 2. Il sistema verifica le credenziali \linebreak 3. Se le
   credenziali sono corrette, viene presentata la schermata iniziale\\
 \hline
-  \textbf{Scenari Alternativi} & Scenario a: Credenziali non riconosciute.
+  \textbf{Scenari Alternativi} & 1. L'utente inserisce le
+  credenziali di accesso \linebreak 2. Il sistema verifica le credenziali 
   \linebreak 3. Il sistema non riconosce le credenziali e rispedisce l'utente
   alla schermata di login con un messaggio di errore\\
 \hline
@@ -544,8 +548,10 @@ publisher-subscriber.
     cliente termina la registrazione, se avvenuta con successo gli viene
     mostrata la conferma e viene reindirizzato alla pagina principale\\
   \hline
-    \textbf{Scenari Alternativi} & Scenario a: il codice fiscale è già
-    registrato \linebreak 3. Il sistema verifica che è già presente un utente
+    \textbf{Scenari Alternativi} & 1. Il cliente accede
+    alla sezione di registrazione \linebreak 2. Il cliente inserisce i propri
+    dati: nome, cognome, data di nascita, email, password e codice fiscale.
+    \linebreak 3. Il sistema verifica che è già presente un utente
     con quel codice fiscale, quindi notifica il cliente con un messaggio di
     errore.\\
   \hline
@@ -659,7 +665,7 @@ publisher-subscriber.
 \hline
   DoS & Bassa & Controllo e limitazione delle richieste & Media complessità di implementazione\\
 \hline
-  Saturazione del database & Bassa & 1. Limitazione delle richieste in un dato intervallo di tempo. 2. Limite di tempo per la verifica di un cliente & Media complessità di implementazione\\
+  Saturazione del database & Bassa & 1. Limitazione delle richieste in un dato intervallo di tempo. \linebreak 2. Limite di tempo per la verifica di un cliente & Media complessità di implementazione\\
 \hline
 \end{tabular}
 
@@ -784,7 +790,7 @@ publisher-subscriber.
   \textbf{Scenari di un attacco avvenuto con successo} & 1. L'attaccante riesce
   a carpire le credenziali di accesso complete di un utente in un qualsiasi
   modo \linebreak 2. Il sistema riconosce la correttezza delle credenziali, e fornisce
-  l'accesso al soggetto malevolo 3. L'attaccante ha libero accesso al sistema,
+  l'accesso al soggetto malevolo \linebreak 3. L'attaccante ha libero accesso al sistema,
   con privilegi diversi in base al tipo di utente\\
 \hline
 \end{tabular}
