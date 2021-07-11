@@ -48,6 +48,24 @@
 \end{tabular}
 \hfill \break
 
+\textbf{RicercaFarmaci: Tabella Informazioni/Flusso}
+\\
+
+\begin{tabular} {|P{3cm}|P{3cm}|P{3cm}|P{3cm}|P{3cm}|}
+    \hline
+    \textbf{Informazione} & \textbf{Tipo} & \textbf{Livello protezione/privacy} & \textbf{Input / Output} & \textbf{Vincoli}\\
+    \hline
+    Nome Farmaco & semplice & Protezione bassa & Input & \\
+    \hline
+    Località Utente & composto & Protezione alta & Input & \\
+    \hline
+    Farmacia & semplice & Protezione bassa & Input & \\
+    \hline
+    Lista Farmacie Pertinenti & composto & Protezione bassa & Output & Non più di 10 farmacie \\
+    \hline
+\end{tabular}
+\hfill \break
+
 \newpage
 \textbf{Registrazione: Tabella Informazioni/Flusso}
 \hfill \break
@@ -69,7 +87,6 @@
     Password & semplice & Protezione molto alta & Input & Deve essere almeno di 8 caratteri, di cui uno alfabetico e uno numerico \\
     \hline
 \end{tabular}
-\hfill \break
 \hfill \break
 
 \textbf{ScritturaLog: Tabella Informazioni/Flusso}
@@ -93,18 +110,6 @@
     \hline
 \end{tabular}
 \hfill \break
-\hfill \break
-
-\textbf{AnalisiLog: Tabella Informazioni/Flusso}
-\hfill \break
-
-\begin{tabular} {|P{3cm}|P{3cm}|P{3cm}|P{3cm}|P{3cm}|}
-    \hline
-    \textbf{Informazione} & \textbf{Tipo} & \textbf{Livello protezione/privacy} & \textbf{Input/Output} & \textbf{Vincoli} \\
-    \hline
-    Notifica & composto & Protezione bassa & Output &  \\
-    \hline
-\end{tabular}
 
 \textbf{Login: Tabella Informazioni/Flusso}
 \hfill \break
@@ -118,7 +123,6 @@
     Password & semplice & Protezione molto alta & Input & Non più di 50 caratteri \\
     \hline
 \end{tabular}
-\hfill \break
 \hfill \break
 
 \textbf{GestionePrenotazione: Tabella Informazioni/Flusso}
@@ -329,6 +333,7 @@
 \end{tabular}
 \\
 
+\break
 Non sono presenti legami di esclusione o di necessità tra le sotto-funzionalità del sistema. 
 \hfill \break
 
@@ -339,7 +344,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/ModelloDominio.jpg}
+        \includegraphics[width=\textwidth]{ModelloDominio.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -353,37 +358,37 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.6]{immagini/Diagrammi-Package.png}
+        \includegraphics[scale=0.6]{Diagrammi-Package.png}
     \end{center}
 \end{figure}
 \hfill \break
 
-\textbf{Diagramma delle classi: GestioneAccesso}
+\textbf{Diagramma delle classi: InterfacciaGestioneAccesso \& GestioneAccesso}
 \hfill \break
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/Diagrammi-Gestione Accesso.jpg}
+        \includegraphics[width=\textwidth]{Diagrammi-Gestione Accesso.jpg}
     \end{center}
 \end{figure}
 \hfill \break
 
-\textbf{Diagramma delle classi: Gestione Farmacia \& Interfaccia Farmacia}
+\textbf{Diagramma delle classi: InterfacciaGestioneFarmacia \& GestioneFarmacia}
 \hfill \break
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/Diagrammi-Farmacia.jpg}
+        \includegraphics[width=\textwidth]{Diagrammi-Farmacia.jpg}
     \end{center}
 \end{figure}
 \hfill \break
 
 \newpage
-\textbf{Diagramma delle classi: Interfaccia Utente}
+\textbf{Diagramma delle classi: InterfacciaUtente \& RicercaFarmaci \& GestionePrenotazioni }
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=\textwidth]{immagini/Diagrammi-Utente.jpg}
+        \includegraphics[width=\textwidth]{Diagrammi-Utente.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -396,7 +401,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.5]{immagini/Interazione-LoginUtente.jpg}
+        \includegraphics[scale=0.5]{Interazione-LoginUtente.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -405,7 +410,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.4]{immagini/Interazione-RegistrazioneUtente.jpg}
+        \includegraphics[scale=0.4]{Interazione-RegistrazioneUtente.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -414,7 +419,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.5]{immagini/Interazione-NuovaPrenotazione.jpg}
+        \includegraphics[scale=0.5]{Interazione-NuovaPrenotazione.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -423,7 +428,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.5]{immagini/Interazione-ConfermaPrenotazione.jpg}
+        \includegraphics[scale=0.5]{Interazione-ConfermaPrenotazione.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -432,7 +437,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.5]{immagini/Interazione-RicercaFarmaco.jpg}
+        \includegraphics[scale=0.5]{Interazione-RicercaFarmaco.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -441,7 +446,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.5]{immagini/Interazione-SospensioneUtenza.jpg}
+        \includegraphics[scale=0.5]{Interazione-SospensioneUtenza.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -454,7 +459,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.5]{immagini/Comportamento.jpg}
+        \includegraphics[scale=0.5]{Comportamento.jpg}
     \end{center}
 \end{figure}
 \hfill \break
@@ -492,7 +497,7 @@ ogni membro del gruppo come indicato nella tabella sottostante:\\
 
 I tempi di rilascio sono i seguenti:
 \begin{itemize}
-    \item Progettazione entro due settimane dalla data di odierna
+    \item Progettazione entro due settimane dalla data odierna
     \item Sviluppo dei vai moduli con annessi test unitari entro una settimana dalla fine della fase di progettazione
     \item Integrazione e testing del sistema entro una settimane dalla fine dello sviluppo
 \end{itemize}
@@ -610,8 +615,8 @@ public class testCliente{
         Assert.assertEquals(cliente.getCodiceFiscale(), "CHSFRC20L10A944G");
         Assert.assertEquals(cliente.getEmail(), "federico.chesani@unibo.it");
         Assert.assertEquals(cliente.getEffrazioni(), 0);
-        Assert.assertEquals(cliente.getVerificato(), true);
-        Assert.assertEquals(cliente.getBloccato(), false);
+        Assert.assertEquals(cliente.isVerificato(), true);
+        Assert.assertEquals(cliente.isBloccato(), false);
     }
 
     @Test 
@@ -629,9 +634,9 @@ public class testCliente{
         cliente.setEffrazioni(0);
         Assert.assertEquals(cliente.getEffrazioni(), 0);
         cliente.setVerificato(true);
-        Assert.assertEquals(cliente.getVerificato(), true);
+        Assert.assertEquals(cliente.isVerificato(), true);
         cliente.setBloccato(false);
-        Assert.assertEquals(cliente.getBloccato(), false);
+        Assert.assertEquals(cliente.isBloccato(), false);
     }
 }
 \end{minted}

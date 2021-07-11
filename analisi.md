@@ -99,7 +99,6 @@ Lista farmacie pertinenti = {NomeFarmacia1, IndirizzoFarmacia1, DistanzaFarmacia
 |Identificativo farmacia|semplice|Protezione alta|Input|Non più di 20 caratteri|
 |Identificativo cliente|semplice|Protezione molto alta|Input|Non più di 20 caratteri|
 |Lista prenotazioni | composto | Protezione alta | Output ||
-
 <br>
 
 ## Analisi Documento dei Requisiti: Analisi dei Vincoli
@@ -254,7 +253,7 @@ Comportamento.drawio
 |InterfacciaFarmacia |Guerra,Palaferri,Romanini|Guerra,Palaferri,Romanini|
 
 I tempi di rilascio sono i seguenti:
-- Progettazione entro 14 giorni dalla data di odierna
+- Progettazione entro 14 giorni dalla data odierna
 - Sviluppo dei vai moduli con annessi test unitari entro due settimane dalla fine della fase di progettazione
 - Integrazione e testing del sistema entro due settimane dalla fine dello sviluppo
 
