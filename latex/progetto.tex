@@ -23,16 +23,24 @@ Va notato inoltre che il sistema non presenta vincoli di tempo particolarmente s
 
 \subsubsection{Scelte tecnologiche}
 
-La scelta tecnologica principale ricade sul tipo di applicazione che si andrà a sviluppare.
-In questo caso la scelta è stata quella di sviluppare un'applicazione web, per vari motivi:
-prima di tutto, consente di avere una piattaforma standard accessibile da quasi tutti i dispositivi,
-con il solo requisito di un browser web. In questo modo si evita di restringere le possibilità di accesso al servizio.
-Inoltre, un'applicazione web consente di avere una gestione maggiormente centralizzata ed un deployment più agevole (a questo proposito si veda la sezione apposita del deployment).
-
+La scelta tecnologica principale ricade sul tipo di applicazione che si andrà a
+sviluppare.  In questo caso la scelta è stata quella di sviluppare
+un'applicazione web, per vari motivi: prima di tutto, consente di avere una
+piattaforma standard accessibile da quasi tutti i dispositivi, con il solo
+requisito di un browser web. In questo modo si evita di restringere le
+possibilità di accesso al servizio.  Inoltre, un'applicazione web consente di
+avere una gestione maggiormente centralizzata ed un deployment più agevole (a
+questo proposito si veda la sezione apposita del deployment). \\
+Infine per relazionarci con il sistema esterno, che ci fornisce la lista aggiornata dei
+farmaci per ogni farmacia, ne salviamo localmente in cache un istantanea della lista in
+modo da minimizzare il tempo di risposta dell'applicazione.\\
+La cache locale verrà aggiornata ad ogni modifica del database remoto, questo
+grazie al modello publisher-subscriber, (vedi \nameref{sec:esterno})
 
 \subsubsection{Scelta dell'architettura}
 
-Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il sistema è l'\textbf{architettura client-server a 3 livelli}.
+Dopo una rapida analisi, si è constatato che l'architettura più adeguata per il
+sistema è l'\textbf{architettura client-server a 3 livelli}.
 
 \paragraph{L1 -- Client}\mbox{}\\
 La componente lato Client sarà implementata da due interfacce differenti:
@@ -325,6 +333,9 @@ Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quel
         \includegraphics[width=\textwidth]{immagini/Interazione-LoginUtente-progettaz.jpg}
     \end{center}
 \end{figure}
+
+Si riporta solo il diagramma del login del farmacista. Il ViewLogin del cliente è
+pressochè identico se non per le View (ViewLoginUtente e HomeServizio).
 
 \newpage
 
