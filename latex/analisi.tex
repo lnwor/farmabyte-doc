@@ -372,6 +372,13 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 \end{figure}
 \hfill \break
 
+\textbf{Diagramma delle classi: Dominio}
+\hfill \break
+
+Non viene riportato il diagramma delle classi associato al package Dominio in quanto è il modello del dominio creato nella fase precedente.  
+
+\newpage
+
 \textbf{Diagramma delle classi: InterfacciaGestioneAccesso \& GestioneAccesso}
 \hfill \break
 
@@ -404,6 +411,8 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 
 \newpage
 \subsubsection{Architettura Logica: Interazione}
+
+In seguito saranno riportati i principali diagrammi di sequenza durante un normale utilizzo dell'applicazione.
 \hfill \break
 
 \textbf{Diagramma di Sequenza: Login Utente}
@@ -431,6 +440,7 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
         \includegraphics[scale=0.5]{Interazione-NuovaPrenotazione.jpg}
     \end{center}
 \end{figure}
+
 \newpage
 
 \textbf{Diagramma di Sequenza: Registrazione Utente}
@@ -474,6 +484,9 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 \hfill \break
 
 \textbf{Diagramma di Stato: Analizza Utente}
+\hfill \break
+Il seguente diagramma di stato illustra come vengono aggiornati gli stati dei
+vari utenti in seguito a delle mancate conferme di prenotazione.
 
 \begin{figure}[h!]
     \begin{center}
@@ -486,7 +499,8 @@ Il seguente diagramma delle classi rappresenta la parte di modello del dominio r
 \subsubsection{Piano di Lavoro}
 
 I compiti sono stati divisi in base alle competenze di 
-ogni membro del gruppo come indicato nella tabella sottostante:\\
+ogni membro del gruppo come indicato nella tabella sottostante:
+\hfill \break
 
 \begin{tabular} {|P{5cm}|P{5cm}|P{5cm}|} % Qua cambiate a piacimento la larghezza
     \hline
@@ -517,7 +531,7 @@ I tempi di rilascio sono i seguenti:
 \begin{itemize}
     \item Progettazione entro due settimane dalla data odierna
     \item Sviluppo dei vai moduli con annessi test unitari entro una settimana dalla fine della fase di progettazione
-    \item Integrazione e testing del sistema entro una settimane dalla fine dello sviluppo
+    \item Integrazione e testing del sistema entro una settimana dalla fine dello sviluppo
 \end{itemize}
 \hfill \break
 
@@ -530,6 +544,10 @@ del programma.
 
 \newpage
 \subsubsection{Piano del Collaudo}
+
+Per verificare il corretto funzionamento del sistema sono necessari dei test
+unitari che ne verifichino la correttezza delle singole parti. In seguito
+verranno riportati i casi reputati più importanti in fase di analisi.
 
 \usemintedstyle{manni}
 \begin{minted}
