@@ -123,6 +123,7 @@
 \subsubsection{Scenari}
 \hfill \break
 
+%GestioneFarmacia
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline  
   \textbf{Titolo} & GestioneFarmacia \\
@@ -131,7 +132,7 @@
 \hline
   \textbf{Attori} & Farmacista\\
 \hline
-  \textbf{Relazioni} & Login, SospensioneUtenza, VerificaIdentità, ResocontoFarmaci, ResocontoPrenotazioni\\
+  \textbf{Relazioni} & Login, SospensioneUtenza, ControlloUtenti, ResocontoFarmaci, ControlloPrenotazioni\\
 \hline
   \textbf{Precondizioni} & \\
 \hline
@@ -149,9 +150,37 @@
 \hfill
 \break
 
+%ResocontoFarmaci
+\begin{tabular} {|P{4.5cm}|P{12.5cm}|}
+  \hline
+    \textbf{Titolo} & ResocontoFarmaci\\
+  \hline
+    \textbf{Descrizione} & Viene mostrato l'elenco dei farmaci in scadenza o in esaurimento\\
+  \hline
+    \textbf{Attori} & Farmacista\\
+  \hline
+    \textbf{Relazioni} & GestioneFarmacia\\
+  \hline
+    \textbf{Precondizioni} &\\
+  \hline
+    \textbf{Postcondizioni} & Viene mostrato l'elenco degli Utenti a rischio sospensione\\
+  \hline
+    \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione farmaci \linebreak 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza \linebreak 3. Il sistema mostra a video l'elenco richiesto\\
+  \hline
+    \textbf{Scenari Alternativi} &\\
+  \hline
+    \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
+  \hline
+    \textbf{Punti aperti} &\\
+  \hline
+\end{tabular}
+\hfill
+\break
+
+%ControlloUtenti
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
-  \textbf{Titolo} & ResocontoUtenti\\
+  \textbf{Titolo} & ControlloUtenti\\
 \hline
   \textbf{Descrizione} & Si controllano gli utenti con potenzialmente sospendibili\\
 \hline
@@ -163,7 +192,7 @@
 \hline
   \textbf{Postcondizioni} & Viene mostrato l'elenco degli Utenti a rischio sospensione\\
 \hline
-  \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione utenti \linebreak 2. Il sistema recupera l'elenco degli utenti a rischio\linebreak 3. Il sistema mostra a video l'elenco degli utenti\\
+  \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione utenti \linebreak 2. Il sistema recupera l'elenco degli utenti a rischio o sospesi \linebreak 3. Il sistema mostra a video l'elenco degli utenti\\
 \hline
   \textbf{Scenari Alternativi} &\\
 \hline
@@ -175,33 +204,34 @@
 \hfill
 \break
 
+%SospensioneUtenza
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-  \textbf{Titolo} & ResocontoFarmaci\\
-\hline
-  \textbf{Descrizione} & Viene mostrato l'elenco dei farmaci in scadenza o in esaurimento\\
-\hline
-  \textbf{Attori} & Farmacista\\
-\hline
-  \textbf{Relazioni} & GestioneFarmacia\\
-\hline
-  \textbf{Precondizioni} &\\
-\hline
-  \textbf{Postcondizioni} & Viene mostrato l'elenco degli Utenti a rischio sospensione\\
-\hline
-  \textbf{Scenario Principale} & 1. Il Farmacista va nella schermata di visualizzazione farmaci \linebreak 2. Il sistema recupera l'elenco dei farmaci in esaurimento o in scadenza \linebreak 3. Il sistema mostra a video l'elenco richiesto\\
-\hline
-  \textbf{Scenari Alternativi} &\\
-\hline
-  \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
+  \hline
+    \textbf{Titolo} & SospensioneUtenza\\
+  \hline
+    \textbf{Descrizione} & Se un utente non ha concluso troppe prenotazioni allora viene proposta la sospensione dell'utente al farmacista\\
+  \hline
+    \textbf{Attori} & Farmacista\\
+  \hline
+    \textbf{Relazioni} & ControlloPrenotazioni, GestioneFarmacia\\
+  \hline
+    \textbf{Precondizioni} & Il cliente è diffidato dal sistema (ha molte prenotazioni non concluse)\\
+  \hline
+    \textbf{Postcondizioni} & Il cliente non può più effettuare prenotazioni per 30 giorni\\
+  \hline
+    \textbf{Scenario principale} & 1. ControlloUtenti \linebreak 2. Il farmacista può sospendere o annullare la sospensione di un utente \\
+  \hline
+    \textbf{Scenari alternativi} &\\
+  \hline
+    \textbf{Requisiti non funzionali} & Velocità nella ricerca dei dati e semplicità dell'interfaccia\\
+  \hline
+    \textbf{Punti aperti} &\\
+  \hline
 \end{tabular}
 \hfill
 \break
 
-
+%ControlloPrenotazioni
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & ControlloPrenotazioni\\
@@ -228,7 +258,7 @@
 \hfill
 \break
 
-
+%ConfermaPrenotazione
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & ConfermaPrenotazione\\
@@ -243,7 +273,7 @@
 \hline
   \textbf{Postcondizioni} & La prenotazione viene confermata\\
 \hline
-  \textbf{Scenario principale} & 1. ControlloPrenotazioni \linebreak2. Il Farmacista conferma l'avvenuta prenotazione\\
+  \textbf{Scenario principale} & 1. ControlloPrenotazioni \linebreak 2. Il Farmacista conferma l'avvenuta prenotazione\\
 \hline
   \textbf{Scenari Alternativi} & \\
 \hline
@@ -255,141 +285,89 @@
 \hfill
 \break
 
-
+%VerificaIdentità
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-    \textbf{Titolo} & Registrazione\\
-\hline
-  \textbf{Descrizione} & Il cliente si registra al servizio\\
-\hline
-  \textbf{Attori} & Cliente\\
-\hline
-  \textbf{Relazioni} &\\
-\hline
-\textbf{Precondizioni} & Il cliente dispone di un codice fiscale valido\\
-\hline
-  \textbf{Postcondizioni} & Il cliente è registrato nel sistema ed è posto in attesa della verifica\\
-\hline
-  \textbf{Scenario principale} & 1. Il cliente accede alla sezione di registrazione\linebreak 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email, password e il codice fiscale \linebreak 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale\\
-\hline
-  \textbf{Scenari Alternativi} & Scenario a: il codice fiscale è già registrato \linebreak 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore.\\
-\hline
-  \textbf{Requisiti non funzionali} & Semplicità dell'interfaccia\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
+  \hline
+    \textbf{Titolo} & VerificaIdentità\\
+  \hline
+    \textbf{Descrizione} & Verifica dell'identità dell'utente registrato\\
+  \hline
+    \textbf{Attori} & Cliente, Farmacista\\
+  \hline
+    \textbf{Relazioni} & GestioneFarmacia\\
+  \hline
+    \textbf{Precondizioni} & Il cliente è registrato\\
+  \hline
+    \textbf{Postcondizioni} & L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni\\
+  \hline
+    \textbf{Scenario principale} & 1. Il cliente va in farmacia con il documento specificato in fase di registrazione \linebreak 2. Il cliente viene identificato dal farmacista \linebreak 3. Il farmacista chiede al sistema di recuperare l'utente \linebreak 4. Il farmacista attiva l'account dell'utente\\
+  \hline
+    \textbf{Scenari alternativi} & 4. Il sistema non trova nessun utente, segnala il farmacista\\
+  \hline
+  \textbf{Requisiti non funzionali} & Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere\\
+  \hline
+    \textbf{Punti aperti} &\\
+  \hline
 \end{tabular}
 \hfill
 \break
 
-
+%RicercaFarmaci
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-  \textbf{Titolo} & VerificaIdentità\\
-\hline
-  \textbf{Descrizione} & Verifica dell'identità dell'utente registrato\\
-\hline
-  \textbf{Attori} & Cliente, Farmacista\\
-\hline
-  \textbf{Relazioni} & GestioneFarmacia\\
-\hline
-  \textbf{Precondizioni} & Il cliente è registrato\\
-\hline
-  \textbf{Postcondizioni} & L'utente è stato verificato e il suo account viene abilitato per effettuare delle prenotazioni\\
-\hline
-  \textbf{Scenario principale} & 1. Il cliente va in farmacia con il documento specificato in fase di registrazione \linebreak 2. Il cliente viene identificato dal farmacista \linebreak 3. Il farmacista chiede al sistema di recuperare l'utente \linebreak 4. Il farmacista attiva l'account dell'utente\\
-\hline
-  \textbf{Scenari alternativi} & 4. Il sistema non trova nessun utente, segnala il farmacista\\
-\hline
-\textbf{Requisiti non funzionali} & Velocità di memorizzazione e semplicità di navigazione tra le diverse maschere\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
+  \hline
+    \textbf{Titolo} & RicercaFarmaci\\
+  \hline
+    \textbf{Descrizione} & L'utente verifica la disponibilità di un particolare farmaco nelle farmacie più vicine a lui\\
+  \hline
+    \textbf{Attori} & Cliente\\
+  \hline
+    \textbf{Relazioni} &\\
+  \hline
+    \textbf{Precondizioni} &\\
+  \hline
+    \textbf{Postcondizioni} & Si visualizza la lista delle farmacie con disponibilità\\
+  \hline
+    \textbf{Scenario principale} & 1. Il cliente si reca nella pagina di ricerca \linebreak 2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 3. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 4. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente 5. La lista viene mostrata all'utente\\
+  \hline
+    \textbf{Scenari Alternativi} &
+      Scenario alternativo A: \linebreak 1. Login \linebreak 2. Il cliente si reca nella pagina di ricerca \linebreak 3. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \linebreak
+      Scenario alternativo B: \linebreak 1. Login \linebreak 2. Il cliente avvia una nuova prenotazione dalla home \linebreak 3. Il cliente seleziona la farmacia in cui effettuare la prenotazione \linebreak 4. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 5. Il sistema ottiene la la lista dei farmaci disponibili nella farmacia scelta il cui nome inizia per il testo inserito dall'utente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco corrispondente, se è presente nella lista, ed aggiungerlo alla prenotazione in corso\\
+  \hline
+    \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
+  \hline
+    \textbf{Punti aperti} &\\
+  \hline
 \end{tabular}
 \hfill
 \break
 
-
-\begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-  \textbf{Titolo} & SospensioneUtenza\\
-\hline
-  \textbf{Descrizione} & Se un utente non ha concluso troppe prenotazioni allora viene proposta la sospensione dell'utente al farmacista\\
-\hline
-  \textbf{Attori} & Farmacista\\
-\hline
-  \textbf{Relazioni} & ResocontoPrenotazioni, GestioneFarmacia\\
-\hline
-  \textbf{Precondizioni} & Il cliente è diffidato dal sistema (ha molte prenotazioni non concluse)\\
-\hline
-  \textbf{Postcondizioni} & Il cliente non può più effettuare prenotazioni per 30 giorni\\
-\hline
-  \textbf{Scenario principale} & 1. Si verifica l'evento FineGiornata\linebreak 2. Il Sistema recupera l'elenco delle prenotazioni e lo analizza \linebreak 3. Se il Sistema rileva un numero eccessivo di prenotazioni non concluse per un determinato utente, allora lo segnala al farmacista \linebreak 4. Il farmacista, se ritiene necessario, può confermare la sospensione dell'utente\\
-\hline
-  \textbf{Scenari alternativi} &\\
-\hline
-  \textbf{Requisiti non funzionali} & Velocità nella ricerca dei dati e semplicità dell'interfaccia\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
+%GestionePrenotazioni
+\begin{tabular} {|P{4.5cm}|P{12.5cm}|}\hline
+  \textbf{Titolo} & GestionePrenotazioni\\
+  \hline
+    \textbf{Descrizione} & Gestione delle prenotazioni di un cliente registrato\\
+  \hline
+    \textbf{Attori} & ClienteRegistrato\\
+  \hline
+    \textbf{Relazioni} & Login, ListaPrenotazioni, NuovaPrenotazione\\
+  \hline
+    \textbf{Precondizioni} &\\
+  \hline
+    \textbf{Postcondizioni} &\\
+  \hline
+    \textbf{Scenario Principale} & 1. Il cliente esegue il login \linebreak 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.\\
+  \hline
+    \textbf{Scenari Alternativi} &\\
+  \hline
+    \textbf{Requisiti non funzionali} & Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere\\
+  \hline
+    \textbf{Punti aperti} &\\
+  \hline
 \end{tabular}
 \hfill
 \break
 
-
-\begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-  \textbf{Titolo} & ResocontoPrenotazioni\\
-\hline
-  \textbf{Descrizione} & Si controllano le prenotazioni non terminate per utente\\
-\hline
-  \textbf{Attori} & Farmacista, FineGiornata\\
-\hline
-  \textbf{Relazioni} & Resoconto, SospensioneUtenza, GestioneFarmacia\\
-\hline
-  \textbf{Precondizioni} &\\
-\hline
-  \textbf{Postcondizioni} & Viene mostrato l'elenco delle prenotazioni\\
-\hline
-  \textbf{Scenario principale} & 1. Il Farmacista va nella schermata di visualizzazione farmaci \linebreak 2. Il sistema recupera l'elenco delle prenotazioni giornaliere \linebreak 3. Il sistema mostra a video l'elenco delle prenotazioni\\
-\hline
-  \textbf{Scenari Alternativi} &\\
-\hline
-  \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
-\end{tabular}
-\hfill
-\break
-
-
-\begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-  \textbf{Titolo} & RicercaFarmaci\\
-\hline
-  \textbf{Descrizione} & L'utente verifica la disponibilità di un particolare farmaco nelle farmacie più vicine a lui\\
-\hline
-  \textbf{Attori} & Cliente\\
-\hline
-  \textbf{Relazioni} &\\
-\hline
-  \textbf{Precondizioni} &\\
-\hline
-  \textbf{Postcondizioni} & Si visualizza la lista delle farmacie con disponibilità\\
-\hline
-  \textbf{Scenario principale} & 1. Il cliente si reca nella pagina di ricerca \linebreak 2. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 3. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 4. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente 5. La lista viene mostrata all'utente\\
-\hline
-  \textbf{Scenari Alternativi} & Scenario alternativo A: \linebreak 1. Login \linebreak 2. Il cliente si reca nella pagina di ricerca \linebreak 3. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 4. Il sistema ottiene la lista delle farmacie aventi il farmaco specificato entro un range dalla località specificata. \linebreak 5. Il sistema ordina la lista in base alla distanza geografica dalla zona dell'utente, in ordine crescente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco per cominciare una prenotazione di quel farmaco nella farmacia scelta \linebreak Scenario alternativo B: \linebreak 1.  Login \linebreak 2. Il cliente avvia una nuova prenotazione dalla home \linebreak 3. Il cliente seleziona la farmacia in cui effettuare la prenotazione \linebreak 4. Il cliente inserisce il nome del farmaco per cui eseguire la ricerca \linebreak 5. Il sistema ottiene la la lista dei farmaci disponibili nella farmacia scelta il cui nome inizia per il testo inserito dall'utente \linebreak 6. La lista viene mostrata all'utente \linebreak 7. L'utente può selezionare il farmaco corrispondente, se è presente nella lista, ed aggiungerlo alla prenotazione in corso\\
-\hline
-  \textbf{Requisiti non funzionali} & Velocità di ricerca dei dati e semplicità di navigazione tra le diverse maschere\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
-\end{tabular}
-\hfill
-\break
-
+%NuovaPrenotazione
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & NuovaPrenotazione\\
@@ -404,7 +382,7 @@
 \hline
   \textbf{Postcondizioni} & Il sistema ha memorizzato i dati della prenotazione, in attesa di conferma da parte della farmacia\\
 \hline
-  \textbf{Scenario principale} & 1. Login \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
+  \textbf{Scenario principale} & 1. RicercaFarmaci Scenario Alternativo A \linebreak 2. Il cliente seleziona i farmaci che vuole prenotare, la quantità, e inserisce la data di ritiro desiderata \linebreak 3. Il cliente invia la richiesta di prenotazione \linebreak 4. Il sistema pone la richiesta in attesa di conferma\\
 \hline
   \textbf{Scenari Alternativi} & Scenario a: La farmacia non dispone dei farmaci richiesti. \linebreak 4. Il sistema nota che la farmacia non ha disponibilità di almeno uno dei farmaci specificati \linebreak 5. Viene inviato al cliente un messaggio di errore\\
 \hline
@@ -416,7 +394,7 @@
 \hfill
 \break
 
-
+%ListaPrenotazioni
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & ListaPrenotazioni\\
@@ -443,34 +421,7 @@
 \hfill
 \break
 
-
-\begin{tabular} {|P{4.5cm}|P{12.5cm}|}
-\hline
-  \textbf{Titolo} & GestionePrenotazioni\\
-\hline
-  \textbf{Descrizione} & Gestione delle prenotazioni di un cliente registrato\\
-\hline
-  \textbf{Attori} & ClienteRegistrato\\
-\hline
-  \textbf{Relazioni} & Login, ListaPrenotazioni, NuovaPrenotazione\\
-\hline
-  \textbf{Precondizioni} &\\
-\hline
-  \textbf{Postcondizioni} &\\
-\hline
-  \textbf{Scenario Principale} & 1. Il cliente esegue il login \linebreak 2. Il cliente può visualizzare le proprie prenotazioni passate o in corso e può effettuare nuove prenotazioni.\\
-\hline
-  \textbf{Scenari Alternativi} &\\
-\hline
-  \textbf{Requisiti non funzionali} & Velocità di verifica dei dati e semplicità di navigazione tra le diverse maschere\\
-\hline
-  \textbf{Punti aperti} &\\
-\hline
-\end{tabular}
-
-\hfill
-\break
-
+%Login
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & Login\\
@@ -494,11 +445,37 @@
   \textbf{Punti aperti} &\\
 \hline
 \end{tabular}
-
 \hfill
 \break
 
+%Registazione
+\begin{tabular} {|P{4.5cm}|P{12.5cm}|}
+  \hline
+    \textbf{Titolo} & Registrazione\\
+  \hline
+    \textbf{Descrizione} & Il cliente si registra al servizio\\
+  \hline
+    \textbf{Attori} & Cliente\\
+  \hline
+    \textbf{Relazioni} &\\
+  \hline
+  \textbf{Precondizioni} & Il cliente dispone di un codice fiscale valido\\
+  \hline
+    \textbf{Postcondizioni} & Il cliente è registrato nel sistema ed è posto in attesa della verifica\\
+  \hline
+    \textbf{Scenario principale} & 1. Il cliente accede alla sezione di registrazione \linebreak 2. Il cliente inserisce i propri dati: nome, cognome, data di nascita, email, password e il codice fiscale \linebreak 3. Il cliente termina la registrazione, se avvenuta con successo gli viene mostrata la conferma e viene reindirizzato alla pagina principale\\
+  \hline
+    \textbf{Scenari Alternativi} & Scenario a: il codice fiscale è già registrato \linebreak 3. Il sistema verifica che è già presente un utente con quel codice fiscale, quindi notifica il cliente con un messaggio di errore.\\
+  \hline
+    \textbf{Requisiti non funzionali} & Semplicità dell'interfaccia\\
+  \hline
+    \textbf{Punti aperti} &\\
+  \hline
+\end{tabular}
+\hfill
+\break
 
+%AggiornamentoUtenti
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & AggiornamentoUtenti\\
@@ -522,9 +499,10 @@
   \textbf{Punti aperti} &\\
 \hline
 \end{tabular}
-\\
+\hfill
+\break
 
-
+%AggiornamentoFarmaci
 \begin{tabular} {|P{4.5cm}|P{12.5cm}|}
 \hline
   \textbf{Titolo} & Aggiornamento Farmaci\\
@@ -548,7 +526,8 @@
   \textbf{Punti aperti} &\\
 \hline
 \end{tabular}
-\hfill \break
+\hfill
+\break
 
 \subsection{Analisi del Rischio}
 
