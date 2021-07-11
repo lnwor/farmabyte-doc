@@ -21,6 +21,14 @@ L'introduzione di misure di sicurezza delle comunicazioni e protezione dei dati 
 è possibile comunque bilanciare le due esigenze senza eccessive complicazioni mediante le tecnologie esposte in seguito. 
 Va notato inoltre che il sistema non presenta vincoli di tempo particolarmente stringenti (nessun vincolo real-time).
 
+\subsubsection{Scelte tecnologiche}
+
+La scelta tecnologica principale ricade sul tipo di applicazione che si andrà a sviluppare.
+In questo caso la scelta è stata quella di sviluppare un'applicazione web, per vari motivi:
+prima di tutto, consente di avere una piattaforma standard accessibile da quasi tutti i dispositivi,
+con il solo requisito di un browser web. In questo modo si evita di restringere le possibilità di accesso al servizio.
+Inoltre, un'applicazione web consente di avere una gestione maggiormente centralizzata ed un deployment più agevole (a questo proposito si veda la sezione apposita del deployment).
+
 
 \subsubsection{Scelta dell'architettura}
 
@@ -62,12 +70,16 @@ Chiaramente l'affidabilità del sistema dipende dalla robustezza del broker e so
 \\
 Si riportano di seguito i diagrammi di package e componenti che descrivono l'architettura del sistema.
 
-\begin{figure}[h]
+\newpage
+
+\begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.4]{immagini/Package-progettazione.png}
+        \includegraphics[width=\textwidth]{immagini/Package-progettazione.png}
         \caption{Diagramma dei package}
     \end{center}
 \end{figure}
+
+\newpage
 
 \begin{figure}[h!]
     \begin{center}
@@ -100,7 +112,7 @@ In particolare, la parte di applicativo relativa al cliente non dovrà gestire n
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[scale=0.56]{immagini/DominioFarmacia-progettazione.png}
+        \includegraphics[scale=0.56]{immagini/DominioFarmacia-progettazione.jpg}
         \caption{Diagramma di dettaglio: Dominio Farmacia}
     \end{center}
 \end{figure}
@@ -305,3 +317,66 @@ Si riportano di seguito i vari diagrammi di sequenza, aggiornati rispetto a quel
 \end{figure}
 
 \newpage
+
+\subsection{Progettazione della persistenza}
+
+\subsubsection*{Diagramma E-R}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[scale=0.545]{immagini/DiagrammaE-R.jpg}
+        %\caption{Persistenza: Diagramma E-R}
+    \end{center}
+\end{figure}
+
+Come si può notare, il diagramma E-R della persistenza segue precisamente la struttura del modello del dominio mostrato precedentemente.
+La differenza sta nelle associazioni, che presumibilmente in fase di progettazione logica ed implementazione del database verranno concretizzate in classi di associazione,
+si avranno quindi due tabelle ulteriori (\texttt{Lotto} e \texttt{Selezione}) per modellare le associazioni.
+
+\subsubsection{Formato dei file di log}
+
+Il formato del file di log su cui il sistema terrà traccia delle operazioni
+sarà il seguente:\\
+
+Esempio: File \texttt{/var/log/farmabyte.log}\\
+
+\texttt{\$ Data - Ora - Operazione - Descrizione - ID utente}\\ \\
+\textbf{Nota}: l'ID utente è l'identificativo dell'esecutore di tale operazione, può essere quindi sia un cliente che un farmacista.
+Se nell'eseguire l'operazione, l'utente interagisce o modifica lo stato di altri utenti questo dovrà essere specificato nella descrizione (Caso tipico: farmacista verifica l'identità di un cliente).
+L'operazione sarà semplicemente il nome del metodo invocato. 
+Si noti infine che ogni riga del file di log inizia con il carattere \texttt{\$}, tale carattere viene usato come delimitatore e non sarà quindi utilizzabile all'interno della descrizione (Né nella definizione degli altri campi).
+
+\newpage
+
+\subsection{Progettazione del collaudo}
+
+\textit{Roba}
+
+\newpage
+
+\subsection{Progettazione per il deployment}
+
+Poiché si è scelto di realizzare il programma come applicazione web, il deployment non necessiterà di particolari configurazioni lato client.
+Tutte le interfacce (per clienti, farmacisti, login) sono in realtà memorizzate nel server locale e potranno essere quindi aggiornate automaticamente e in modo centralizzato dagli amministratori di sistema. 
+
+\newpage
+
+\subsection{Deployment}
+
+\subsubsection{Artefatti}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Deployment-Artefatti.jpg}
+        %\caption{Deployment: Artefatti}
+    \end{center}
+\end{figure}
+
+\subsubsection{Deployment Type-Level}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=\textwidth]{immagini/Deployment-TypeLevel.jpg}
+        %\caption{Deployment Type-Level}
+    \end{center}
+\end{figure}
